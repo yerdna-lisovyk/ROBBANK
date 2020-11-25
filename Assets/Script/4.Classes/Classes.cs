@@ -15,22 +15,26 @@ public class Classes : MonoBehaviour
         }
         public string GetName => Name;
         public string GetDescription => Description;
+        public officer GetClass => new officer();
     }
 
-    public class schoolboy
+    public class schoolboy :schoolboyFeature
     {
         private const string Name = "Школьник";
         private const string Description = "Если остается последняя монета, и ее хотят забрать может кинуть кубик и если выпадет больше 4х то сохранит себе жизнь.";
         public schoolboy()
         {
-
+            AttachAnEvent();
         }
         public string GetName => Name;
         public string GetDescription => Description;
+        public schoolboy GetClass => new schoolboy();
+    }
+    enum _classes
+    {
+        OFFICER,
+        SCHOOLBOY
     }
 
-    public officer TakeClasses()
-    {
-        return new officer();
-    }
+   
 }

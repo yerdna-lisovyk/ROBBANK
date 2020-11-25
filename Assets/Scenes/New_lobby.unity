@@ -6944,6 +6944,11 @@ PrefabInstance:
       propertyPath: _visibleCoin
       value: 
       objectReference: {fileID: 701171492}
+    - target: {fileID: 6181829153491162078, guid: e46d52b2fa28fbc44a55e85fc86dd809,
+        type: 3}
+      propertyPath: _profile
+      value: 
+      objectReference: {fileID: 1378819316}
     - target: {fileID: 6181829153491162085, guid: e46d52b2fa28fbc44a55e85fc86dd809,
         type: 3}
       propertyPath: m_Name
