@@ -7,7 +7,7 @@ public class OfficerFeature : MonoBehaviour
 {
     private bool _chekAppply = false;
 
-    [SerializeField] private TimeBar _time;
+    [SerializeField] private TimeBar _time= null;
 
     private Button _button; 
 
