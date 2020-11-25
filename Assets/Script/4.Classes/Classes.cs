@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Classes : MonoBehaviour
 {
+    enum _classes
+    {
+        OFFICER,
+        SCHOOLBOY
+    }
+    public void TakeClasses()
+    {
+
+        return
+    }
     public class officer : OfficerFeature
     {
         private const string Name = "Оффицер";
@@ -29,11 +39,6 @@ public class Classes : MonoBehaviour
         public string GetName => Name;
         public string GetDescription => Description;
         public schoolboy GetClass => new schoolboy();
-    }
-    enum _classes
-    {
-        OFFICER,
-        SCHOOLBOY
     }
 
    
