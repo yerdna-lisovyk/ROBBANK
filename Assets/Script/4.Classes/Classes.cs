@@ -21,11 +21,6 @@ public class Classes
         }
         public string GetName => Name;
         public string GetDescription => Description;
-        public officer GetClass => new officer();
-    }
-    public officer TakeClasses()
-    {
-        return new officer();
     }
     public class schoolboy :schoolboyFeature
     {

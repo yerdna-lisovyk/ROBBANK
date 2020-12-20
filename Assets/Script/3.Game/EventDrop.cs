@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class EventDrop : MonoBehaviour, IDropHandler,IPointerEnterHandler,IPointerExitHandler
+public class EventDrop : MonoBehaviour, IDropHandler
 {
+    private TimeBar _time;
+
+    private void Awake()
+    {
+        _time = GameObject.Find("TimeBar").GetComponent<TimeBar>();
+        
+    }
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
-        Debug.Log(1);
+        if (!_time.IsStep)
+        {
+            _time.SetStep(true);
+            eventData.pointerDrag.GetComponent<Image>().sprite = null;
+            eventData.pointerDrag.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            eventData.pointerDrag.transform.localPosition = Vector3.zero;
+            
+        }
     }
 
-    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log("OnPointerEnter");
-    }
 
-    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log("OnPointerExit");
-    }
 }

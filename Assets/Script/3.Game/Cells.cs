@@ -38,7 +38,7 @@ public class Cells : MonoBehaviour
             int k = 0;
             do
             {
-                k = Random.Range(1, 49);
+                k = Random.Range(1, (int)collSels-1);
             } while (_Cells[k].GetComponent<Event>() != null);
             _Cells[k].AddComponent<Event>();
         }

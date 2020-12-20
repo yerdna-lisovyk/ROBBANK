@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1004426443211823292}
   - component: {fileID: 3149857092276602367}
   - component: {fileID: 4502374026111111527}
-  - component: {fileID: 6279988803626232539}
   - component: {fileID: 19376474358674097}
+  - component: {fileID: 662329502226335980}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Untagged
@@ -116,7 +116,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.075, y: 1.85}
   m_EdgeRadius: 0
---- !u!114 &6279988803626232539
+--- !u!222 &19376474358674097
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149857092276602336}
+  m_CullTransparentMesh: 0
+--- !u!114 &662329502226335980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,11 +136,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b999fd063f89e5743835cbb1a57745f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!222 &19376474358674097
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149857092276602336}
-  m_CullTransparentMesh: 0
