@@ -2,17 +2,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProfilePlayer : Classes
+public class ProfilePlayer : MonoBehaviour
 {
     
     private float _playerCoin = 20;
-    private Classes _class = null;
+    private Classes.officer _class;
     private float _playerSpeed = 1;
 
     [SerializeField] private Text _visibleCoin = null;
     public bool IsAlive => _playerCoin >= 0;
     public float GetCoin => _playerCoin;
-    public Classes GetClass => _class;
+    public Classes.officer GetClass => _class;
     public float GetPlayerSpeed => _playerSpeed;
 
 
@@ -37,7 +37,7 @@ public class ProfilePlayer : Classes
 
     public void SetClass()
     {
-        _class = TakeClasses();
+        _class = new Classes.officer();
     }
 
 }

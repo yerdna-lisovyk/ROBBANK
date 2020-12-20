@@ -14,7 +14,6 @@ public class TimeBar : MonoBehaviour
     public bool IsStep => _step;
     public void SetStep(bool Step)
     {
-        
         _step = Step;
     }
     private void Awake()

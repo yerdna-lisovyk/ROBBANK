@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class schoolboyFeature : MonoBehaviour
+public class schoolboyFeature 
 {
     private ProfilePlayer _profile=null;
     private GameObject _gameMeneger;
@@ -24,7 +24,7 @@ public class schoolboyFeature : MonoBehaviour
             }
             else
             {
-                Destroy(_gameMeneger.GetComponent<schoolboyFeature>());
+             //   Destroy(_gameMeneger.GetComponent<schoolboyFeature>());
                 Debug.Log("YourDed");
             }
 
@@ -33,6 +33,6 @@ public class schoolboyFeature : MonoBehaviour
     public void AttachAnEvent()
     {
         _gameMeneger = GameObject.Find("GameMeneger");
-        _gameMeneger.AddComponent<schoolboyFeature>();
+      //  _gameMeneger.AddComponent<schoolboyFeature>();
     }
 }

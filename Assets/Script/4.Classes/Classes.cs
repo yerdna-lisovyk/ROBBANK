@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Classes : MonoBehaviour
+public class Classes 
 {
     enum _classes
     {
         OFFICER,
         SCHOOLBOY
     }
-    public void TakeClasses()
-    {
 
-        return
-    }
     public class officer : OfficerFeature
     {
         private const string Name = "Оффицер";
@@ -27,7 +23,10 @@ public class Classes : MonoBehaviour
         public string GetDescription => Description;
         public officer GetClass => new officer();
     }
-
+    public officer TakeClasses()
+    {
+        return new officer();
+    }
     public class schoolboy :schoolboyFeature
     {
         private const string Name = "Школьник";

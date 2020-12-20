@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OfficerFeature : MonoBehaviour
+public class OfficerFeature 
 {
     private bool _chekAppply = false;
 
@@ -28,6 +28,7 @@ public class OfficerFeature : MonoBehaviour
     
    public void AttachAnEvent()
     {
+        Debug.Log("Yes");
         _button = GameObject.Find("NextMove").GetComponent<Button>();
         Button.ButtonClickedEvent _event = _button.onClick;
         _event.AddListener(ApplyFeature);
