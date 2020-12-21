@@ -7,16 +7,16 @@ public class OfficerFeature
 {
     private bool _chekAppply = false;
 
-    [SerializeField] private TimeBar _time= null;
+    private TimeBar _time= null;
 
     private Button _button; 
 
-
     public void ApplyFeature()
     {
+        _time = GameObject.Find("TimeBar").GetComponent<TimeBar>();
         if (!_chekAppply)
         {
-            float k = Random.Range(1, 6);
+            float k=Random.Range(1, 6);
             Debug.Log(k);
             if (k > 4)
             {

@@ -29,7 +29,6 @@ public class PlayerMove : MonoBehaviour
         transform.position = new Vector3(transform.position.x + (cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
          cell = CellNext();
         _time.SetStep(true);
-        _profile.ApplyCoinDamage(-21);
     }
 
     private GameObject CellNext()

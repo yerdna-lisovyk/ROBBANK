@@ -4,50 +4,36 @@ using UnityEngine;
 
 public class Voult : MonoBehaviour
 {
+    [SerializeField]  private GameObject _voult;
 
-    private GameObject newObject;
-    private GameObject Prefab;
-    private GameObject canvas;
+    public bool IsOpenVoult => _voult.activeSelf;
 
 
-    private void Awake()
-    {
-        Prefab = (GameObject)Resources.Load("Voult");
-        canvas = GameObject.Find("HUD");
-    }
     public void OpenVoult()
     {
-
-        if (newObject == null)
+        if (_voult.activeSelf)
         {
-            newObject = (GameObject)Instantiate(Prefab, GameObject.Find("SpawnObject").transform.position, Quaternion.identity);
-            newObject.transform.SetParent(canvas.transform, false);
-            newObject.transform.SetSiblingIndex(0);
-            FixTransoform(Prefab.GetComponent<RectTransform>(), newObject.GetComponent<RectTransform>());
+            _voult.SetActive(false);
+            Camera.main.gameObject.GetComponent<CameraControl>().enabled = true;
         }
         else
         {
-            if (newObject.activeSelf)
-                newObject.SetActive(false);
-            else
-                newObject.SetActive(true);
-
-        }
-    }
-
-    private void FixTransoform(RectTransform rectTransform, RectTransform objRectTransform)
-    {
-        objRectTransform.anchorMin = rectTransform.anchorMin;
-        objRectTransform.anchorMax = rectTransform.anchorMax;
-        objRectTransform.anchoredPosition = rectTransform.anchoredPosition;
-        objRectTransform.sizeDelta = rectTransform.sizeDelta;
-    }
-    private void Update()
-    {
-        if(newObject!=null)
-        {
+            _voult.SetActive(true);
             Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
         }
 
+        /* if (newObject == null)
+         {
+             Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
+             newObject = (GameObject)Instantiate(Prefab, GameObject.Find("SpawnObject").transform.position, Quaternion.identity);
+             newObject.transform.SetParent(canvas.transform, false);
+             newObject.transform.SetSiblingIndex(0);
+             FixTransoform(Prefab.GetComponent<RectTransform>(), newObject.GetComponent<RectTransform>());
+         }*/
+
+
     }
+
+   
+
 }
