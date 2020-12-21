@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class CardInfo : MonoBehaviour
+public class Card
 {
     public enum TypeCard
     {
@@ -20,13 +20,12 @@ public class CardInfo : MonoBehaviour
     public Sprite GetSprite => _sprite;
     public string GetName => _name;
     public string GetDescription => _description;
+    public TypeCard GetTypeCard => _type;
 
     public void SetSprite(Sprite NewSprite)
     {
         _sprite = NewSprite;
-        gameObject.transform.GetComponent<Image>().sprite = _sprite;
     }
-
     public void SetName(string NewName)
     {
         _name = NewName;
@@ -34,14 +33,19 @@ public class CardInfo : MonoBehaviour
 
     public void SetDescription(string NewDescription)
     {
-        _name = NewDescription;
+        _description = NewDescription;
+    }
+    public void SetTypeCard(TypeCard NewTypeCard)
+    {
+        _type = NewTypeCard;
     }
 
-    public CardInfo(string Name , string Description , Sprite NewSprite,TypeCard Type)
+
+    public Card(string Name , string Description , string LoadSprite,TypeCard Type)
     {
         _name = Name;
         _description = Description;
-        _sprite = NewSprite;
+        _sprite = Resources.Load<Sprite>(LoadSprite);
         _type = Type;
     }
 

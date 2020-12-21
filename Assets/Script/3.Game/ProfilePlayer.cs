@@ -2,16 +2,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProfilePlayer : MonoBehaviour
+public class ProfilePlayer 
 {
     
-    private float _playerCoin = 20;
+    private string _playerName;
+    private Sprite _spritePlayer;
+    private float _playerCoin;
     private Classes.officer _class;
-    private float _playerSpeed = 1;
-    private float _playingCarad = 0;
-    private float _maxPlayingCarad = 1;
-
-    private Text _visibleCoin = null;
+    private float _playerSpeed;
+    private float _playingCarad;
+    private float _maxPlayingCarad;
+    private Invetory _invetoryPlayer;
 
     public bool IsAlive => _playerCoin >= 0;
     public float GetCoin => _playerCoin;
@@ -19,23 +20,28 @@ public class ProfilePlayer : MonoBehaviour
     public float GetPlayerSpeed => _playerSpeed;
     public float GetPlayingCard=> _playingCarad;
     public float GetMaxPlayingCard => _maxPlayingCarad;
+    public string GetPlayerName => _playerName;
+    public Sprite GetSpritePlayer => _spritePlayer;
+    public Invetory GetInvetory => _invetoryPlayer;
 
-
-    public void Start()
+    public ProfilePlayer(string Name,string LoadPlayerSprite)
     {
-        _visibleCoin = gameObject.transform.GetChild(0).GetChild(1).GetComponent<Text>();
+        _playerName = Name;
+        _spritePlayer = Resources.Load<Sprite>(LoadPlayerSprite);
+        _playerCoin = 20;
+        _playerSpeed = 1;
+        _playingCarad = 0;
+        _maxPlayingCarad = 1;
+        _invetoryPlayer = new Invetory();
     }
-
-    public void ApplyCoinDamage(int Damage)
+    public void ApplyCoinDamage(float Damage)
     {
         _playerCoin += Damage;
-        _visibleCoin.text = _playerCoin.ToString();
 
     }
     public void SetPlayerCoin(float NewCoin)
     {
         _playerCoin = NewCoin;
-        _visibleCoin.text = _playerCoin.ToString();
     }
 
     public void SetPlayerSpeed(float Speed)
@@ -44,7 +50,6 @@ public class ProfilePlayer : MonoBehaviour
             _playerSpeed = 0;
         _playerSpeed += Speed; 
     }
-
     public void SetClass()
     {
         _class = new Classes.officer();

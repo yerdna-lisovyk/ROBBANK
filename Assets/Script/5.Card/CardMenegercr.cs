@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public static class CardMeneger
-{
-    public static List<CardInfo> AllCards = new List<CardInfo>();
 
-}
 public class CardMenegercr : MonoBehaviour
 {
+    private  List<Card> AllCards = new List<Card>();
+    private ProfilePlayer _player;
+
     private void Awake()
     {
-       // CardMeneger.AllCards.Add(new CardInfo("Chika", "Отдай монету, или жди 20 секунд. 50%", , CardInfo.TypeCard.TRAP));
+        _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
+        AllCards.Add(new Card("Chika", "Отдай монету, или жди 20 секунд. 50%", "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.TRAP));
+        _player.GetInvetory.AddCard(AllCards[0]);
+        _player.GetInvetory.AddCard(AllCards[0]);
     }
+    
 }

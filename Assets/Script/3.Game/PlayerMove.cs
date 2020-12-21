@@ -8,13 +8,14 @@ public class PlayerMove : MonoBehaviour
     private GameObject cell;
 
     private float cell_start = 1;
+    private ProfilePlayer _player;
 
-    [SerializeField] private ProfilePlayer _profile = null;
     [SerializeField] private Button _button=null;
 
 
     private void Awake()
     {
+        _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
         _time = GameObject.Find("TimeBar").GetComponent<TimeBar>();
     }
 
@@ -33,7 +34,7 @@ public class PlayerMove : MonoBehaviour
 
     private GameObject CellNext()
     {
-        cell_start = cell_start + 1 * _profile.GetPlayerSpeed;
+        cell_start = cell_start + 1 * _player.GetPlayerSpeed;
         string NameCellNext = "Cell_" + cell_start;
         return GameObject.Find(NameCellNext);
     }

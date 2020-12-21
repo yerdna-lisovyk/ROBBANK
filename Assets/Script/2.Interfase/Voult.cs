@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Voult : MonoBehaviour
 {
-    [SerializeField]  private GameObject _voult;
+    [SerializeField]  private GameObject _voult = null;
 
     public bool IsOpenVoult => _voult.activeSelf;
 
@@ -21,17 +21,6 @@ public class Voult : MonoBehaviour
             _voult.SetActive(true);
             Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
         }
-
-        /* if (newObject == null)
-         {
-             Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
-             newObject = (GameObject)Instantiate(Prefab, GameObject.Find("SpawnObject").transform.position, Quaternion.identity);
-             newObject.transform.SetParent(canvas.transform, false);
-             newObject.transform.SetSiblingIndex(0);
-             FixTransoform(Prefab.GetComponent<RectTransform>(), newObject.GetComponent<RectTransform>());
-         }*/
-
-
     }
 
    

@@ -31,18 +31,7 @@ public class Cells : MonoBehaviour
         
     }
 
- /*   private void AddEvents()
-    {
-        for (int i = 0; i < EventsQuantity; i++)
-        {
-            int k = 0;
-            do
-            {
-                k = Random.Range(1, (int)collSels-1);
-            } while (_Cells[k].GetComponent<Event>() != null);
-            _Cells[k].AddComponent<Event>();
-        }
-    }*/
+
     public void ClearCells()
     {
         for (int i = 0; i < collSels; i++)
