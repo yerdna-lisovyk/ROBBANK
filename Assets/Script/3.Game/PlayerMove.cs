@@ -6,14 +6,12 @@ public class PlayerMove : MonoBehaviour
 {
     private TimeBar _time;
     private GameObject cell;
-
-    private float cell_start = 1;
     private ProfilePlayer _player;
 
     [SerializeField] private Button _button=null;
 
 
-    private void Awake()
+    private void Start()
     {
         _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
         _time = GameObject.Find("TimeBar").GetComponent<TimeBar>();
@@ -25,7 +23,7 @@ public class PlayerMove : MonoBehaviour
     }
     public void Move()
     {
-        if (cell_start == 1)
+        if (_player.GetPlayerCell == 1)
              cell = CellNext();
         transform.position = new Vector3(transform.position.x + (cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
          cell = CellNext();
@@ -34,8 +32,8 @@ public class PlayerMove : MonoBehaviour
 
     private GameObject CellNext()
     {
-        cell_start = cell_start + 1 * _player.GetPlayerSpeed;
-        string NameCellNext = "Cell_" + cell_start;
+        _player.SetPlayerCell(_player.GetPlayerCell + 1 * _player.GetPlayerSpeed);
+        string NameCellNext = "Cell_" + _player.GetPlayerCell;
         return GameObject.Find(NameCellNext);
     }
 

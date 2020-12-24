@@ -19,12 +19,7 @@ public class Invetory
         {
             if (icon.transform.GetComponent<Image>().sprite == null)
             {
-                icon.transform.GetComponent<Image>().color = new Color(1, 1, 1, 1f);
-                icon.transform.GetComponent<Image>().sprite = NewCard.GetSprite;
-               // icon.GetComponent<Card>().SetSprite(NewCard.GetSprite);
-                //icon.GetComponent<Card>().SetDescription(NewCard.GetDescription);
-                //icon.GetComponent<Card>().SetTypeCard(NewCard.GetTypeCard);
-               // icon.GetComponent<Card>().SetName(NewCard.GetName);
+                icon.GetComponent<CardInfo>().SetCardInfo(NewCard);
                 break;
             }
         }

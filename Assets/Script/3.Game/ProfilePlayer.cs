@@ -7,22 +7,22 @@ public class ProfilePlayer
     
     private string _playerName;
     private Sprite _spritePlayer;
-    private float _playerCoin;
-    private Classes.officer _class;
-    private float _playerSpeed;
-    private float _playingCarad;
-    private float _maxPlayingCarad;
+    private int _playerCoin;
+    private int _playerSpeed;
     private Invetory _invetoryPlayer;
+    private int _playerCell;
+
+    private int _playingCarad;
+    private int _maxPlayingCarad;
 
     public bool IsAlive => _playerCoin >= 0;
-    public float GetCoin => _playerCoin;
-    public Classes.officer GetClass => _class;
-    public float GetPlayerSpeed => _playerSpeed;
-    public float GetPlayingCard=> _playingCarad;
-    public float GetMaxPlayingCard => _maxPlayingCarad;
+    public int GetCoin => _playerCoin;
+    public int GetPlayerSpeed => _playerSpeed;
+    public bool IsPlayingMaxCard => _playingCarad == _maxPlayingCarad;
     public string GetPlayerName => _playerName;
     public Sprite GetSpritePlayer => _spritePlayer;
     public Invetory GetInvetory => _invetoryPlayer;
+    public int GetPlayerCell => _playerCell;
 
     public ProfilePlayer(string Name,string LoadPlayerSprite)
     {
@@ -32,27 +32,27 @@ public class ProfilePlayer
         _playerSpeed = 1;
         _playingCarad = 0;
         _maxPlayingCarad = 1;
+        _playerCell = 1;
         _invetoryPlayer = new Invetory();
     }
-    public void ApplyCoinDamage(float Damage)
+    public void ApplyCoinDamage(int Damage)
     {
         _playerCoin += Damage;
 
     }
-    public void SetPlayerCoin(float NewCoin)
+    public void SetPlayerCoin(int NewCoin)
     {
         _playerCoin = NewCoin;
     }
 
-    public void SetPlayerSpeed(float Speed)
+    public void SetPlayerCell(int NewPlayerCell)
+    {
+        _playerCell = NewPlayerCell;
+    }
+    public void SetPlayerSpeed(int Speed)
     {
         if (_playerSpeed + Speed < 0)
             _playerSpeed = 0;
         _playerSpeed += Speed; 
     }
-    public void SetClass()
-    {
-        _class = new Classes.officer();
-    }
-
 }

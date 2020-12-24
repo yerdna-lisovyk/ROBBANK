@@ -55,17 +55,22 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
             (eventData.pointerDrag.tag ==tag|| eventData.pointerDrag.tag == "Voult"|| tag == "Voult" )&&
             !_time.IsStep)
         {
-            _time.SetStep(true);
-            GetComponent<Image>().sprite = eventData.pointerDrag.GetComponent<Image>().sprite;
+            //_time.SetStep(true);
+            SwapCardInfo(GetComponent<CardInfo>(), eventData.pointerDrag.GetComponent<CardInfo>());
             eventData.pointerDrag.transform.position = transform.position;
-            eventData.pointerDrag.GetComponent<Image>().sprite=null;
-            eventData.pointerDrag.GetComponent<Image>().color = new Color(1, 1, 1, 0);
             eventData.pointerDrag.transform.localPosition = Vector3.zero;
-            transform.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
         }
         else
         {
             eventData.pointerDrag.transform.localPosition = Vector3.zero;
         }
     }
+
+    private void SwapCardInfo(CardInfo First, CardInfo Second)
+    {
+        Card tmp = First.GetCard;
+        First.SetCardInfo(Second.GetCard);
+        Second.SetCardInfo(tmp);
+    }    
+
 }

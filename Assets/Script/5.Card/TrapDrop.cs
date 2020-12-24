@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class TrapDrop : MonoBehaviour, IDropHandler
 {
@@ -15,13 +12,14 @@ public class TrapDrop : MonoBehaviour, IDropHandler
     }
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
-        if (!_time.IsStep)
+        if (!eventData.pointerDrag.GetComponent<CardInfo>().IsNull)
         {
-            _time.SetStep(true);
-            eventData.pointerDrag.GetComponent<Image>().sprite = null;
-            eventData.pointerDrag.GetComponent<Image>().color = new Color(1, 1, 1, 0);
-            eventData.pointerDrag.transform.localPosition = Vector3.zero;
-         //  eventData.pointerDrag.GetComponent<TrapControll>();
+            if (!_time.IsStep && eventData.pointerDrag.GetComponent<CardInfo>().IsTrap)
+            {
+               // _time.SetStep(true);
+                eventData.pointerDrag.transform.localPosition = Vector3.zero;
+                eventData.pointerDrag.GetComponent<CardInfo>().SetCardInfo(null);
+            }
         }
     }
 
