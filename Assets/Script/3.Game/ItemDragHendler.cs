@@ -43,7 +43,6 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
             canvasGroup.blocksRaycasts = false;
             perrentToretyrnTo = this.transform.parent;
             this.transform.SetParent(GameObject.Find("HUD").transform);
-            this.transform.SetSiblingIndex(9);
     }
 
      void IDropHandler.OnDrop(PointerEventData eventData)

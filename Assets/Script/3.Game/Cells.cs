@@ -25,8 +25,8 @@ public class Cells : MonoBehaviour
             Vector3 V = spawnPoing.transform.position;
             GameObject newObject = Instantiate(cell, new Vector3(V.x + 1f * i, V.y, V.z), Quaternion.identity);
             newObject.name = "Cell_" + (i + 1);
-            if(i!=0 && i!= collSels)
-                newObject.AddComponent<Event>();
+           // if(i!=0 && i!= collSels)
+             //   newObject.AddComponent<Event>();
         }
         
     }

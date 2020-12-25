@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private Button _button=null;
 
+    public ProfilePlayer GetProfilePlayer => _player;
 
     private void Start()
     {
