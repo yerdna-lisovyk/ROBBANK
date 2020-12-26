@@ -17,15 +17,7 @@ public class TrapDrop : MonoBehaviour, IDropHandler
             if (!_time.IsStep && eventData.pointerDrag.GetComponent<CardInfo>().IsTrap)
             {
                 // _time.SetStep(true);
-                Debug.Log(eventData.pointerDrag.GetComponent<CardInfo>().GetCard.GetTypeTrap);
-                switch(eventData.pointerDrag.GetComponent<CardInfo>().GetCard.GetTypeTrap)
-                {
-                    case Card.TypeTrap.CHIKA:
-                        {
-                            gameObject.AddComponent<ChikaTrap>();
-                            break;
-                        }
-                }
+                Traps _trap = new Traps(gameObject,eventData.pointerDrag.GetComponent<CardInfo>().GetCard.GetTypeTrap);
                 eventData.pointerDrag.transform.localPosition = Vector3.zero;
                 eventData.pointerDrag.GetComponent<CardInfo>().SetCardInfo(null);
             }

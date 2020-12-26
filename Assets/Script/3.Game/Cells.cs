@@ -19,12 +19,12 @@ public class Cells : MonoBehaviour
     }
     public void SpawnCell()
     {
-        GameObject canvas = GameObject.Find("HUD");
         for (int i = 0; i < collSels; i++)
         {
             Vector3 V = spawnPoing.transform.position;
             GameObject newObject = Instantiate(cell, new Vector3(V.x + 1f * i, V.y, V.z), Quaternion.identity);
             newObject.name = "Cell_" + (i + 1);
+            _Cells.Add(newObject);
            // if(i!=0 && i!= collSels)
              //   newObject.AddComponent<Event>();
         }
