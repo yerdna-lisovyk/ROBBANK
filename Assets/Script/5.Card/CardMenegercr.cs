@@ -12,7 +12,8 @@ public class CardMenegercr : MonoBehaviour
         _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
         AllCards.Add(new Card("Chika", "Отдай монету, или жди 20 секунд. 50%", "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.TRAP,Card.TypeTrap.CHIKA));
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());//исправить
-       
+        _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());
     }
-    
+
+
 }

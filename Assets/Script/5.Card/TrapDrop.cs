@@ -3,18 +3,17 @@ using UnityEngine.EventSystems;
 
 public class TrapDrop : MonoBehaviour, IDropHandler
 {
-    private TimeBar _time;
+    private ProfilePlayer _player;
 
     private void Awake()
     {
-        _time = GameObject.Find("TimeBar").GetComponent<TimeBar>();
-        
+        _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
     }
     void IDropHandler.OnDrop(PointerEventData eventData)
     {
         if (!eventData.pointerDrag.GetComponent<CardInfo>().IsNull)
         {
-            if (!_time.IsStep && eventData.pointerDrag.GetComponent<CardInfo>().IsTrap)
+            if (!_player.IsStep && eventData.pointerDrag.GetComponent<CardInfo>().IsTrap)
             {
                 // _time.SetStep(true);
                 Traps _trap = new Traps(gameObject,eventData.pointerDrag.GetComponent<CardInfo>().GetCard.GetTypeTrap);

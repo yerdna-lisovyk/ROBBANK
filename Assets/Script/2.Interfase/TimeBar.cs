@@ -1,47 +1,41 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimeBar : MonoBehaviour // исправить добавить контур
-{
+public class TimeBar : MonoBehaviour
+{ 
     private Slider _slider;
+    private ProfilePlayer _player;
 
     [SerializeField] private PlayerMove _button=null;
 
-    bool _step= false;
-
-
-    public bool IsStep => _step;
-    public void SetStep(bool Step)
-    {
-        _step = Step;
-    }
     public void StartTimer()
     {
+        _slider.value = 0;
         StartCoroutine(GlobalTimer());
     }
 
     private void Start()
     {
+        _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
         _slider = GetComponent<Slider>();
     }
     private IEnumerator GlobalTimer()
     {
-        _slider.value = 0;
         while (true)
         {
             _slider.value += Time.deltaTime;
             if (_slider.value == _slider.maxValue)
             {
                 _slider.value = 0;
-                SetStep(false);
-                _button.SetInteractebal(true);
+                _player.SetStep(false);
             }
-            if (_step)
+            if (_player.IsStep)
             {
                 _button.SetInteractebal(false);
             }
+            else _button.SetInteractebal(true);
+
             yield return null;
         }
 

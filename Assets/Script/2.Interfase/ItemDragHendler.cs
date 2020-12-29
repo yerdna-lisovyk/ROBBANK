@@ -6,13 +6,13 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
 {
     private CanvasGroup canvasGroup;
     private Transform perrentToretyrnTo = null;
-    private TimeBar _time;
     private Voult _voult;
+    private ProfilePlayer _player;
 
-    private void Awake()
+    private void Start()
     {
+        _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
         _voult = GameObject.Find("GameMeneger").GetComponent<Voult>();
-        _time = GameObject.Find("TimeBar").GetComponent<TimeBar>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
     public void OnDrag(PointerEventData eventData)
@@ -50,7 +50,7 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
             GetComponent<Image>().sprite == null&& 
             eventData.pointerDrag.GetComponent<Image>().sprite !=null&&
             (eventData.pointerDrag.tag ==tag|| eventData.pointerDrag.tag == "Voult"|| tag == "Voult" )&&
-            !_time.IsStep)
+            !_player.IsStep)
         {
             //_time.SetStep(true);
             SwapCardInfo(GetComponent<CardInfo>(), eventData.pointerDrag.GetComponent<CardInfo>());

@@ -20,7 +20,7 @@ public class OfficerFeature
             Debug.Log(k);
             if (k > 4)
             {
-                _time.SetStep(false);
+            //    _time.SetStep(false);
             }
             _chekAppply = true;
         }

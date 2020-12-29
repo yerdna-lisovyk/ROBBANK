@@ -1,16 +1,22 @@
 ﻿
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class ProfilePlayer 
 {
     
     private string _playerName;
     private Sprite _spritePlayer;
+
+    private Invetory _invetoryPlayer;
+    private Equipment _equipmentPlayer;
+
     private int _playerCoin;
     private int _playerSpeed;
-    private Invetory _invetoryPlayer;
     private int _playerCell;
+    private bool _step;
+
+    private List<Traps.EffectTrap> _activeEffect = new List<Traps.EffectTrap>();
 
     private int _playingCarad;
     private int _maxPlayingCarad;
@@ -22,8 +28,29 @@ public class ProfilePlayer
     public string GetPlayerName => _playerName;
     public Sprite GetSpritePlayer => _spritePlayer;
     public Invetory GetInvetory => _invetoryPlayer;
+    public Equipment GetEquipment => _equipmentPlayer;
     public int GetPlayerCell => _playerCell;
+    public bool IsStep => _step;
+    public List<Traps.EffectTrap> GetActiveEffect => _activeEffect;
 
+
+    private bool IsStopEffect()
+    {
+        foreach(var effect in _activeEffect)
+        {
+            if (effect == Traps.EffectTrap.STOP)
+                return true;
+        }
+        return false;
+    }
+    public void SetStep(bool Step)
+    {
+        if (!IsStopEffect())
+        {
+            _step = Step;
+        }
+
+    }
     public ProfilePlayer(string Name,string LoadPlayerSprite)
     {
         _playerName = Name;
@@ -33,6 +60,7 @@ public class ProfilePlayer
         _playingCarad = 0;
         _maxPlayingCarad = 1;
         _playerCell = 1;
+        _step = false;
         _invetoryPlayer = new Invetory();
     }
     public void ApplyCoinDamage(int Damage)
