@@ -5,9 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Inventory
-  - Equipment
   - Voult
   - Profile
+  - Body
+  - Weapon
+  - Head
+  - Boots
   layers:
   - Default
   - TransparentFX

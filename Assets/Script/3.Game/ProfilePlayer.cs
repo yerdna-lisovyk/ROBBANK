@@ -62,6 +62,7 @@ public class ProfilePlayer
         _playerCell = 1;
         _step = false;
         _invetoryPlayer = new Invetory();
+        _equipmentPlayer = new Equipment();
     }
     public void ApplyCoinDamage(int Damage)
     {

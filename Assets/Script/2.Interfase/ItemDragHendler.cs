@@ -17,7 +17,7 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
     }
     public void OnDrag(PointerEventData eventData)
     {
-        if ((this.tag == "Voult" || this.tag == "Inventory" || this.tag == "Equipment") && eventData.pointerDrag.GetComponent<Image>().sprite != null)
+        if (eventData.pointerDrag.GetComponent<Image>().sprite != null)//исправить условие
         {
             transform.position = Input.mousePosition;
         }
@@ -43,7 +43,7 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
             this.transform.SetParent(GameObject.Find("HUD").transform);
     }
 
-     void IDropHandler.OnDrop(PointerEventData eventData)
+     void IDropHandler.OnDrop(PointerEventData eventData)//Изменить на взаимодействие с CardInfo
     {
 
         if(eventData.pointerDrag !=null&&
@@ -55,12 +55,9 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
             //_time.SetStep(true);
             SwapCardInfo(GetComponent<CardInfo>(), eventData.pointerDrag.GetComponent<CardInfo>());
             eventData.pointerDrag.transform.position = transform.position;
-            eventData.pointerDrag.transform.localPosition = Vector3.zero;
+            
         }
-        else
-        {
-            eventData.pointerDrag.transform.localPosition = Vector3.zero;
-        }
+        eventData.pointerDrag.transform.localPosition = Vector3.zero;
     }
 
     private void SwapCardInfo(CardInfo First, CardInfo Second)
