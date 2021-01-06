@@ -1,28 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Voult : MonoBehaviour
+public class Voult 
 {
-    [SerializeField]  private GameObject _voult = null;
+    private GameObject[] _voult;
 
-    public bool IsOpenVoult => _voult.activeSelf;
-
-
-    public void OpenVoult()
+    public Voult()
     {
-        if (_voult.activeSelf)
-        {
-            _voult.SetActive(false);
-            Camera.main.gameObject.GetComponent<CameraControl>().enabled = true;
-        }
-        else
-        {
-            _voult.SetActive(true);
-            Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
-        }
+        _voult = GameObject.FindGameObjectsWithTag("Voult");
     }
 
-   
-
+    public void AddCard(Card NewCard)
+    {
+        foreach (var icon in _voult)
+        {
+            if (icon.transform.GetComponent<Image>().sprite == null)
+            {
+                icon.GetComponent<CardInfo>().SetCardInfo(NewCard);
+                break;
+            }
+        }
+    }
 }

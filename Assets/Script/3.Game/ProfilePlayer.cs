@@ -10,6 +10,7 @@ public class ProfilePlayer
 
     private Invetory _invetoryPlayer;
     private Equipment _equipmentPlayer;
+    private Voult _voultPlayer;
 
     private int _playerCoin;
     private int _playerSpeed;
@@ -63,6 +64,7 @@ public class ProfilePlayer
         _step = false;
         _invetoryPlayer = new Invetory();
         _equipmentPlayer = new Equipment();
+        _voultPlayer = new Voult();
     }
     public void ApplyCoinDamage(int Damage)
     {
@@ -78,7 +80,7 @@ public class ProfilePlayer
     {
         _playerCell = NewPlayerCell;
     }
-    public void SetPlayerSpeed(int Speed)
+    public void ApplyPlayerSpeed(int Speed)
     {
         if (_playerSpeed + Speed < 0)
             _playerSpeed = 0;

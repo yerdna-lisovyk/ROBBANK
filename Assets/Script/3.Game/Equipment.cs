@@ -41,6 +41,7 @@ public class Equipment
             if (icon.transform.GetComponent<Image>().sprite == null)
             {
                 icon.GetComponent<CardInfo>().SetCardInfo(NewBoots);
+                Boots boots = new Boots(icon,NewBoots.GetTypeBoots);
                 break;
             }
         }

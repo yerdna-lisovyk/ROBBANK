@@ -6,13 +6,13 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
 {
     private CanvasGroup canvasGroup;
     private Transform perrentToretyrnTo = null;
-    private Voult _voult;
+    private VoultMeneger _voult;
     private ProfilePlayer _player;
 
     private void Start()
     {
         _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
-        _voult = GameObject.Find("GameMeneger").GetComponent<Voult>();
+        _voult = GameObject.Find("GameMeneger").GetComponent<VoultMeneger>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
     public void OnDrag(PointerEventData eventData)
@@ -49,10 +49,10 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
         if(eventData.pointerDrag !=null&&
             GetComponent<Image>().sprite == null&& 
             eventData.pointerDrag.GetComponent<Image>().sprite !=null&&
-            (eventData.pointerDrag.tag ==tag|| eventData.pointerDrag.tag == "Voult"|| tag == "Voult" )&&
+            ( tag == "Voult" || eventData.pointerDrag.tag == tag) &&
             !_player.IsStep)
         {
-            //_time.SetStep(true);
+            tag = eventData.pointerDrag.tag;
             SwapCardInfo(GetComponent<CardInfo>(), eventData.pointerDrag.GetComponent<CardInfo>());
             eventData.pointerDrag.transform.position = transform.position;
             
