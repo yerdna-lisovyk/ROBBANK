@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ProfilePlayer 
 {
@@ -11,6 +12,7 @@ public class ProfilePlayer
     private Invetory _invetoryPlayer;
     private Equipment _equipmentPlayer;
     private Voult _voultPlayer;
+    private Text _visebleCoin;
 
     private int _playerCoin;
     private int _playerSpeed;
@@ -65,25 +67,28 @@ public class ProfilePlayer
         _invetoryPlayer = new Invetory();
         _equipmentPlayer = new Equipment();
         _voultPlayer = new Voult();
+        _visebleCoin = GameObject.Find("Coin").GetComponent<Text>();
     }
     public void ApplyCoinDamage(int Damage)
     {
         _playerCoin += Damage;
+        _visebleCoin.text = GetCoin.ToString();
 
     }
     public void SetPlayerCoin(int NewCoin)
     {
         _playerCoin = NewCoin;
+        _visebleCoin.text = GetCoin.ToString();
     }
 
     public void SetPlayerCell(int NewPlayerCell)
     {
-        _playerCell = NewPlayerCell;
+        _playerCell += NewPlayerCell;
     }
     public void ApplyPlayerSpeed(int Speed)
     {
         if (_playerSpeed + Speed < 0)
             _playerSpeed = 0;
-        _playerSpeed += Speed; 
+        _playerSpeed += Speed;
     }
 }

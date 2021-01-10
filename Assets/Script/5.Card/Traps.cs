@@ -37,7 +37,6 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            _player.ApplyCoinDamage(-1);
             _massege.ShowMassege("Ловушка","Отдать Монету? Или Ждать 20 секунд.",Yes,No);
             Destroy(this);
         }

@@ -24,18 +24,17 @@ public class PlayerMove : MonoBehaviour
     }
     public void Move()
     {
-        if (_player.GetPlayerCell == 1)
-             cell = CellNext();
+        cell = CellNext();
         transform.position = new Vector3(transform.position.x + (cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
-         cell = CellNext();
         _player.SetStep(true);
     }
 
     private GameObject CellNext()
-    {
-        _player.SetPlayerCell(_player.GetPlayerCell + 1 * _player.GetPlayerSpeed);
+    { 
+        _player.SetPlayerCell(_player.GetPlayerSpeed);
         string NameCellNext = "Cell_" + _player.GetPlayerCell;
         return GameObject.Find(NameCellNext);
+
     }
 
 

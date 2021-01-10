@@ -15,6 +15,16 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
         _voult = GameObject.Find("GameMeneger").GetComponent<VoultMeneger>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
+    public void ShowInfoCard()
+    {
+        if (!gameObject.GetComponent<CardInfo>().IsNull)
+        {
+            string Name = gameObject.GetComponent<CardInfo>().GetCard.GetName + ", " + gameObject.GetComponent<CardInfo>().GetCard.GetTypeCard.ToString();
+            string Description = gameObject.GetComponent<CardInfo>().GetCard.GetDescription;
+            Tooltip.ShowTooltip_Static(Name, Description);
+        }
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         if (eventData.pointerDrag.GetComponent<Image>().sprite != null)//исправить условие
@@ -29,10 +39,11 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
         {
             Camera.main.gameObject.GetComponent<CameraControl>().enabled = true;
         }
+
         canvasGroup.blocksRaycasts = true;
         this.transform.SetParent(perrentToretyrnTo);
         transform.localPosition = Vector3.zero;
-        
+
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
@@ -43,18 +54,24 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
             this.transform.SetParent(GameObject.Find("HUD").transform);
     }
 
-     void IDropHandler.OnDrop(PointerEventData eventData)//Изменить на взаимодействие с CardInfo
+    void IDropHandler.OnDrop(PointerEventData eventData)//Изменить на взаимодействие с CardInfo
     {
 
         if(eventData.pointerDrag !=null&&
             GetComponent<Image>().sprite == null&& 
             eventData.pointerDrag.GetComponent<Image>().sprite !=null&&
-            ( tag == "Voult" || eventData.pointerDrag.tag == tag) &&
+            tag == "Voult"  &&
             !_player.IsStep)
         {
+            if(eventData.pointerDrag.tag != tag)
+                 _player.SetStep(true);
             tag = eventData.pointerDrag.tag;
             SwapCardInfo(GetComponent<CardInfo>(), eventData.pointerDrag.GetComponent<CardInfo>());
             eventData.pointerDrag.transform.position = transform.position;
+            if (tag != "Voult")
+            {
+                Boots tmp = new Boots(gameObject, GetComponent<CardInfo>().GetCard.GetNameEqupment);
+            }
             
         }
         eventData.pointerDrag.transform.localPosition = Vector3.zero;

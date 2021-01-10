@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1428057015610705018}
   - component: {fileID: 779948421367641231}
   - component: {fileID: 2676041500878087421}
+  - component: {fileID: 8946277926529209353}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Voult
@@ -124,6 +125,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74610eed484bc3542ad25914c8322269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8946277926529209353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274872599129667420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f778325c1c939b4289a74317bb74350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4274872599372152276

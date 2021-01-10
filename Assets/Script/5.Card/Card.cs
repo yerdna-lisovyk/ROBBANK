@@ -22,7 +22,7 @@ public class Card
         BOOTS
     }
 
-    public enum TypeBoots
+    public enum NameEqupment
     {
         BOOTS_OF_SPEED,
         SHOES_WITHOUT_SOLES
@@ -34,7 +34,7 @@ public class Card
     private TypeCard _type;
     private TypeTrap _typeTrap;
     private TypeEquipment _typeEquipment;
-    private TypeBoots _typeBoots;
+    private NameEqupment _nameEqupment;
 
     public Sprite GetSprite => _sprite;
     public string GetName => _name;
@@ -42,7 +42,7 @@ public class Card
     public TypeEquipment GetTypeEquipment => _typeEquipment;
     public TypeCard GetTypeCard => _type;
     public TypeTrap GetTypeTrap => _typeTrap;
-    public TypeBoots GetTypeBoots => _typeBoots;
+    public NameEqupment GetNameEqupment => _nameEqupment;
 
     public Card(string Name, string Description, string LoadSprite, TypeCard TypeC, TypeTrap TypeT)
     {
@@ -53,14 +53,14 @@ public class Card
         _typeTrap = TypeT;
     }
 
-    public Card(string Name, string Description, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, TypeBoots typeBoots)
+    public Card(string Name, string Description, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, NameEqupment typeBoots)
     {
         _name = Name;
         _description = Description;
         _sprite = Resources.Load<Sprite>(LoadSprite);
         _type = TypeC;
         _typeEquipment = typeEquipment;
-        _typeBoots = typeBoots;
+        _nameEqupment = typeBoots;
     }
 
     public void SetSprite(Sprite NewSprite)

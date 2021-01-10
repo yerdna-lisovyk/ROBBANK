@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Boots
 {
-    public Boots(GameObject icon, Card.TypeBoots TypeBoots)
+    public Boots(GameObject icon, Card.NameEqupment TypeBoots)
     {
         switch (TypeBoots)
         {
-            case Card.TypeBoots.BOOTS_OF_SPEED:
+            case Card.NameEqupment.BOOTS_OF_SPEED:
                 {
                     icon.AddComponent<BootOfSpeed>();
                     break;
@@ -16,13 +16,17 @@ public class Boots
         }
     }
 
-    private class BootOfSpeed : MonoBehaviour
+    public class BootOfSpeed : MonoBehaviour
     {
         private ProfilePlayer _player;
         private void Start()
         {
             _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
             _player.ApplyPlayerSpeed(2);
+        }
+        private void OnDestroy()
+        {
+            _player.ApplyPlayerSpeed(-2);
         }
     }
 }
