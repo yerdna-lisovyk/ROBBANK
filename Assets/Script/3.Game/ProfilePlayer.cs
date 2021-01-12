@@ -1,18 +1,18 @@
 ﻿
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class ProfilePlayer 
+public class ProfilePlayer
 {
-    
+
     private string _playerName;
     private Sprite _spritePlayer;
 
     private Invetory _invetoryPlayer;
     private Equipment _equipmentPlayer;
     private Voult _voultPlayer;
-    private Text _visebleCoin;
+    private Classes.ClassList _class;
 
     private int _playerCoin;
     private int _playerSpeed;
@@ -20,6 +20,8 @@ public class ProfilePlayer
     private bool _step;
 
     private List<Traps.EffectTrap> _activeEffect = new List<Traps.EffectTrap>();
+
+    private Text _visebleCoin;
 
     private int _playingCarad;
     private int _maxPlayingCarad;
@@ -39,14 +41,14 @@ public class ProfilePlayer
 
     private bool IsStopEffect()
     {
-        foreach(var effect in _activeEffect)
+        foreach (var effect in _activeEffect)
         {
             if (effect == Traps.EffectTrap.STOP)
                 return true;
         }
         return false;
     }
-    public void SetStep(bool Step)
+    public virtual void SetStep(bool Step)
     {
         if (!IsStopEffect())
         {
@@ -54,7 +56,7 @@ public class ProfilePlayer
         }
 
     }
-    public ProfilePlayer(string Name,string LoadPlayerSprite)
+    public ProfilePlayer(string Name, string LoadPlayerSprite)
     {
         _playerName = Name;
         _spritePlayer = Resources.Load<Sprite>(LoadPlayerSprite);

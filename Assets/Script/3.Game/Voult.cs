@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Voult 
+public class Voult
 {
     private GameObject[] _voult;
 

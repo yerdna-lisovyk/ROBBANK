@@ -16,18 +16,18 @@ public class TimerStatus : MonoBehaviour
         _player = player;
         StartCoroutine(Timer(seconds, effect));
     }
-    private IEnumerator Timer(int seconds,Traps.EffectTrap effect)
+    private IEnumerator Timer(int seconds, Traps.EffectTrap effect)
     {
         _player.SetStep(true);
-        while (gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount!=0)
+        while (gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount != 0)
         {
-            gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount -= Time.deltaTime/seconds;
+            gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount -= Time.deltaTime / seconds;
             yield return null;
         }
         _statusBar.DestroyStatus(effect);
         _player.SetStep(false);
         Destroy(gameObject);
-        
+
     }
 
 }

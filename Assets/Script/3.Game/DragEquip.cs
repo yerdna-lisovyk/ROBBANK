@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class DragEquip : MonoBehaviour , IEndDragHandler, IBeginDragHandler
+public class DragEquip : MonoBehaviour, IEndDragHandler, IBeginDragHandler
 {
     private CardInfo _item;
     private Card.NameEqupment _nameItem;
@@ -16,7 +15,7 @@ public class DragEquip : MonoBehaviour , IEndDragHandler, IBeginDragHandler
     {
         if (_item.IsNull)
         {
-            switch(_nameItem)
+            switch (_nameItem)
             {
                 case Card.NameEqupment.BOOTS_OF_SPEED:
                     {
@@ -27,5 +26,5 @@ public class DragEquip : MonoBehaviour , IEndDragHandler, IBeginDragHandler
         }
     }
 
-    
+
 }

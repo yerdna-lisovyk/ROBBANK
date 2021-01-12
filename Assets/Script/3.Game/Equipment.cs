@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Equipment 
+public class Equipment
 {
     private GameObject _body;
     private GameObject _head;
@@ -41,7 +41,7 @@ public class Equipment
             if (icon.transform.GetComponent<Image>().sprite == null)
             {
                 icon.GetComponent<CardInfo>().SetCardInfo(NewBoots);
-                Boots boots = new Boots(icon,NewBoots.GetNameEqupment);
+                Boots boots = new Boots(icon, NewBoots.GetNameEqupment);
                 break;
             }
         }

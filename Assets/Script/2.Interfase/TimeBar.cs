@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeBar : MonoBehaviour
-{ 
+{
     private Slider _slider;
     private ProfilePlayer _player;
 
-    [SerializeField] private PlayerMove _button=null;
+    [SerializeField] private PlayerMove _button = null;
 
     public void StartTimer()
     {

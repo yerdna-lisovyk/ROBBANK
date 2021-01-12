@@ -9,9 +9,9 @@ public class Traps
     }
 
 
-    public Traps(GameObject Cell ,Card.TypeTrap TrapCard)
+    public Traps(GameObject Cell, Card.TypeTrap TrapCard)
     {
-        switch(TrapCard)
+        switch (TrapCard)
         {
             case Card.TypeTrap.CHIKA:
                 {
@@ -20,7 +20,7 @@ public class Traps
                 }
         }
     }
-    
+
 
     private class ChikaTrap : MonoBehaviour
     {
@@ -37,7 +37,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            _massege.ShowMassege("Ловушка","Отдать Монету? Или Ждать 20 секунд.",Yes,No);
+            _massege.ShowMassege("Ловушка", "Отдать Монету? Или Ждать 20 секунд.", Yes, No);
             Destroy(this);
         }
         private void Yes()

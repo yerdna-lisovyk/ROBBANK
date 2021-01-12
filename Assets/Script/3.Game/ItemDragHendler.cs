@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IBeginDragHandler,IDropHandler
+public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler, IDropHandler
 {
     private CanvasGroup canvasGroup;
     private Transform perrentToretyrnTo = null;
@@ -41,30 +41,30 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
         }
 
         canvasGroup.blocksRaycasts = true;
-        this.transform.SetParent(perrentToretyrnTo);
+        transform.SetParent(perrentToretyrnTo);
         transform.localPosition = Vector3.zero;
 
     }
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
-            Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
-            canvasGroup.blocksRaycasts = false;
-            perrentToretyrnTo = this.transform.parent;
-            this.transform.SetParent(GameObject.Find("HUD").transform);
+        Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
+        canvasGroup.blocksRaycasts = false;
+        perrentToretyrnTo = transform.parent;
+        transform.SetParent(GameObject.Find("HUD").transform);
     }
 
     void IDropHandler.OnDrop(PointerEventData eventData)//Изменить на взаимодействие с CardInfo
     {
 
-        if(eventData.pointerDrag !=null&&
-            GetComponent<Image>().sprite == null&& 
-            eventData.pointerDrag.GetComponent<Image>().sprite !=null&&
-            tag == "Voult"  &&
+        if (eventData.pointerDrag != null &&
+            GetComponent<Image>().sprite == null &&
+            eventData.pointerDrag.GetComponent<Image>().sprite != null &&
+            tag == "Voult" &&
             !_player.IsStep)
         {
-            if(eventData.pointerDrag.tag != tag)
-                 _player.SetStep(true);
+            if (eventData.pointerDrag.tag != tag)
+                _player.SetStep(true);
             tag = eventData.pointerDrag.tag;
             SwapCardInfo(GetComponent<CardInfo>(), eventData.pointerDrag.GetComponent<CardInfo>());
             eventData.pointerDrag.transform.position = transform.position;
@@ -72,7 +72,7 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
             {
                 Boots tmp = new Boots(gameObject, GetComponent<CardInfo>().GetCard.GetNameEqupment);
             }
-            
+
         }
         eventData.pointerDrag.transform.localPosition = Vector3.zero;
     }
@@ -82,6 +82,6 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler , IEndDragHandler, IB
         Card tmp = First.GetCard;
         First.SetCardInfo(Second.GetCard);
         Second.SetCardInfo(tmp);
-    }    
+    }
 
 }

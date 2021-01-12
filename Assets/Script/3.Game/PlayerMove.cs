@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     private GameObject cell;
     private ProfilePlayer _player;
 
-    [SerializeField] private Button _button=null;
+    [SerializeField] private Button _button = null;
 
     public ProfilePlayer GetProfilePlayer => _player;
 
@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     private GameObject CellNext()
-    { 
+    {
         _player.SetPlayerCell(_player.GetPlayerSpeed);
         string NameCellNext = "Cell_" + _player.GetPlayerCell;
         return GameObject.Find(NameCellNext);

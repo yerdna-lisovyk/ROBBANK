@@ -1,18 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Setting_box : MonoBehaviour
 {
-    [SerializeField] private GameObject Panel=null;
+    [SerializeField] private GameObject Panel = null;
 
 
     public void OpenSetting()
     {
 
-        if(Panel != null)
+        if (Panel != null)
         {
             ButtonsOnOff(false);
             Panel.SetActive(true);
