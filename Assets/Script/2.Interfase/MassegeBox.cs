@@ -3,16 +3,20 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MassegeBox : MonoBehaviour
 {
-    private MassegeBox _instans;
+    private static MassegeBox _instans;
     private Transform _hud;
     private GameObject _template;
     private void Awake()
     {
         _template = Resources.Load<GameObject>("Object/BackGround");
         _hud = GameObject.Find("HUD").transform;
-        _instans = this;
+        _instans = GameObject.Find("GameMeneger").GetComponent<MassegeBox>();
     }
-    public void ShowMassege(string text, string diraction, Action Yes, Action No)
+    public static void StaticShowMassege(string text, string diraction, Action Yes, Action No)
+    {
+        _instans.ShowMassege(text, diraction, Yes, No);
+    }
+    private void ShowMassege(string text, string diraction, Action Yes, Action No)
     {
         GameObject massegeBox = Instantiate(_instans._template, _hud);
         Transform panel = massegeBox.transform.Find("MassegeBox");

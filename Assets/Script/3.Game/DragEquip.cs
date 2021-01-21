@@ -20,6 +20,7 @@ public class DragEquip : MonoBehaviour, IEndDragHandler, IBeginDragHandler
                 case Card.NameEqupment.BOOTS_OF_SPEED:
                     {
                         Destroy(_item.GetComponent<Boots.BootOfSpeed>());
+                        Debug.Log("1");
                         break;
                     }
             }

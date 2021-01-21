@@ -60,18 +60,18 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
         if (eventData.pointerDrag != null &&
             GetComponent<Image>().sprite == null &&
             eventData.pointerDrag.GetComponent<Image>().sprite != null &&
-            tag == "Voult" &&
+            (tag == "Voult" || eventData.pointerDrag.tag == tag) &&
             !_player.IsStep)
         {
-            if (eventData.pointerDrag.tag != tag)
-                _player.SetStep(true);
-            tag = eventData.pointerDrag.tag;
+          //  if (eventData.pointerDrag.tag != tag)
+            //    _player.PlayingCard();
             SwapCardInfo(GetComponent<CardInfo>(), eventData.pointerDrag.GetComponent<CardInfo>());
             eventData.pointerDrag.transform.position = transform.position;
             if (tag != "Voult")
             {
                 Boots tmp = new Boots(gameObject, GetComponent<CardInfo>().GetCard.GetNameEqupment);
             }
+            tag = eventData.pointerDrag.tag;
 
         }
         eventData.pointerDrag.transform.localPosition = Vector3.zero;

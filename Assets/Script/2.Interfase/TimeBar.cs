@@ -28,7 +28,7 @@ public class TimeBar : MonoBehaviour
             if (_slider.value == _slider.maxValue)
             {
                 _slider.value = 0;
-                _player.SetStep(false);
+                _player.NewTurn();
             }
             if (_player.IsStep)
             {

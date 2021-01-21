@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class StatusBar : MonoBehaviour
 {
+
+
+    private static StatusBar _instans;
     private GameObject _prefabStatus;
     private ProfilePlayer _player;
     private GameObject _statusArea;
@@ -13,9 +16,18 @@ public class StatusBar : MonoBehaviour
     {
         _statusArea = GameObject.Find("StatusArea");
         _prefabStatus = Resources.Load<GameObject>("Object/Starus");
+        _instans = this;
+    }
+    public static void StaticNewStatus(Sprite StatusSprite, int Seconds, Traps.Effect effect, ProfilePlayer player)
+    {
+        _instans.NewStatus(StatusSprite, Seconds, effect, player);
     }
 
-    public void NewStatus(Sprite StatusSprite, int Seconds, Traps.EffectTrap effect, ProfilePlayer player)
+    public static void StaticDestroyStatus(Traps.Effect EffectTrap)
+    {
+        _instans.DestroyStatus(EffectTrap);
+    }
+    private void NewStatus(Sprite StatusSprite, int Seconds, Traps.Effect effect, ProfilePlayer player)
     {
         _player = player;
         GameObject NewStatus = Instantiate(_prefabStatus, _statusArea.transform);
@@ -24,7 +36,7 @@ public class StatusBar : MonoBehaviour
         _player.GetActiveEffect.Add(effect);
         _statutes.Add(NewStatus);
     }
-    public void DestroyStatus(Traps.EffectTrap EffectTrap)
+    private void DestroyStatus(Traps.Effect EffectTrap)
     {
         for (int i = 0; i < _player.GetActiveEffect.Count; i++)
         {

@@ -7,6 +7,16 @@ public class Invetory
 
     public GameObject[] GetHand => _hand;
 
+    public int QuantityCard()
+    {
+        int Quantity = 0;
+        foreach (var icon in _hand)
+        {
+            if (!icon.GetComponent<CardInfo>().IsNull)
+                Quantity++;
+        }
+        return Quantity;
+    }
     public Invetory()
     {
         _hand = GameObject.FindGameObjectsWithTag("Inventory");
@@ -15,7 +25,7 @@ public class Invetory
     {
         foreach (var icon in _hand)
         {
-            if (icon.transform.GetComponent<Image>().sprite == null)
+            if (icon.GetComponent<CardInfo>().IsNull)
             {
                 icon.GetComponent<CardInfo>().SetCardInfo(NewCard);
                 break;

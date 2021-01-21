@@ -24,8 +24,7 @@ public class Cells : MonoBehaviour
             GameObject newObject = Instantiate(cell, new Vector3(V.x + 1f * i, V.y, V.z), Quaternion.identity);
             newObject.name = "Cell_" + (i + 1);
             _Cells.Add(newObject);
-            // if(i!=0 && i!= collSels)
-            //   newObject.AddComponent<Event>();
+            Build tmp = new Build(newObject);
         }
 
     }

@@ -15,7 +15,7 @@ public class TrapDrop : MonoBehaviour, IDropHandler
         {
             if (!_player.IsStep && eventData.pointerDrag.GetComponent<CardInfo>().IsTrap)
             {
-
+               // _player.PlayingCard();
                 Traps _trap = new Traps(gameObject, eventData.pointerDrag.GetComponent<CardInfo>().GetCard.GetTypeTrap);
                 eventData.pointerDrag.transform.localPosition = Vector3.zero;
                 eventData.pointerDrag.GetComponent<CardInfo>().SetCardInfo(null);

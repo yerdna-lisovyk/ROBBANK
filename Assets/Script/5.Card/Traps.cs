@@ -2,7 +2,7 @@
 
 public class Traps
 {
-    public enum EffectTrap
+    public enum Effect
     {
         NO_EFFECT,
         STOP
@@ -24,20 +24,16 @@ public class Traps
 
     private class ChikaTrap : MonoBehaviour
     {
-        private StatusBar _statusBar;
         private ProfilePlayer _player;
-        private EffectTrap _effect;
-        private MassegeBox _massege;
+        private Effect _effect;
         private void Awake()
         {
-            _statusBar = GameObject.Find("StatusArea").GetComponent<StatusBar>();
-            _effect = Traps.EffectTrap.STOP;
-            _massege = GameObject.Find("GameMeneger").GetComponent<MassegeBox>();
+            _effect = Effect.STOP;
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            _massege.ShowMassege("Ловушка", "Отдать Монету? Или Ждать 20 секунд.", Yes, No);
+            MassegeBox.StaticShowMassege("Ловушка", "Отдать Монету? Или Ждать 20 секунд.", Yes, No);
             Destroy(this);
         }
         private void Yes()
@@ -46,7 +42,7 @@ public class Traps
         }
         private void No()
         {
-            _statusBar.NewStatus(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/apple"), 20, _effect, _player);
+            StatusBar.StaticNewStatus(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/apple"), 20, _effect, _player);
         }
     }
 }
