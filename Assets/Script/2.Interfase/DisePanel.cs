@@ -1,34 +1,34 @@
 ﻿using UnityEngine;
 
-public class SecectionPanel : MonoBehaviour
+public class DisePanel : MonoBehaviour
 {
-    private static SecectionPanel _instans;
+    private static DisePanel _instans;
     private int _finalValue = 0;
 
     public static bool IsActivate => _instans.gameObject.activeSelf == true;
+    public static int GetFinalValue => _instans._finalValue;
+
 
     public static void StaticSetFinalValue(int NewValue)
     {
         _instans.SetFinalValue(NewValue);
     }
-    public static void StaticShowSecectionPanel()
+    public static void StaticShowDisce()
     {
-        _instans.ShowSecectionPanel();
+        _instans.ShowDise();
     }
-
-    public static int GerFinalValue => _instans._finalValue;
 
     private void Update()
     {
         if (_finalValue != 0)
         {
-            HideSecectionPanel();
+            HideDise();
         }
     }
     private void Awake()
     {
         _instans = this;
-        HideSecectionPanel();
+        HideDise();
     }
 
     private void SetFinalValue(int NewValue)
@@ -37,14 +37,12 @@ public class SecectionPanel : MonoBehaviour
     }
 
 
-    private void HideSecectionPanel()
+    private void HideDise()
     {
         gameObject.SetActive(false);
     }
 
-
-
-    private void ShowSecectionPanel()
+    private void ShowDise()
     {
         _finalValue = 0;
         gameObject.SetActive(true);

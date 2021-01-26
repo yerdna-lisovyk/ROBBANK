@@ -34,7 +34,7 @@ public class Dice : MonoBehaviour
         _value = randomDiceSide + 1;
         yield return new WaitForSeconds(1f);
         BlockPanel.StaticHideBlockPanel();
-        SecectionPanel.StaticSetFinalValue(_value);
+        DisePanel.StaticSetFinalValue(_value);
     }
     public void StartRoll()
     {

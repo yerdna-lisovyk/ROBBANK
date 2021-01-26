@@ -6,7 +6,7 @@ public class Build
 {
     public Build(GameObject cell)
     {
-        cell.AddComponent<PoliceDepartment>();
+        cell.AddComponent<BlackMarket>();
     }
     private class PoliceDepartment : MonoBehaviour
     {
@@ -18,23 +18,23 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            SecectionPanel.StaticShowSecectionPanel();
+            DisePanel.StaticShowDisce();
             StartCoroutine(IsActivePanel());
             _removeCard = 0;
         }
         private IEnumerator IsActivePanel()
         {
-            while (SecectionPanel.IsActivate)
+            while (DisePanel.IsActivate)
             {
                 yield return new WaitForSeconds(0.04f);
             }
-            int vallue = SecectionPanel.GerFinalValue;
+            int vallue = DisePanel.GetFinalValue;
             if (vallue > 3) Tooltip.ShowTooltip_Static(_nameEvent, "Вы свободны");
             else
             {
                 if (_player.GetInvetory.QuantityCard() < 2 && _player.GetCoin <= 2)
                 {
-                    StatusBar.StaticNewStatus(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/apple"), 30, Traps.Effect.STOP, _player);
+                    StatusBar.StaticNewStatus(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"), 30, Traps.Effect.STOP, _player);
                 }
                 else
                 if (_player.GetInvetory.QuantityCard() < 2)
@@ -43,7 +43,7 @@ public class Build
                     Tooltip.ShowTooltip_Static(_nameEvent, "Вы отдали : " + 2 + " Монеты");
                 }
                 else
-                if (_player.GetCoin <= 2)
+                if (_player.GetInvetory.QuantityCard() == 2)
                 {
                     foreach (var card in _player.GetInvetory.GetHand)
                     {
@@ -96,4 +96,50 @@ public class Build
         }
     }
 
+    private class BlackMarket : MonoBehaviour
+    {
+        private string _nameEvent = "Черный рынок";
+        private string _descriptionEvent = "Заплати монету, чтобы достать 3 карты и выбрать одну. " +
+            "Заплати 10 монет, чтобы получить рандомно раритетное оружие или одежду. " +
+            "Не пытайся ограбить! Если ты всё же хочешь ограбить, то в случае не удачи расстанься " +
+            "со всем своим имуществом, а если улыбнется удача, то получи 10 монет и карту оружия или одежды." +
+            " Не действуют карты отмены.";
+        private ProfilePlayer _player;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, No, true, Rob());
+        }
+
+        private void Yes()
+        {
+            _player.ApplyCoinDamage(-1);
+            SelectionCard.StaticShowSelectionCard(3, 1,_player.GetInvetory, Card.TypeCard.INVENTORY);
+        }
+        private void No()
+        {
+            _player.ApplyCoinDamage(-10);
+            _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(Card.TypeCard.EQUIPMENT));
+        }
+        private IEnumerator Rob()
+        {
+            DisePanel.StaticShowDisce();
+            while (DisePanel.IsActivate)
+            {
+                yield return new WaitForSeconds(0.04f);
+            }
+            int vallue = DisePanel.GetFinalValue;
+            if (vallue < 6)
+            {
+                _player.GetEquipment.RemoveAllEquipment();
+                _player.GetInvetory.RemoveAllCard();
+                Tooltip.ShowTooltip_Static(_nameEvent, "Вы потеряли всё!");
+            }
+            else
+            {
+                _player.ApplyCoinDamage(10);
+                _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(Card.TypeCard.EQUIPMENT));
+            }
+        }
+    }
 }

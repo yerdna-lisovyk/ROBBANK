@@ -47,7 +47,7 @@ public class ProfilePlayer
     {
         _playerName = Name;
         _spritePlayer = Resources.Load<Sprite>(LoadPlayerSprite);
-        _playerCoin = 20;
+        _playerCoin = 2;
         _playerSpeed = 1;
         _playingCarad = 0;
         _maxPlayingCarad = 1;
@@ -57,6 +57,7 @@ public class ProfilePlayer
         _equipmentPlayer = new Equipment();
         _voultPlayer = new Voult();
         _visebleCoin = GameObject.Find("Coin").GetComponent<Text>();
+        _visebleCoin.text = _playerCoin.ToString();
         RandClass();
     }
     public void RandClass()

@@ -38,12 +38,48 @@ public class Equipment
     {
         foreach (var icon in _boots)
         {
-            if (icon.transform.GetComponent<Image>().sprite == null)
+            if (icon.transform.GetComponent<CardInfo>().IsNull)
             {
                 icon.GetComponent<CardInfo>().SetCardInfo(NewBoots);
                 Boots boots = new Boots(icon, NewBoots.GetNameEqupment);
                 break;
             }
+        }
+    }
+    public void AddEquipment(Card NewEquipment)
+    {
+        switch(NewEquipment.GetTypeEquipment)
+        {
+            case Card.TypeEquipment.BODY:
+                {
+                    AddBody(NewEquipment);
+                    break;
+                }
+            case Card.TypeEquipment.HEAD:
+                {
+                    AddHead(NewEquipment);
+                    break;
+                }
+            case Card.TypeEquipment.BOOTS:
+                {
+                    AddBoots(NewEquipment);
+                    break;
+                }
+            case Card.TypeEquipment.WEAPON:
+                {
+                    AddWeapon(NewEquipment);
+                    break;
+                }
+        }
+    }
+    public void RemoveAllEquipment()
+    {
+        AddBody(null);
+        AddHead(null);
+        AddWeapon(null);
+        foreach (var icon in _boots)
+        {
+            icon.GetComponent<CardInfo>().SetCardInfo(null);
         }
     }
 }
