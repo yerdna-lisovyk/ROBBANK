@@ -16,9 +16,9 @@ public class SelectionCard : MonoBehaviour
     private int _quantityGetcardNow;
     public static bool IsActivate => _instans._panel.activeSelf == true;
 
-    public static void StaticShowSelectionCard(int QuantityItem, int QuantityGetcard, Invetory invetory, Card.TypeCard typeCard)
+    public static void StaticShowSelectionCard(int QuantityItem, int QuantityGetcard, ProfilePlayer player, Card.TypeCard[] typeCard =null)
     {
-        _instans.ShowSelectionCard(QuantityItem, QuantityGetcard, invetory, typeCard);
+        _instans.ShowSelectionCard(QuantityItem, QuantityGetcard, player, typeCard);
     }
 
     private void Awake()
@@ -29,7 +29,7 @@ public class SelectionCard : MonoBehaviour
         _instans = GameObject.Find("GameMeneger").GetComponent<SelectionCard>(); 
     }
 
-    private void ShowSelectionCard(int QuantityItem,int QuantityGetcard , Invetory invetory, Card.TypeCard typeCard)
+    private void ShowSelectionCard(int QuantityItem,int QuantityGetcard , ProfilePlayer player, Card.TypeCard[] typeCard)
     {
         _quantityGetcard = QuantityGetcard;
         _quantityItem = QuantityItem;
@@ -40,10 +40,14 @@ public class SelectionCard : MonoBehaviour
         {
             GameObject tmp = Instantiate(_instans._prefabItem, ItemsPerrent);
             Card CardTmp = CardMenegercr.StaticRandCard(typeCard);
-            tmp.transform.GetChild(0).GetChild(0).GetComponent<CardInfo>().SetCardInfo(CardTmp);
+            CardInfo cardInfotmp = tmp.transform.GetChild(0).GetChild(0).GetComponent<CardInfo>();
+            cardInfotmp.SetCardInfo(CardTmp);
             tmp.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(() =>
             {
-                invetory.AddCard(tmp.transform.GetChild(0).GetChild(0).GetComponent<CardInfo>().GetCard);//исправить
+                if (cardInfotmp.GetCard.GetTypeCard == Card.TypeCard.INVENTORY ||
+                    cardInfotmp.GetCard.GetTypeCard == Card.TypeCard.TRAP)
+                    player.GetInvetory.AddCard(cardInfotmp.GetCard);
+                else player.GetEquipment.AddEquipment(cardInfotmp.GetCard);
                 _quantityGetcardNow++;
                 if(_quantityGetcardNow == _quantityGetcard)
                 {

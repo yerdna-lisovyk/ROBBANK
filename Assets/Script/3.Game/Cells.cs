@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Cells : MonoBehaviour
 {
+    private static Cells _instans;
     //private float Сomplexity = 1;
     private float collSels = 50;
     // private int EventsQuantity = 10;
@@ -11,6 +12,16 @@ public class Cells : MonoBehaviour
 
     [SerializeField] private GameObject spawnPoing = null;
     [SerializeField] private GameObject cell = null;
+    
+    private void Awake()
+    {
+        _instans = this;
+    }
+    public static List<GameObject> StaticGetCells()
+    {
+        return _instans.GetCells;
+    }
+    private List<GameObject> GetCells => _Cells;
 
     public void SetcСollSels(float coll)
     {

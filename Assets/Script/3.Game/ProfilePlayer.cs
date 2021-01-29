@@ -23,15 +23,19 @@ public class ProfilePlayer
     private int _playerSpeed;
     private int _playerCell;
     private bool _step;
+    private bool _canAttack = true;
+    private bool _impervious = false;
 
-    private List<Traps.Effect> _activeEffect = new List<Traps.Effect>();
+    private List<StatusBar.Effect> _activeEffect = new List<StatusBar.Effect>();
 
     private Text _visebleCoin;
 
     private int _playingCarad;
     private int _maxPlayingCarad;
 
-    public bool IsAlive => _playerCoin >= 0;
+    public bool IsCanAttack => _canAttack;
+    public bool IsImpervious => _impervious;
+    public bool IsAlive => _playerCoin > 0;
     public int GetCoin => _playerCoin;
     public int GetPlayerSpeed => _playerSpeed;
     public string GetPlayerName => _playerName;
@@ -40,7 +44,7 @@ public class ProfilePlayer
     public Equipment GetEquipment => _equipmentPlayer;
     public int GetPlayerCell => _playerCell;
     public bool IsStep => _step;
-    public List<Traps.Effect> GetActiveEffect => _activeEffect;
+    public List<StatusBar.Effect> GetActiveEffect => _activeEffect;
     private bool IsPlayingMaxCard => _playingCarad >= _maxPlayingCarad;
 
     public ProfilePlayer(string Name, string LoadPlayerSprite)
@@ -59,6 +63,14 @@ public class ProfilePlayer
         _visebleCoin = GameObject.Find("Coin").GetComponent<Text>();
         _visebleCoin.text = _playerCoin.ToString();
         RandClass();
+    }
+    public void SetCanAttack(bool f)
+    {
+        _canAttack = f;
+    }
+    public void SetImpervious(bool f)
+    {
+        _impervious = f;
     }
     public void RandClass()
     {
@@ -138,7 +150,7 @@ public class ProfilePlayer
     {
         foreach (var effect in _activeEffect)
         {
-            if (effect == Traps.Effect.STOP)
+            if (effect == StatusBar.Effect.STOP)
                 return true;
         }
         return false;

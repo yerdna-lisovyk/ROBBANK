@@ -6,7 +6,7 @@ public class Build
 {
     public Build(GameObject cell)
     {
-        cell.AddComponent<BlackMarket>();
+       cell.AddComponent<ComputerClub>();
     }
     private class PoliceDepartment : MonoBehaviour
     {
@@ -34,7 +34,7 @@ public class Build
             {
                 if (_player.GetInvetory.QuantityCard() < 2 && _player.GetCoin <= 2)
                 {
-                    StatusBar.StaticNewStatus(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"), 30, Traps.Effect.STOP, _player);
+                    StatusBar.StaticNewStatus(30, StatusBar.Effect.STOP, _player);
                 }
                 else
                 if (_player.GetInvetory.QuantityCard() < 2)
@@ -114,12 +114,12 @@ public class Build
         private void Yes()
         {
             _player.ApplyCoinDamage(-1);
-            SelectionCard.StaticShowSelectionCard(3, 1,_player.GetInvetory, Card.TypeCard.INVENTORY);
+            SelectionCard.StaticShowSelectionCard(3, 1,_player, new[] { Card.TypeCard.INVENTORY, Card.TypeCard.TRAP});
         }
         private void No()
         {
             _player.ApplyCoinDamage(-10);
-            _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(Card.TypeCard.EQUIPMENT));
+            _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(new[] { Card.TypeCard.EQUIPMENT }));
         }
         private IEnumerator Rob()
         {
@@ -129,7 +129,7 @@ public class Build
                 yield return new WaitForSeconds(0.04f);
             }
             int vallue = DisePanel.GetFinalValue;
-            if (vallue < 6)
+            if (vallue < 5)
             {
                 _player.GetEquipment.RemoveAllEquipment();
                 _player.GetInvetory.RemoveAllCard();
@@ -138,8 +138,160 @@ public class Build
             else
             {
                 _player.ApplyCoinDamage(10);
-                _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(Card.TypeCard.EQUIPMENT));
+                _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(new[] { Card.TypeCard.EQUIPMENT }));
             }
+        }
+    }
+
+    private class Bar: MonoBehaviour
+    {
+        private string _nameEvent = "Бар \"4217\"";
+        private string _descriptionEvent = "Единственно место, где ты сможешь отдохнуть. " +
+            "Пока ты на этой клетке, никто не может на тебя напасть." +
+            " Но и ты тоже ничего не можешь сделать. Просто отдохни.";
+        private ProfilePlayer _player;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            _player.SetCanAttack(false);
+            _player.SetImpervious(true);
+            Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            _player.SetCanAttack(true);
+            _player.SetImpervious(false);
+        }
+    }
+
+    private class ComputerClub : MonoBehaviour
+    {
+        private string _nameEvent = "Компьютерный клуб";
+        private string _descriptionEvent = "Всегда можно найти школьника который загуглит информацию о картах. " +
+            "(Посмотри три карты в колоде и выбери одну себе) Отдай 2 монеты " +
+            "чтобы посмотреть 60 секунд все клетки на поле.";
+        private ProfilePlayer _player;
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, No);
+        }
+        private void Yes()
+        {
+            SelectionCard.StaticShowSelectionCard(3, 1, _player);
+        }
+        private void No()
+        {
+            _player.ApplyCoinDamage(-2);
+            StatusBar.StaticNewStatus(30, StatusBar.Effect.VISIBILITY, _player);
+        }
+    }
+
+    private class Bank : MonoBehaviour
+    {
+        private string _nameEvent = "Банк";
+        private string _descriptionEvent = "Вы получили 15 монет";
+        private ProfilePlayer _player;
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
+            _player.ApplyCoinDamage(15);
+        }
+    }
+    private class ClothingStore : MonoBehaviour
+    {
+        private string _nameEvent = "Магазинчик одежды";
+        private string _descriptionEvent = "Место где можно купить одежду за монеты." +
+            " Если ограбление удачно то + рандомная карта одежды, если нет, " +
+            "то теряешь свою надетую одежду и 2 монеты.";
+        private ProfilePlayer _player;
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, null, false, Rob());
+        }
+
+        private void Yes()
+        {
+
+        }
+        private IEnumerator Rob()
+        {
+            DisePanel.StaticShowDisce();
+            while (DisePanel.IsActivate)
+            {
+                yield return new WaitForSeconds(0.04f);
+            }
+            int vallue = DisePanel.GetFinalValue;
+            if (vallue < 5)
+            {
+                _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(new[] { Card.TypeCard.EQUIPMENT }));
+            }
+            else
+            {
+                _player.GetEquipment.RemoveAllСlothes();
+            }
+        }
+    }
+
+    private class WeaponsStore : MonoBehaviour
+    {
+        private string _nameEvent = "Магазинчик оружия";
+        private string _descriptionEvent = "Место где можно купить оружие за монеты." +
+            " Если ограбление удачно то + рандомная карта оружия, если нет, " +
+            "то теряешь своё надетое оружие и 2 монеты.";
+        private ProfilePlayer _player;
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, null, false, Rob());
+        }
+
+        private void Yes()
+        {
+
+        }
+        private IEnumerator Rob()
+        {
+            DisePanel.StaticShowDisce();
+            while (DisePanel.IsActivate)
+            {
+                yield return new WaitForSeconds(0.04f);
+            }
+            int vallue = DisePanel.GetFinalValue;
+            if (vallue < 5)
+            {
+                _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(new[] { Card.TypeCard.EQUIPMENT }));
+            }
+            else
+            {
+                _player.GetEquipment.AddWeapon(null);
+            }
+        }
+    }
+
+    private class Trove : MonoBehaviour
+    {
+        private string _nameEvent = "Клад";
+        private string _descriptionEvent = "Можно открыть потратив четыре карты и получить 15 монет. " +
+            "Если есть саперная лапта, откапывай благодаря ей. " +
+            "Лапта остается в инвентаре. ";
+        private ProfilePlayer _player;
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes,null);
+        }
+
+        private void Yes()
+        {
+            _player.ApplyCoinDamage(-15);
+            SelectionCard.StaticShowSelectionCard(4, 1, _player);
         }
     }
 }

@@ -82,4 +82,14 @@ public class Equipment
             icon.GetComponent<CardInfo>().SetCardInfo(null);
         }
     }
+
+    public void RemoveAllСlothes()
+    {
+        AddBody(null);
+        AddHead(null);
+        foreach (var icon in _boots)
+        {
+            icon.GetComponent<CardInfo>().SetCardInfo(null);
+        }
+    }
 }

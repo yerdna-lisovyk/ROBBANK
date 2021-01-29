@@ -9,7 +9,7 @@ public class CardMenegercr : MonoBehaviour
     private ProfilePlayer _player;
 
 
-    public static Card StaticRandCard(Card.TypeCard typeCard)
+    public static Card StaticRandCard(Card.TypeCard[] typeCard = null)
     {
        return _instans.RandCard(typeCard);
     }
@@ -25,30 +25,30 @@ public class CardMenegercr : MonoBehaviour
         //  _player.GetEquipment.AddBoots(AllCards[1].GetCopyCard());
         // _player.GetEquipment.AddBoots(AllCards[1].GetCopyCard());
     }
-    
-    private Card RandCard(Card.TypeCard typeCard)
+
+    private Card RandCard(Card.TypeCard[] typeCard)
     {
-        List<Card> tmp = AllCardOfType(typeCard);
-        int radomItem = Random.Range(0, tmp.Count);
-        return tmp[radomItem].GetCopyCard();
+        if (typeCard != null)
+        {
+            List<Card> tmp = AllCardOfType(typeCard);
+            int radomItem = Random.Range(0, tmp.Count);
+            return tmp[radomItem].GetCopyCard();
+        }
+        return AllCards[Random.Range(0, AllCards.Count)].GetCopyCard();
+
     }
-    private List<Card> AllCardOfType(Card.TypeCard typeCard)
+    private List<Card> AllCardOfType(Card.TypeCard[] typeCard)
     {
         List<Card> AllCardsTypes = new List<Card>();
         foreach(var card in AllCards)
         {
-            if((typeCard == Card.TypeCard.INVENTORY || typeCard == Card.TypeCard.TRAP) && 
-                (card.GetTypeCard == Card.TypeCard.INVENTORY || card.GetTypeCard == Card.TypeCard.TRAP))
-            {
-                AllCardsTypes.Add(card); // Поиск карт
-            }
-            else
-            {
-                if(card.GetTypeCard == typeCard)
+            for(int i = 0; i<typeCard.Length; i++)
+                if(card.GetTypeCard == typeCard[i])
                 {
-                    AllCardsTypes.Add(card); // Поиск снаряжения
+                    AllCardsTypes.Add(card); // Поиск карт
+                    break;
                 }
-            }
+
         }
         return AllCardsTypes;
     }

@@ -1,35 +1,37 @@
 ﻿using UnityEngine;
 
-public class Traps
+public class Traps 
 {
-    public enum Effect
-    {
-        NO_EFFECT,
-        STOP
-    }
 
 
-    public Traps(GameObject Cell, Card.TypeTrap TrapCard)
+    public Traps(GameObject Cell, Card card)
     {
-        switch (TrapCard)
+        switch (card.GetTypeTrap)
         {
             case Card.TypeTrap.CHIKA:
                 {
-                    Cell.AddComponent<ChikaTrap>();
+                    Cell.AddComponent<ChikaTrap>().SetSprite(card.GetSprite);
                     break;
                 }
         }
+        
     }
 
 
-    private class ChikaTrap : MonoBehaviour
+    public class ChikaTrap : MonoBehaviour
     {
         private ProfilePlayer _player;
-        private Effect _effect;
-        private void Awake()
+
+        private Sprite _sprite ;
+        private StatusBar.Effect _effect = StatusBar.Effect.STOP;
+
+        public Sprite GetSprite => _sprite;
+        public void SetSprite(Sprite sprite)
         {
-            _effect = Effect.STOP;
+            _sprite = sprite;
         }
+
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
@@ -42,7 +44,7 @@ public class Traps
         }
         private void No()
         {
-            StatusBar.StaticNewStatus(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/apple"), 20, _effect, _player);
+            StatusBar.StaticNewStatus(20, _effect, _player);
         }
     }
 }
