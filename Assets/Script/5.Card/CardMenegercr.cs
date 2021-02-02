@@ -17,12 +17,14 @@ public class CardMenegercr : MonoBehaviour
     {
         _instans = this;
         _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
-        AllCards.Add(new Card("Чика", "Отдай монету, или жди 20 секунд. 50%", 10, "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.TRAP, Card.TypeTrap.CHIKA));
+        AllCards.Add(new Card("Чика", "теряешь 3 монеты и ждешь 20 секунд.", 10, "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.TRAP, Card.TypeTrap.CHIKA));
+        AllCards.Add(new Card("Мина", "Отдай монету, или жди 20 секунд. 50%", 10, "Simple Buttons/RPG_inventory_icons/pngegg", Card.TypeCard.TRAP, Card.TypeTrap.MINA));
         AllCards.Add(new Card("Сапог скороход", "Добавляет 2 клетки к ходу.", 5, "Simple Buttons/RPG_inventory_icons/boots", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEqupment.BOOTS_OF_SPEED));
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());//исправить
+        _player.GetInvetory.AddCard(AllCards[1].GetCopyCard());
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());
-        _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());
-        //  _player.GetEquipment.AddBoots(AllCards[1].GetCopyCard());
+        _player.GetAmmo.AddAmmo(40);
+        //  _player.GetEquipment.AddBoots(AllCards[].GetCopyCard());
         // _player.GetEquipment.AddBoots(AllCards[1].GetCopyCard());
     }
 
@@ -40,7 +42,7 @@ public class CardMenegercr : MonoBehaviour
     private List<Card> AllCardOfType(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
     {
         List<Card> AllCardsTypes = new List<Card>();
-        if (typeCard[0] != Card.TypeCard.EQUIPMENT && typeEquipment == null)
+        if (typeEquipment == null)
         {
             foreach (var card in AllCards)
             {

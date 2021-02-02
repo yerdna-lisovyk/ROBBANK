@@ -18,6 +18,7 @@ public class ProfilePlayer
     private Invetory _invetoryPlayer;
     private Equipment _equipmentPlayer;
     private Voult _voultPlayer;
+    private Ammo _ammoPlayer;
     private Classes _class;
 
     private int _playerCoin;
@@ -44,6 +45,7 @@ public class ProfilePlayer
     public Classes GetClasses => _class;
     public Invetory GetInvetory => _invetoryPlayer;
     public Equipment GetEquipment => _equipmentPlayer;
+    public Ammo GetAmmo => _ammoPlayer;
     public int GetPlayerCell => _playerCell;
     public bool IsStep => _step;
     public List<StatusBar.Effect> GetActiveEffect => _activeEffect;
@@ -61,6 +63,7 @@ public class ProfilePlayer
         _step = false;
         _invetoryPlayer = new Invetory();
         _equipmentPlayer = new Equipment();
+        _ammoPlayer = new Ammo(this);
         _voultPlayer = new Voult();
         _visebleCoin = GameObject.Find("Coin").GetComponent<Text>();
         _visebleCoin.text = _playerCoin.ToString();

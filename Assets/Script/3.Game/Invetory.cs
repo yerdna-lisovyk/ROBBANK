@@ -32,6 +32,7 @@ public class Invetory
             }
         }
     }
+
     public void RemoveAllCard()
     {
         foreach (var icon in _hand)

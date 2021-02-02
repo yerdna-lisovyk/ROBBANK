@@ -308,7 +308,7 @@ public class Build
                 yield return new WaitForSeconds(0.04f);
             }
             int vallue = DisePanel.GetFinalValue;
-            if (vallue < 5)
+            if (vallue > 5)
             {
                 _player.GetEquipment.AddEquipment(CardMenegercr.StaticRandCard(new[] { Card.TypeCard.EQUIPMENT }));
             }

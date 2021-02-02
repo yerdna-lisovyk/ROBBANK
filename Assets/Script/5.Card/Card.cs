@@ -7,12 +7,14 @@ public class Card
     {
         TRAP,
         INVENTORY,
-        EQUIPMENT
+        EQUIPMENT,
+        AMMO
     }
     public enum TypeTrap
     {
         NO_TRAP,
-        CHIKA
+        CHIKA,
+        MINA
     }
     public enum TypeEquipment
     {
@@ -32,12 +34,14 @@ public class Card
     private string _name;
     private string _description;
     private int _prise;
+    private int _quantity;
 
     private TypeCard _type;
     private TypeTrap _typeTrap;
     private TypeEquipment _typeEquipment;
     private NameEqupment _nameEqupment;
 
+    public int GetQuantity => _quantity;
     public Sprite GetSprite => _sprite;
     public string GetName => _name;
     public int GetPrise => _prise;
@@ -47,7 +51,7 @@ public class Card
     public TypeTrap GetTypeTrap => _typeTrap;
     public NameEqupment GetNameEqupment => _nameEqupment;
 
-    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeTrap TypeT)
+    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeTrap TypeT = TypeTrap.NO_TRAP)
     {
         _name = Name;
         _description = Description;
@@ -66,6 +70,24 @@ public class Card
         _prise = prise;
         _typeEquipment = typeEquipment;
         _nameEqupment = typeBoots;
+    }
+
+    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, int quantity = 0)
+    {
+        _name = Name;
+        _description = Description;
+        _sprite = Resources.Load<Sprite>(LoadSprite);
+        _type = TypeC;
+        _prise = prise;
+        _quantity = quantity;
+    }
+    public void SetQuantity(int quantity)
+    {
+        _quantity = quantity;
+    }
+    public void AppayQuantity(int quantity)
+    {
+        _quantity += quantity;
     }
 
     public void SetSprite(Sprite NewSprite)
