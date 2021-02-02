@@ -56,7 +56,8 @@ public class MassegeBox : MonoBehaviour
         });
         no.onClick.AddListener(() =>
         {
-            No();
+            if(No!=null)
+                No();
             Destroy(massegeBox);
         });
 

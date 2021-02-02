@@ -4,11 +4,50 @@ using UnityEngine.UI;
 
 public class Build
 {
-    public Build(GameObject cell)
+    public Build(GameObject cell, int rand= 0)
     {
-       cell.AddComponent<ComputerClub>();
+
+        switch (rand)
+        {
+            case 0:
+                {
+                    cell.AddComponent<Bank>();
+                    break;
+                }
+            case 1:
+                {
+                    cell.AddComponent<PoliceDepartment>();
+                    break;
+                }
+            case 2:
+                {
+                    cell.AddComponent<BlackMarket>();
+                    break;
+                }
+            case 3:
+                {
+                    cell.AddComponent<Bar>();
+                    break;
+                }
+            case 4:
+                {
+                    cell.AddComponent<ClothingStore>();
+                    break;
+                }
+            case 5:
+                {
+                    cell.AddComponent<WeaponsStore>();
+                    break;
+                }
+            case 6:
+                {
+                    cell.AddComponent<Trove>();
+                    break;
+                }
+        }
+
     }
-    private class PoliceDepartment : MonoBehaviour
+    public class PoliceDepartment : MonoBehaviour
     {
         private string _nameEvent = "Полицейский пост";
         private string _descriptionEvent = "Отдатдать две монеты ?Иначе две карты.";
@@ -96,7 +135,7 @@ public class Build
         }
     }
 
-    private class BlackMarket : MonoBehaviour
+    public class BlackMarket : MonoBehaviour
     {
         private string _nameEvent = "Черный рынок";
         private string _descriptionEvent = "Заплати монету, чтобы достать 3 карты и выбрать одну. " +
@@ -143,7 +182,7 @@ public class Build
         }
     }
 
-    private class Bar: MonoBehaviour
+    public class Bar: MonoBehaviour
     {
         private string _nameEvent = "Бар \"4217\"";
         private string _descriptionEvent = "Единственно место, где ты сможешь отдохнуть. " +
@@ -164,7 +203,7 @@ public class Build
         }
     }
 
-    private class ComputerClub : MonoBehaviour
+    public class ComputerClub : MonoBehaviour
     {
         private string _nameEvent = "Компьютерный клуб";
         private string _descriptionEvent = "Всегда можно найти школьника который загуглит информацию о картах. " +
@@ -188,7 +227,7 @@ public class Build
         }
     }
 
-    private class Bank : MonoBehaviour
+    public class Bank : MonoBehaviour
     {
         private string _nameEvent = "Банк";
         private string _descriptionEvent = "Вы получили 15 монет";
@@ -197,10 +236,14 @@ public class Build
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
-            _player.ApplyCoinDamage(15);
+            if (_player.GetClasses == ProfilePlayer.Classes.MOMFRIEND)
+            {
+                _player.ApplyCoinDamage(30);
+            }else _player.ApplyCoinDamage(15);
+
         }
     }
-    private class ClothingStore : MonoBehaviour
+    public class ClothingStore : MonoBehaviour
     {
         private string _nameEvent = "Магазинчик одежды";
         private string _descriptionEvent = "Место где можно купить одежду за монеты." +
@@ -216,7 +259,8 @@ public class Build
 
         private void Yes()
         {
-
+            SelectionCard.StaticShowSelectionCard(3, 3, _player, new[] { Card.TypeCard.EQUIPMENT },
+                new[] { Card.TypeEquipment.BODY, Card.TypeEquipment.BOOTS, Card.TypeEquipment.HEAD }, true);
         }
         private IEnumerator Rob()
         {
@@ -237,7 +281,7 @@ public class Build
         }
     }
 
-    private class WeaponsStore : MonoBehaviour
+    public class WeaponsStore : MonoBehaviour
     {
         private string _nameEvent = "Магазинчик оружия";
         private string _descriptionEvent = "Место где можно купить оружие за монеты." +
@@ -253,7 +297,8 @@ public class Build
 
         private void Yes()
         {
-
+            SelectionCard.StaticShowSelectionCard(3, 3, _player, new[] { Card.TypeCard.EQUIPMENT },
+                new[] { Card.TypeEquipment.WEAPON },true);
         }
         private IEnumerator Rob()
         {
@@ -274,7 +319,7 @@ public class Build
         }
     }
 
-    private class Trove : MonoBehaviour
+    public class Trove : MonoBehaviour
     {
         private string _nameEvent = "Клад";
         private string _descriptionEvent = "Можно открыть потратив четыре карты и получить 15 монет. " +

@@ -47,4 +47,17 @@ public class Traps
             StatusBar.StaticNewStatus(20, _effect, _player);
         }
     }
+
+    public class Mina : MonoBehaviour
+    {
+        private ProfilePlayer _player;
+
+        private Sprite _sprite;
+        private StatusBar.Effect _effect = StatusBar.Effect.STOP;
+        public Sprite GetSprite => _sprite;
+        public void SetSprite(Sprite sprite)
+        {
+            _sprite = sprite;
+        }
+    }
 }

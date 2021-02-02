@@ -9,16 +9,16 @@ public class CardMenegercr : MonoBehaviour
     private ProfilePlayer _player;
 
 
-    public static Card StaticRandCard(Card.TypeCard[] typeCard = null)
+    public static Card StaticRandCard(Card.TypeCard[] typeCard = null, Card.TypeEquipment[] typeEquipment=null)
     {
-       return _instans.RandCard(typeCard);
+        return _instans.RandCard(typeCard, typeEquipment);
     }
     private void Start()
     {
         _instans = this;
         _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
-        AllCards.Add(new Card("Чика", "Отдай монету, или жди 20 секунд. 50%", "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.TRAP, Card.TypeTrap.CHIKA));
-        AllCards.Add(new Card("Сапог скороход", "Добавляет 2 клетки к ходу.", "Simple Buttons/RPG_inventory_icons/boots", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEqupment.BOOTS_OF_SPEED));
+        AllCards.Add(new Card("Чика", "Отдай монету, или жди 20 секунд. 50%", 10, "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.TRAP, Card.TypeTrap.CHIKA));
+        AllCards.Add(new Card("Сапог скороход", "Добавляет 2 клетки к ходу.", 5, "Simple Buttons/RPG_inventory_icons/boots", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEqupment.BOOTS_OF_SPEED));
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());//исправить
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());
@@ -26,29 +26,49 @@ public class CardMenegercr : MonoBehaviour
         // _player.GetEquipment.AddBoots(AllCards[1].GetCopyCard());
     }
 
-    private Card RandCard(Card.TypeCard[] typeCard)
+    private Card RandCard(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
     {
         if (typeCard != null)
         {
-            List<Card> tmp = AllCardOfType(typeCard);
+            List<Card> tmp = AllCardOfType(typeCard,typeEquipment);
             int radomItem = Random.Range(0, tmp.Count);
             return tmp[radomItem].GetCopyCard();
         }
         return AllCards[Random.Range(0, AllCards.Count)].GetCopyCard();
 
     }
-    private List<Card> AllCardOfType(Card.TypeCard[] typeCard)
+    private List<Card> AllCardOfType(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
     {
         List<Card> AllCardsTypes = new List<Card>();
-        foreach(var card in AllCards)
+        if (typeCard[0] != Card.TypeCard.EQUIPMENT && typeEquipment == null)
         {
-            for(int i = 0; i<typeCard.Length; i++)
-                if(card.GetTypeCard == typeCard[i])
-                {
-                    AllCardsTypes.Add(card); // Поиск карт
-                    break;
-                }
+            foreach (var card in AllCards)
+            {
+                for (int i = 0; i < typeCard.Length; i++)
+                    if (card.GetTypeCard == typeCard[i])
+                    {
 
+                        AllCardsTypes.Add(card);
+                        break;
+
+                    }
+            }
+        }
+        else
+        {
+            foreach (var card in AllCards)
+            {
+                for (int i = 0; i < typeCard.Length; i++)
+                    if (card.GetTypeCard == typeCard[i])
+                    {
+                        for (int j = 0; j < typeEquipment.Length; j++)
+                            if (card.GetTypeEquipment == typeEquipment[j])
+                            {
+                                AllCardsTypes.Add(card);
+                                break;
+                            }
+                    }
+            }
         }
         return AllCardsTypes;
     }

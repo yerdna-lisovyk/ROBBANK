@@ -8,7 +8,8 @@ public class ProfilePlayer
     public enum Classes
     {
         OFFICER,
-        SCHOOLBOY
+        SCHOOLBOY,
+        MOMFRIEND
     }
 
     private string _playerName;
@@ -40,6 +41,7 @@ public class ProfilePlayer
     public int GetPlayerSpeed => _playerSpeed;
     public string GetPlayerName => _playerName;
     public Sprite GetSpritePlayer => _spritePlayer;
+    public Classes GetClasses => _class;
     public Invetory GetInvetory => _invetoryPlayer;
     public Equipment GetEquipment => _equipmentPlayer;
     public int GetPlayerCell => _playerCell;
@@ -51,7 +53,7 @@ public class ProfilePlayer
     {
         _playerName = Name;
         _spritePlayer = Resources.Load<Sprite>(LoadPlayerSprite);
-        _playerCoin = 2;
+        _playerCoin = 20;
         _playerSpeed = 1;
         _playingCarad = 0;
         _maxPlayingCarad = 1;

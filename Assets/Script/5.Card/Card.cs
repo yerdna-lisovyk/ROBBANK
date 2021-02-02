@@ -31,6 +31,8 @@ public class Card
     private Sprite _sprite;
     private string _name;
     private string _description;
+    private int _prise;
+
     private TypeCard _type;
     private TypeTrap _typeTrap;
     private TypeEquipment _typeEquipment;
@@ -38,27 +40,30 @@ public class Card
 
     public Sprite GetSprite => _sprite;
     public string GetName => _name;
+    public int GetPrise => _prise;
     public string GetDescription => _description;
     public TypeEquipment GetTypeEquipment => _typeEquipment;
     public TypeCard GetTypeCard => _type;
     public TypeTrap GetTypeTrap => _typeTrap;
     public NameEqupment GetNameEqupment => _nameEqupment;
 
-    public Card(string Name, string Description, string LoadSprite, TypeCard TypeC, TypeTrap TypeT)
+    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeTrap TypeT)
     {
         _name = Name;
         _description = Description;
         _sprite = Resources.Load<Sprite>(LoadSprite);
         _type = TypeC;
+        _prise = prise;
         _typeTrap = TypeT;
     }
 
-    public Card(string Name, string Description, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, NameEqupment typeBoots)
+    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, NameEqupment typeBoots)
     {
         _name = Name;
         _description = Description;
         _sprite = Resources.Load<Sprite>(LoadSprite);
         _type = TypeC;
+        _prise = prise;
         _typeEquipment = typeEquipment;
         _nameEqupment = typeBoots;
     }

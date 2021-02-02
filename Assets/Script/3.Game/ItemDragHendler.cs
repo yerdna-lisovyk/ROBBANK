@@ -17,12 +17,7 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
     }
     public void ShowInfoCard()
     {
-        if (!gameObject.GetComponent<CardInfo>().IsNull)
-        {
-            string Name = gameObject.GetComponent<CardInfo>().GetCard.GetName + ", " + gameObject.GetComponent<CardInfo>().GetCard.GetTypeCard.ToString();
-            string Description = gameObject.GetComponent<CardInfo>().GetCard.GetDescription;
-            Tooltip.ShowTooltip_Static(Name, Description);
-        }
+        InformationButton.StaticShowInformatinButton(gameObject, transform.parent.parent.parent.parent);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -48,6 +43,7 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
 
     void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
     {
+        InformationButton.StaticHideInformatinButton();
         Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
         canvasGroup.blocksRaycasts = false;
         perrentToretyrnTo = transform.parent;
