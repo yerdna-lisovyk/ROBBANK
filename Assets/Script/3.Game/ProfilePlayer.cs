@@ -81,6 +81,7 @@ public class ProfilePlayer
     {
         Array A = Enum.GetValues(typeof(Classes));
         _class = (Classes)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+        Tooltip.ShowTooltip_Static("Ваш Класс", _class.ToString());
     }
 
     public void EndTurn()
@@ -102,7 +103,7 @@ public class ProfilePlayer
     }
     public void NewTurn()
     {
-        if (!IsStopEffect())
+        if (!IsActiveEffect(StatusBar.Effect.STOP))
         {
             _playingCarad = 0;
             _step = false;
@@ -151,11 +152,11 @@ public class ProfilePlayer
             _playerSpeed = 0;
         _playerSpeed += Speed;
     }
-    private bool IsStopEffect()
+    public bool IsActiveEffect(StatusBar.Effect effect)
     {
-        foreach (var effect in _activeEffect)
+        foreach (var ActiveEffect in _activeEffect)
         {
-            if (effect == StatusBar.Effect.STOP)
+            if (ActiveEffect == effect)
                 return true;
         }
         return false;

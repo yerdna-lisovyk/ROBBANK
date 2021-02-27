@@ -47,6 +47,13 @@ public class Build
         }
 
     }
+    public static void ShowBuildSprite(Sprite sprite,GameObject go ,bool f)
+    {
+        go.transform.Find("Build").GetComponent<SpriteRenderer>().sprite = sprite;
+        GameObject ob = go.transform.Find("Build").gameObject;
+        if (!f) ob.SetActive(true);
+    }
+
     public class PoliceDepartment : MonoBehaviour
     {
         private string _nameEvent = "Полицейский пост";
@@ -57,6 +64,8 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"), 
+                gameObject,_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
             DisePanel.StaticShowDisce();
             StartCoroutine(IsActivePanel());
             _removeCard = 0;
@@ -147,6 +156,8 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
+                             gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, No, true, Rob());
         }
 
@@ -191,7 +202,10 @@ public class Build
         private ProfilePlayer _player;
         private void OnTriggerEnter2D(Collider2D collision)
         {
+
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
+                 gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
             _player.SetCanAttack(false);
             _player.SetImpervious(true);
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
@@ -214,6 +228,8 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
+                gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, No);
         }
         private void Yes()
@@ -234,7 +250,10 @@ public class Build
         private ProfilePlayer _player;
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
+                 gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
             if (_player.GetClasses == ProfilePlayer.Classes.MOMFRIEND)
             {
@@ -254,6 +273,8 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
+                gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, null, false, Rob());
         }
 
@@ -267,7 +288,7 @@ public class Build
             DisePanel.StaticShowDisce();
             while (DisePanel.IsActivate)
             {
-                yield return new WaitForSeconds(0.04f);
+                yield return null;
             }
             int vallue = DisePanel.GetFinalValue;
             if (vallue < 5)
@@ -292,6 +313,8 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
+                gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, null, false, Rob());
         }
 
@@ -305,7 +328,7 @@ public class Build
             DisePanel.StaticShowDisce();
             while (DisePanel.IsActivate)
             {
-                yield return new WaitForSeconds(0.04f);
+                yield return null;
             }
             int vallue = DisePanel.GetFinalValue;
             if (vallue > 5)
@@ -330,6 +353,8 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
+                gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes,null);
         }
 

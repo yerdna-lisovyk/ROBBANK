@@ -46,6 +46,19 @@ public class Equipment
             }
         }
     }
+    public bool SearchByEquipment(Card.NameEqupment name)
+    {
+        if (_body.GetComponent<CardInfo>().GetCard.GetNameEqupment == name)
+            return true;
+        if (_head.GetComponent<CardInfo>().GetCard.GetNameEqupment == name)
+            return true;
+        if (_weapon.GetComponent<CardInfo>().GetCard.GetNameEqupment == name)
+            return true;
+        foreach(var boot in _boots)
+            if (boot.GetComponent<CardInfo>().GetCard.GetNameEqupment == name)
+                return true;
+        return false;
+    }
     public void AddEquipment(Card NewEquipment)
     {
         switch(NewEquipment.GetTypeEquipment)

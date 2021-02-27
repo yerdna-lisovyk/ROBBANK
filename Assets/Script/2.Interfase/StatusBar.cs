@@ -7,7 +7,9 @@ public class StatusBar : MonoBehaviour
     public enum Effect
     {
         STOP,
-        VISIBILITY
+        VISIBILITY,
+        NOTVISIBILITY,
+        TOOKDAMAGE
     }
 
     private static StatusBar _instans;
@@ -52,6 +54,14 @@ public class StatusBar : MonoBehaviour
             case Effect.VISIBILITY:
                 {
                     return Resources.Load<Sprite>("eye");
+                }
+            case Effect.NOTVISIBILITY:
+                {
+                    return Resources.Load<Sprite>("NonEye");
+                }
+            case Effect.TOOKDAMAGE:
+                {
+                    return Resources.Load<Sprite>("VAGABOND");
                 }
         }
         return null;

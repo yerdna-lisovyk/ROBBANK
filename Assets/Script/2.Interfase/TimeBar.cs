@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class TimeBar : MonoBehaviour
 {
+    private static TimeBar _instans;
     private Slider _slider;
     private ProfilePlayer _player;
 
     [SerializeField] private PlayerMove _button = null;
+    
 
     public void StartTimer()
     {
@@ -17,6 +19,7 @@ public class TimeBar : MonoBehaviour
 
     private void Start()
     {
+        _instans = this;
         _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
         _slider = GetComponent<Slider>();
     }

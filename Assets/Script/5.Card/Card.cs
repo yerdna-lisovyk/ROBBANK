@@ -14,7 +14,8 @@ public class Card
     {
         NO_TRAP,
         CHIKA,
-        MINA
+        MINA,
+        VAGABOND
     }
     public enum TypeEquipment
     {

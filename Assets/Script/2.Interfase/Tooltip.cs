@@ -40,7 +40,7 @@ public class Tooltip : MonoBehaviour
     }
     private IEnumerator SetCollider()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         for (float f = 0.01f; f <= 1; f += 0.01f)
         {
             Color color = new Color(1f, 1f, 1f);

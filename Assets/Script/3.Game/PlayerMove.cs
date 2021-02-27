@@ -34,8 +34,22 @@ public class PlayerMove : MonoBehaviour
         _player.SetPlayerCell(_player.GetPlayerSpeed);
         string NameCellNext = "Cell_" + _player.GetPlayerCell;
         return GameObject.Find(NameCellNext);
+    }
+
+    private GameObject CellBack()
+    {
+        _player.SetPlayerCell(_player.GetPlayerSpeed);
+        string NameCellNext = "Cell_" + _player.GetPlayerCell;
+        return GameObject.Find(NameCellNext);
 
     }
 
+    public void BackMove(int backCell)
+    {
+        _player.SetPlayerCell(-backCell);
+        string NameCellNext = "Cell_" + _player.GetPlayerCell;
+        cell = GameObject.Find(NameCellNext);
+        transform.position = new Vector3(transform.position.x + (cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
+    }
 
 }

@@ -20,12 +20,15 @@ public class CardMenegercr : MonoBehaviour
         AllCards.Add(new Card("Чика", "теряешь 3 монеты и ждешь 20 секунд.", 10, "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.TRAP, Card.TypeTrap.CHIKA));
         AllCards.Add(new Card("Мина", "Отдай монету, или жди 20 секунд. 50%", 10, "Simple Buttons/RPG_inventory_icons/pngegg", Card.TypeCard.TRAP, Card.TypeTrap.MINA));
         AllCards.Add(new Card("Сапог скороход", "Добавляет 2 клетки к ходу.", 5, "Simple Buttons/RPG_inventory_icons/boots", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEqupment.BOOTS_OF_SPEED));
+        AllCards.Add(new Card("Бомж", "Отнимает монеты каждый ход.", 5, "VAGABOND", Card.TypeCard.TRAP, Card.TypeTrap.VAGABOND));
+
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());//исправить
         _player.GetInvetory.AddCard(AllCards[1].GetCopyCard());
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());
+        _player.GetInvetory.AddCard(AllCards[3].GetCopyCard());
         _player.GetAmmo.AddAmmo(40);
-        //  _player.GetEquipment.AddBoots(AllCards[].GetCopyCard());
-        // _player.GetEquipment.AddBoots(AllCards[1].GetCopyCard());
+          //_player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
+        // _player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
     }
 
     private Card RandCard(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
