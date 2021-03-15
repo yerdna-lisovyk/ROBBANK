@@ -9,7 +9,7 @@ public class StatusBar : MonoBehaviour
         STOP,
         VISIBILITY,
         NOTVISIBILITY,
-        TOOKDAMAGE
+        VAGABOND
     }
 
     private static StatusBar _instans;
@@ -59,7 +59,7 @@ public class StatusBar : MonoBehaviour
                 {
                     return Resources.Load<Sprite>("NonEye");
                 }
-            case Effect.TOOKDAMAGE:
+            case Effect.VAGABOND:
                 {
                     return Resources.Load<Sprite>("VAGABOND");
                 }

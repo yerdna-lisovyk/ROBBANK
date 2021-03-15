@@ -22,7 +22,7 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (eventData.pointerDrag.GetComponent<Image>().sprite != null)//исправить условие
+        if (eventData.pointerDrag.GetComponent<Image>().sprite != null)
         {
             transform.position = Input.mousePosition;
         }

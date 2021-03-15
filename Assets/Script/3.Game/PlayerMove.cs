@@ -44,9 +44,10 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    public void BackMove(int backCell)
+
+    public void MoveToPoint(int PointMove)
     {
-        _player.SetPlayerCell(-backCell);
+        _player.SetPlayerCell(PointMove);
         string NameCellNext = "Cell_" + _player.GetPlayerCell;
         cell = GameObject.Find(NameCellNext);
         transform.position = new Vector3(transform.position.x + (cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);

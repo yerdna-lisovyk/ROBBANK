@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Equipment
@@ -104,5 +106,20 @@ public class Equipment
         {
             icon.GetComponent<CardInfo>().SetCardInfo(null);
         }
+    }
+
+    public void RemoveRandEquip()
+    {
+        List<GameObject> Equip = new List<GameObject>();
+        if (!_body.GetComponent<CardInfo>().IsNull)
+            Equip.Add(_body);
+        if (_head.GetComponent<CardInfo>().IsNull)
+            Equip.Add(_head);
+        if (_weapon.GetComponent<CardInfo>().IsNull)
+            Equip.Add(_weapon);
+        foreach (var boot in _boots)
+            if (boot.GetComponent<CardInfo>().IsNull)
+                Equip.Add(boot);
+        if(Equip.Count!=0) Equip[UnityEngine.Random.Range(0, Equip.Count)].GetComponent<CardInfo>().SetCardInfo(null);
     }
 }

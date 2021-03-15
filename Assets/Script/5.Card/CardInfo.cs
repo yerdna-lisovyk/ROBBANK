@@ -17,7 +17,6 @@ public class CardInfo : MonoBehaviour //визуальная информаци�
 
             if (NewCard.GetTypeCard == Card.TypeCard.AMMO)
             {
-
                 text.SetActive(true);
                 text.GetComponent<Text>().text = NewCard.GetQuantity.ToString();
             }

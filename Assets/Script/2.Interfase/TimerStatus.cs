@@ -29,7 +29,7 @@ public class TimerStatus : MonoBehaviour
                     StartCoroutine(TimerEffectNotVisibility(seconds, effect));
                     break;
                 }
-            case StatusBar.Effect.TOOKDAMAGE:
+            case StatusBar.Effect.VAGABOND:
                 {
                     StartCoroutine(TimerEffectVagabond(seconds,effect, player));
                     break;

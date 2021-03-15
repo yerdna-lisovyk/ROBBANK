@@ -28,7 +28,9 @@ public class Card
     public enum NameEqupment
     {
         BOOTS_OF_SPEED,
-        SHOES_WITHOUT_SOLES
+        SHOES_WITHOUT_SOLES,
+        FOIL_CAP,
+        WELDER_GOGGLES
     }
 
     private Sprite _sprite;
