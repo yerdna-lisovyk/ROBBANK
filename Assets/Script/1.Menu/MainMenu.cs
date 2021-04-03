@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
 
-    public void NewGame(int lvl1)
+    public void NewGame(int lvl)
     {
-        SceneManager.LoadScene(lvl1);
+        SceneManager.LoadScene(lvl);
 
     }
 
