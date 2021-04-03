@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 4502374026111111527}
   - component: {fileID: 19376474358674097}
   - component: {fileID: 662329502226335980}
+  - component: {fileID: 2441751504815413224}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Untagged
@@ -165,7 +166,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2919826975703045444, guid: c1009721f3461894da32d1349efef03a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -222,6 +223,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b999fd063f89e5743835cbb1a57745f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2441751504815413224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149857092276602336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3881551b9c5b4b4e8f10eb5d4d02051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5520998236307234719

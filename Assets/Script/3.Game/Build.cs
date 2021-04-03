@@ -47,25 +47,27 @@ public class Build
         }
 
     }
-    public static void ShowBuildSprite(Sprite sprite,GameObject go ,bool f)
-    {
-        go.transform.Find("Build").GetComponent<SpriteRenderer>().sprite = sprite;
-        GameObject ob = go.transform.Find("Build").gameObject;
-        if (!f) ob.SetActive(true);
-    }
-
     public class PoliceDepartment : MonoBehaviour
     {
         private string _nameEvent = "Полицейский пост";
         private string _descriptionEvent = "Отдатдать две монеты ?Иначе две карты.";
         private ProfilePlayer _player;
         private int _removeCard;
+        private Sprite _sptiteEvent;
+
+        private void Awake()
+        {
+            _sptiteEvent = Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police");
+            gameObject.GetComponent<CellInfo>().SetBuildInfo(_sptiteEvent, _nameEvent, _descriptionEvent);      
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"), 
-                gameObject,_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
+            if(!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+            {
+                gameObject.transform.Find("Build").gameObject.SetActive(true); 
+            }
             DisePanel.StaticShowDisce();
             StartCoroutine(IsActivePanel());
             _removeCard = 0;
@@ -153,11 +155,21 @@ public class Build
             "со всем своим имуществом, а если улыбнется удача, то получи 10 монет и карту оружия или одежды." +
             " Не действуют карты отмены.";
         private ProfilePlayer _player;
+        private Sprite _sptiteEvent;
+
+        private void Awake()
+        {
+            _sptiteEvent = Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police");
+            gameObject.GetComponent<CellInfo>().SetBuildInfo(_sptiteEvent, _nameEvent, _descriptionEvent);
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
-                             gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
+            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+            {
+                gameObject.transform.Find("Build").gameObject.SetActive(true);
+            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, No, true, Rob());
         }
 
@@ -200,12 +212,22 @@ public class Build
             "Пока ты на этой клетке, никто не может на тебя напасть." +
             " Но и ты тоже ничего не можешь сделать. Просто отдохни.";
         private ProfilePlayer _player;
+        private Sprite _sptiteEvent;
+
+        private void Awake()
+        {
+            _sptiteEvent = Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police");
+            gameObject.GetComponent<CellInfo>().SetBuildInfo(_sptiteEvent, _nameEvent, _descriptionEvent);
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
 
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
-                 gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
+            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+            {
+                gameObject.transform.Find("Build").gameObject.SetActive(true);
+            }
             _player.SetCanAttack(false);
             _player.SetImpervious(true);
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
@@ -224,12 +246,22 @@ public class Build
             "(Посмотри три карты в колоде и выбери одну себе) Отдай 2 монеты " +
             "чтобы посмотреть 60 секунд все клетки на поле.";
         private ProfilePlayer _player;
+        private Sprite _sptiteEvent;
+
+        private void Awake()
+        {
+            _sptiteEvent = Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police");
+            gameObject.GetComponent<CellInfo>().SetBuildInfo(_sptiteEvent, _nameEvent, _descriptionEvent);
+        }
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
-                gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
+            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+            {
+                gameObject.transform.Find("Build").gameObject.SetActive(true);
+            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, No);
         }
         private void Yes()
@@ -248,12 +280,22 @@ public class Build
         private string _nameEvent = "Банк";
         private string _descriptionEvent = "Вы получили 15 монет";
         private ProfilePlayer _player;
+        private Sprite _sptiteEvent;
+
+        private void Awake()
+        {
+            _sptiteEvent = Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police");
+            gameObject.GetComponent<CellInfo>().SetBuildInfo(_sptiteEvent, _nameEvent, _descriptionEvent);
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
-                 gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
+            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+            {
+                gameObject.transform.Find("Build").gameObject.SetActive(true);
+            }
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
             if (_player.GetClasses == ProfilePlayer.Classes.MOMFRIEND)
             {
@@ -269,12 +311,22 @@ public class Build
             " Если ограбление удачно то + рандомная карта одежды, если нет, " +
             "то теряешь свою надетую одежду и 2 монеты.";
         private ProfilePlayer _player;
+        private Sprite _sptiteEvent;
+
+        private void Awake()
+        {
+            _sptiteEvent = Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police");
+            gameObject.GetComponent<CellInfo>().SetBuildInfo(_sptiteEvent, _nameEvent, _descriptionEvent);
+        }
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
-                gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
+            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+            {
+                gameObject.transform.Find("Build").gameObject.SetActive(true);
+            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, null, false, Rob());
         }
 
@@ -309,12 +361,22 @@ public class Build
             " Если ограбление удачно то + рандомная карта оружия, если нет, " +
             "то теряешь своё надетое оружие и 2 монеты.";
         private ProfilePlayer _player;
+        private Sprite _sptiteEvent;
+
+        private void Awake()
+        {
+            _sptiteEvent = Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police");
+            gameObject.GetComponent<CellInfo>().SetBuildInfo(_sptiteEvent, _nameEvent, _descriptionEvent);
+        }
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
-                gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
+            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+            {
+                gameObject.transform.Find("Build").gameObject.SetActive(true);
+            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, null, false, Rob());
         }
 
@@ -349,12 +411,22 @@ public class Build
             "Если есть саперная лапта, откапывай благодаря ей. " +
             "Лапта остается в инвентаре. ";
         private ProfilePlayer _player;
+        private Sprite _sptiteEvent;
+
+        private void Awake()
+        {
+            _sptiteEvent = Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police");
+            gameObject.GetComponent<CellInfo>().SetBuildInfo(_sptiteEvent, _nameEvent, _descriptionEvent);
+        }
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            ShowBuildSprite(Resources.Load<Sprite>("Simple Buttons/RPG_inventory_icons/Police"),
-                gameObject, _player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY));
+            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+            {
+                gameObject.transform.Find("Build").gameObject.SetActive(true);
+            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes,null);
         }
 
