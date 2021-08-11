@@ -44,7 +44,7 @@ public class CardMenegercr : MonoBehaviour
     }
     private List<Card> AllCardOfType(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
     {
-        List<Card> AllCardsTypes = new List<Card>();
+        List<Card> allCardsTypes = new List<Card>();
         if (typeEquipment == null)
         {
             foreach (var card in AllCards)
@@ -53,7 +53,7 @@ public class CardMenegercr : MonoBehaviour
                     if (card.GetTypeCard == typeCard[i])
                     {
 
-                        AllCardsTypes.Add(card);
+                        allCardsTypes.Add(card);
                         break;
 
                     }
@@ -69,13 +69,13 @@ public class CardMenegercr : MonoBehaviour
                         for (int j = 0; j < typeEquipment.Length; j++)
                             if (card.GetTypeEquipment == typeEquipment[j])
                             {
-                                AllCardsTypes.Add(card);
+                                allCardsTypes.Add(card);
                                 break;
                             }
                     }
             }
         }
-        return AllCardsTypes;
+        return allCardsTypes;
     }
 
 

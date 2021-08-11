@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_ROBBANK.-1569177542.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Admin\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ROBBANK.-1569177542.00" t="ExcludeRecursive" />
     <e p="C:\Users\Admin\ROBBANK" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -41,6 +41,7 @@
             <e p="PlayerMeneger.cs" t="Include" />
             <e p="PlayerMove.cs" t="Include" />
             <e p="ProfilePlayer.cs" t="Include" />
+            <e p="ShowInformationCell.cs" t="Include" />
             <e p="Voult.cs" t="Include" />
           </e>
           <e p="5.Card" t="Include">

@@ -64,10 +64,6 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if(!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
-            {
-                gameObject.transform.Find("Build").gameObject.SetActive(true); 
-            }
             DisePanel.StaticShowDisce();
             StartCoroutine(IsActivePanel());
             _removeCard = 0;
@@ -166,10 +162,6 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
-            {
-                gameObject.transform.Find("Build").gameObject.SetActive(true);
-            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, No, true, Rob());
         }
 
@@ -224,10 +216,6 @@ public class Build
         {
 
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
-            {
-                gameObject.transform.Find("Build").gameObject.SetActive(true);
-            }
             _player.SetCanAttack(false);
             _player.SetImpervious(true);
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
@@ -258,10 +246,6 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
-            {
-                gameObject.transform.Find("Build").gameObject.SetActive(true);
-            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, No);
         }
         private void Yes()
@@ -292,10 +276,6 @@ public class Build
         {
             
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
-            {
-                gameObject.transform.Find("Build").gameObject.SetActive(true);
-            }
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
             if (_player.GetClasses == ProfilePlayer.Classes.MOMFRIEND)
             {
@@ -323,10 +303,6 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
-            {
-                gameObject.transform.Find("Build").gameObject.SetActive(true);
-            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, null, false, Rob());
         }
 
@@ -373,10 +349,6 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
-            {
-                gameObject.transform.Find("Build").gameObject.SetActive(true);
-            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes, null, false, Rob());
         }
 
@@ -423,10 +395,6 @@ public class Build
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (!_player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
-            {
-                gameObject.transform.Find("Build").gameObject.SetActive(true);
-            }
             MassegeBox.StaticShowMassege(_nameEvent, _descriptionEvent, Yes,null);
         }
 

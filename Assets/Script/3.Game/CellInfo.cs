@@ -7,19 +7,18 @@ public class CellInfo : MonoBehaviour
     private int _cellNum;
 
     private Sprite _spriteBuild;
-    private string _nameBuild;
+    private string _titleBuild;
     private string _descriptionBuild;
 
     private List<Card> _activeCard = new List<Card>();
 
     public Sprite GetSprite => _spriteBuild;
-    public string GetNameBuild => _nameBuild;
+    public string GetNameBuild => _titleBuild;
     public string GetDescriptionBuild => _descriptionBuild;
 
-    public bool IsHaveTrap ()
+    public bool IsHaveTrap()
     {
-        if (_activeCard.Count != 0) return true;
-        return false;
+        return _activeCard.Count != 0;
     }
 
     public List<Card> GetActiveCard => _activeCard;
@@ -29,13 +28,22 @@ public class CellInfo : MonoBehaviour
         _activeCard.Add(card);
     }
 
-    public void SetBuildInfo(Sprite sprite, string name,string description)
+    public void SetBuildInfo(Sprite sprite, string title, string description)
     {
         _spriteBuild = sprite;
-        _nameBuild = name;
+        _titleBuild = title;
         _descriptionBuild = description;
-        Debug.Log(gameObject.transform.Find("Build").GetComponent<SpriteRenderer>().sprite);
         gameObject.transform.Find("Build").GetComponent<SpriteRenderer>().sprite = _spriteBuild;
-        Debug.Log(gameObject.transform.Find("Build").GetComponent<SpriteRenderer>().sprite);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+        if (!player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+        {
+            gameObject.transform.Find("Build").gameObject.SetActive(true); 
+        }
+    }
+    
+    
 }

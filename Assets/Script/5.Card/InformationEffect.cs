@@ -20,7 +20,6 @@ public static class InformationEffect
             }, () =>
             {
                 _massgeYes = true;
-                Debug.Log("типа реклама");
                 StatusBar.StaticDestroyStatus(StatusBar.Effect.VAGABOND); // реклама
         }
             , true);

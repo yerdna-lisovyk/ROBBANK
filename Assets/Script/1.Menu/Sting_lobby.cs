@@ -16,7 +16,6 @@ public class Sting_lobby : MonoBehaviour
         GameObject.Find("ButtonLobby").SetActive(false);
         GameObject.Find("Player").SetActive(true);
         _time.StartTimer();
-
     }
 
     private void Awake()
@@ -39,7 +38,7 @@ public class Sting_lobby : MonoBehaviour
     {
         if (Panel.activeSelf)
             Panel.SetActive(false);
-        else
+       else
             Panel.SetActive(true);
     }
     public void EndGame()
