@@ -19,24 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/riderModule.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" afterDir="false" />
+    <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="New Animation">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/InformationPanel.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/InformationPanel.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/ShowInformation.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/ShowInformation.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Object/Cell.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Object/Cell.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Object/BlockPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Object/BlockPanel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/New_lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/New_lobby.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/1.Menu/Sting_lobby.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/1.Menu/Sting_lobby.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/CellInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/CellInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/InformationEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/InformationEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/TrapDrop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/TrapDrop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +43,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Script/2.Interfase/InformationCellBox.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Admin/ROBBANK/Assets/Script/5.Card/TrapDrop.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Admin/ROBBANK/Assets/Script/1.Menu/Sting_lobby.cs" root0="SKIP_HIGHLIGHTING" />
@@ -68,6 +57,7 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Build.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/InformationCellBox.cs" />
       </list>
     </option>
   </component>
@@ -138,8 +128,23 @@
       <workItem from="1628663488850" duration="1000" />
       <workItem from="1628663514190" duration="414000" />
       <workItem from="1628664986190" duration="31000" />
-      <workItem from="1628665095340" duration="925000" />
+      <workItem from="1628665095340" duration="7630000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix">
+      <created>1628666619198</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628666619198</updated>
+    </task>
+    <task id="LOCAL-00002" summary="New Animation">
+      <created>1628666636912</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1628666636912</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,5 +178,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Fix" />
+    <MESSAGE value="New Animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Animation" />
   </component>
 </project>

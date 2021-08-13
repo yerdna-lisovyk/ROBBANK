@@ -19,6 +19,7 @@
             <e p="Dice.cs" t="Include" />
             <e p="DisePanel.cs" t="Include" />
             <e p="InformationButton.cs" t="Include" />
+            <e p="InformationCellBox.cs" t="Include" />
             <e p="InformationPanel.cs" t="Include" />
             <e p="MassegeBox.cs" t="Include" />
             <e p="SelectionCard.cs" t="Include" />
