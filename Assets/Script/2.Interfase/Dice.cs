@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class Dice : MonoBehaviour
 {
+    
     private Sprite[] _diceSides;
     private Image _image;
     private int _value;
-
     private void Awake()
     {
         _image = gameObject.GetComponent<Image>();

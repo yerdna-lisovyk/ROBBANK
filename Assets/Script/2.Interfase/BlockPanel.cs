@@ -27,7 +27,11 @@ public class BlockPanel : MonoBehaviour
 
     private void ShowBlockPanel()
     {
-        _template = Instantiate(_instans._panel, _hud);
+        if (_template == null)
+        {
+            _template = Instantiate(_instans._panel, _hud);
+            
+        }
     }
     private void HideBlockPanel()
     {

@@ -5,7 +5,7 @@ public class Setting_box : MonoBehaviour
 {
     [SerializeField] private GameObject Panel = null;
 
-
+    
     public void OpenSetting()
     {
 

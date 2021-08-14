@@ -41,7 +41,7 @@ public class Build
                 }
             case 6:
                 {
-                    cell.AddComponent<Trove>();
+                    cell.AddComponent<ComputerClub>();
                     break;
                 }
         }

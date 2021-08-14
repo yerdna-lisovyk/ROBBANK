@@ -7,7 +7,7 @@ public class Sting_lobby : MonoBehaviour
     private Cells _cells;
     [SerializeField] private GameObject Panel = null;
 
-
+    /* Старт таймера поиск игроков и генерации клеток, включение движения камеры */
     public void StartGame()
     {
         _cells.SpawnCell();
@@ -27,11 +27,11 @@ public class Sting_lobby : MonoBehaviour
 
     public void collSelsto_min()
     {
-        _cells.SetcСollSels(50);
+        _cells.SetAmountCells(50);
     }
     public void collSelsto_max()
     {
-        _cells.SetcСollSels(100);
+        _cells.SetAmountCells(100);
     }
 
     public void Back()

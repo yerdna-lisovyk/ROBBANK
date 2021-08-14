@@ -14,6 +14,8 @@ public class InformationCellBox : MonoBehaviour
     
     private Image _spriteCard;
     private Text _descriptionCell;
+
+    public static bool IsActivePanel => _instans.gameObject.activeSelf;
     private void Awake()
     {
         _instans = this;
@@ -25,10 +27,13 @@ public class InformationCellBox : MonoBehaviour
     {
         _instans.ShowInformationCellBox(сards);
     }
+    public void PubHideInformationCellBox()
+    {
+        _instans.HideInformationCellBox();
+    }
     
     private void ShowInformationCellBox (List<Card> сards)
     {
-        BlockPanel.StaticShowBlockPanel();
         _content = transform.GetChild(0).GetChild(0).GetChild(0);
         foreach (var card in сards)
         {
@@ -39,10 +44,14 @@ public class InformationCellBox : MonoBehaviour
             _descriptionCell.text = card.GetDescription;
         }
         gameObject.SetActive(true);
+        
     } 
     private void HideInformationCellBox ()
     {
-        BlockPanel.StaticHideBlockPanel();
+        foreach (Transform child in _content.transform)
+        {
+            Destroy(child.gameObject);
+        }
         gameObject.SetActive(false);
     }    
 }

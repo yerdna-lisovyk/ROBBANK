@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Clear : MonoBehaviour
 {
+    /*очистка спрайтов на прозрачный цвет*/
     private void Start()
     {
 
