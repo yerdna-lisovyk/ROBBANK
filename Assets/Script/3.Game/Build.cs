@@ -79,20 +79,20 @@ public class Build
             if (vallue > 3) Tooltip.ShowTooltip_Static(_nameEvent, "Вы свободны");
             else
             {
-                if (_player.GetInvetory.QuantityCard() < 2 && _player.GetCoin <= 2)
+                if (_player.GetInventors.QuantityCard() < 2 && _player.GetCoin <= 2)
                 {
                     StatusBar.StaticNewStatus(30, StatusBar.Effect.STOP, _player);
                 }
                 else
-                if (_player.GetInvetory.QuantityCard() < 2)
+                if (_player.GetInventors.QuantityCard() < 2)
                 {
                     Yes();
                     Tooltip.ShowTooltip_Static(_nameEvent, "Вы отдали : " + 2 + " Монеты");
                 }
                 else
-                if (_player.GetInvetory.QuantityCard() == 2)
+                if (_player.GetInventors.QuantityCard() == 2)
                 {
-                    foreach (var card in _player.GetInvetory.GetHand)
+                    foreach (var card in _player.GetInventors.GetHand)
                     {
                         if (!card.GetComponent<CardInfo>().IsNull)
                         {
@@ -114,7 +114,7 @@ public class Build
         private void No()
         {
             BlockPanel.StaticShowBlockPanel();
-            GameObject[] hand = _player.GetInvetory.GetHand;
+            GameObject[] hand = _player.GetInventors.GetHand;
             foreach (var card in hand)
             {
                 if (!card.GetComponent<CardInfo>().IsNull)
@@ -133,7 +133,7 @@ public class Build
         }
         private void DelListener()
         {
-            GameObject[] hand = _player.GetInvetory.GetHand;
+            GameObject[] hand = _player.GetInventors.GetHand;
             foreach (var card in hand)
                 if (!card.GetComponent<CardInfo>().IsNull)
                 {
@@ -187,7 +187,7 @@ public class Build
             if (vallue < 5)
             {
                 _player.GetEquipment.RemoveAllEquipment();
-                _player.GetInvetory.RemoveAllCard();
+                _player.GetInventors.RemoveAllCard();
                 Tooltip.ShowTooltip_Static(_nameEvent, "Вы потеряли всё!");
             }
             else
@@ -278,7 +278,7 @@ public class Build
             
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
-            if (_player.GetClasses == ProfilePlayer.Classes.MOMFRIEND)
+            if (_player.GetClasses == ProfilePlayer.Classes.MOM_FRIEND)
             {
                 _player.ApplyCoinDamage(30);
             }else _player.ApplyCoinDamage(15);

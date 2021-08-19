@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Voult
+public class Storage
 {
-    private GameObject[] _voult;
+    private GameObject[] _storage;
 
-    public Voult()
+    public Storage()
     {
-        _voult = GameObject.FindGameObjectsWithTag("Voult");
+        _storage = GameObject.FindGameObjectsWithTag("Voult");
     }
 
     public void AddCard(Card NewCard)
     {
-        foreach (var icon in _voult)
+        foreach (var icon in _storage)
         {
             if (icon.transform.GetComponent<Image>().sprite == null)
             {

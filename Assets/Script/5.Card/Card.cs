@@ -31,7 +31,8 @@ public class Card
         SHOES_WITHOUT_SOLES,
         MAFIOSO_SHOES,
         FOIL_CAP,
-        WELDER_GOGGLES
+        WELDER_GOGGLES,
+        BULLETPROOF_VEST
     }
 
     private Sprite _sprite;

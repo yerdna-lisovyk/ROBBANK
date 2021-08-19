@@ -22,14 +22,14 @@ public class Ammo
         if (_ammoCard.GetQuantity == 0)
         {
             _ammoCard.SetQuantity(quantity);
-            _player.GetInvetory.AddCard(_ammoCard);
+            _player.GetInventors.AddCard(_ammoCard);
             
         }
         else
         {
             _ammoCard.ApplyQuantity(quantity);
             if(_ammoCard.GetQuantity == 0)
-                foreach(var icon in _player.GetInvetory.GetHand)
+                foreach(var icon in _player.GetInventors.GetHand)
                 {
                     if(icon.GetComponent<CardInfo>().GetCard.GetTypeCard == Card.TypeCard.AMMO)
                     {

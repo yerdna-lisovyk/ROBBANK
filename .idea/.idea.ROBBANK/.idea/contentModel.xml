@@ -43,7 +43,7 @@
             <e p="PlayerMove.cs" t="Include" />
             <e p="ProfilePlayer.cs" t="Include" />
             <e p="ShowInformationCell.cs" t="Include" />
-            <e p="Voult.cs" t="Include" />
+            <e p="Storage.cs" t="Include" />
           </e>
           <e p="5.Card" t="Include">
             <e p="Boots.cs" t="Include" />
@@ -51,6 +51,7 @@
             <e p="CardInfo.cs" t="Include" />
             <e p="CardMenegercr.cs" t="Include" />
             <e p="InformationEffect.cs" t="Include" />
+            <e p="Outfit.cs" t="Include" />
             <e p="TrapDrop.cs" t="Include" />
             <e p="Traps.cs" t="Include" />
           </e>

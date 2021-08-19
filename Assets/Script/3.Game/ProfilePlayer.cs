@@ -9,15 +9,15 @@ public class ProfilePlayer
     {
         OFFICER,
         SCHOOLBOY,
-        MOMFRIEND
+        MOM_FRIEND
     }
 
     private string _playerName;
     private Sprite _spritePlayer;
 
-    private Invetory _invetoryPlayer;
+    private Invetory _inventorsPlayer;
     private Equipment _equipmentPlayer;
-    private Voult _voultPlayer;
+    private Storage _storagePlayer;
     private Ammo _ammoPlayer;
     private Classes _class;
 
@@ -33,10 +33,10 @@ public class ProfilePlayer
     private List<StatusBar.Effect> _activeEffect = new List<StatusBar.Effect>();
     private List<StatusBar.TriggeredEffects> _triggeredEffect = new List<StatusBar.TriggeredEffects>();
 
-    private Text _visebleCoin;
+    private Text _visibleCoin;
 
-    private int _playingCarad;
-    private int _maxPlayingCarad;
+    private int _playingCard;
+    private int _maxPlayingCard;
 
     public bool IsCanAttack => _canAttack;
     public bool IsImpervious => _impervious;
@@ -47,14 +47,14 @@ public class ProfilePlayer
     public string GetPlayerName => _playerName;
     public Sprite GetSpritePlayer => _spritePlayer;
     public Classes GetClasses => _class;
-    public Invetory GetInvetory => _invetoryPlayer;
+    public Invetory GetInventors => _inventorsPlayer;
     public Equipment GetEquipment => _equipmentPlayer;
     public Ammo GetAmmo => _ammoPlayer;
     public int GetPlayerCell => _playerCell;
     public bool IsStep => _step;
     public List<StatusBar.Effect> GetActiveEffect => _activeEffect;
     public List<StatusBar.TriggeredEffects> GetTriggeredEffect => _triggeredEffect;
-    private bool IsPlayingMaxCard => _playingCarad >= _maxPlayingCarad;
+    private bool IsPlayingMaxCard => _playingCard >= _maxPlayingCard;
 
     public void ApplyPermanentArmor(int NewArmor)
     {
@@ -77,17 +77,17 @@ public class ProfilePlayer
         _spritePlayer = Resources.Load<Sprite>(LoadPlayerSprite);
         _playerCoin = 20;
         _playerSpeed = 1;
-        _playingCarad = 0;
-        _maxPlayingCarad = 1;
+        _playingCard = 0;
+        _maxPlayingCard = 1;
         _playerCell = 1;
         _permanentArmor = 0;
         _step = false;
-        _invetoryPlayer = new Invetory();
+        _inventorsPlayer = new Invetory();
         _equipmentPlayer = new Equipment();
         _ammoPlayer = new Ammo(this);
-        _voultPlayer = new Voult();
-        _visebleCoin = GameObject.Find("Coin").GetComponent<Text>();
-        _visebleCoin.text = _playerCoin.ToString();
+        _storagePlayer = new Storage();
+        _visibleCoin = GameObject.Find("Coin").GetComponent<Text>();
+        _visibleCoin.text = _playerCoin.ToString();
         RandClass();
     }
     public void SetCanAttack(bool f)
@@ -110,15 +110,15 @@ public class ProfilePlayer
         _step = true;
         if (_class == Classes.OFFICER)
         {
-            if (_maxPlayingCarad > 1)
+            if (_maxPlayingCard > 1)
             {
-                _maxPlayingCarad--;
+                _maxPlayingCard--;
             }
         }
     }
     public void PlayingCard()
     {
-        _playingCarad++;
+        _playingCard++;
         if (IsPlayingMaxCard)
             EndTurn();
     }
@@ -144,7 +144,7 @@ public class ProfilePlayer
         }
         if (!IsActiveEffect(StatusBar.Effect.STOP))
         {
-            _playingCarad = 0;
+            _playingCard = 0;
             _step = false;
             if (_class == Classes.OFFICER)
             {
@@ -152,7 +152,7 @@ public class ProfilePlayer
                 if (k > 4)
                 {
                     Tooltip.ShowTooltip_Static("Ваша особбенность сработала", "Выпало, " + k.ToString());
-                    _maxPlayingCarad++;
+                    _maxPlayingCard++;
                 }
             }
         }
@@ -173,12 +173,12 @@ public class ProfilePlayer
             }
         }
         _playerCoin += Damage;
-        _visebleCoin.text = GetCoin.ToString();
+        _visibleCoin.text = GetCoin.ToString();
     }
     public void SetPlayerCoin(int NewCoin)
     {
         _playerCoin = NewCoin;
-        _visebleCoin.text = GetCoin.ToString();
+        _visibleCoin.text = GetCoin.ToString();
     }
 
     public void SetPlayerCell(int NewPlayerCell)

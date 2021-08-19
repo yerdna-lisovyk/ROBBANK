@@ -69,7 +69,7 @@ public class SelectionCard : MonoBehaviour
 
                     if (cardInfotmp.GetCard.GetTypeCard == Card.TypeCard.INVENTORY ||
                     cardInfotmp.GetCard.GetTypeCard == Card.TypeCard.TRAP)
-                        player.GetInvetory.AddCard(cardInfotmp.GetCard);
+                        player.GetInventors.AddCard(cardInfotmp.GetCard);
                     else player.GetEquipment.AddEquipment(cardInfotmp.GetCard);
                     _quantityGetcardNow++;
                     if (_quantityGetcardNow == _quantityGetcard)

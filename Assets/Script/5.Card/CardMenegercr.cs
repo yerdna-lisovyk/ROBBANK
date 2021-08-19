@@ -22,10 +22,10 @@ public class CardMenegercr : MonoBehaviour
         AllCards.Add(new Card("Сапог скороход", "Добавляет 2 клетки к ходу.", 5, "Simple Buttons/RPG_inventory_icons/boots", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEquipment.BOOTS_OF_SPEED));
         AllCards.Add(new Card("Бомж", "Отнимает монеты каждый ход.", 5, "VAGABOND", Card.TypeCard.TRAP, Card.TypeTrap.VAGABOND));
         AllCards.Add(new Card("Туфля мафиози", "Показывает следующие три клетки. Если есть две туфли то показывает 6 клеток.", 5, "Simple Buttons/RPG_inventory_icons/men_tuf", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEquipment.MAFIOSO_SHOES));
-        _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());//исправить
-        _player.GetInvetory.AddCard(AllCards[1].GetCopyCard());
-        _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());
-        _player.GetInvetory.AddCard(AllCards[3].GetCopyCard());
+        _player.GetInventors.AddCard(AllCards[0].GetCopyCard());//исправить
+        _player.GetInventors.AddCard(AllCards[1].GetCopyCard());
+        _player.GetInventors.AddCard(AllCards[0].GetCopyCard());
+        _player.GetInventors.AddCard(AllCards[3].GetCopyCard());
         _player.GetAmmo.AddAmmo(40);
         //_player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
         // _player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
