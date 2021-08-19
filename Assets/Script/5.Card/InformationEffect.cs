@@ -14,13 +14,13 @@ public static class InformationEffect
             MassegeBox.StaticShowMassege("Бомж", "Отдайте одежду или посмотрите рекламу", () =>
             {
                 player.GetEquipment.AddBody(null);
-                StatusBar.StaticDestroyStatus(StatusBar.Effect.VAGABOND);
+                player.DestroyStatus(StatusBar.Effect.VAGABOND);
                 _massgeYes = true;
     
             }, () =>
             {
                 _massgeYes = true;
-                StatusBar.StaticDestroyStatus(StatusBar.Effect.VAGABOND); // реклама
+                player.DestroyStatus(StatusBar.Effect.VAGABOND);
         }
             , true);
         }

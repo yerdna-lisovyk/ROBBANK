@@ -24,11 +24,14 @@ public class ProfilePlayer
     private int _playerCoin;
     private int _playerSpeed;
     private int _playerCell;
+    private int _permanentArmor;
+    
     private bool _step;
     private bool _canAttack = true;
     private bool _impervious = false;
 
     private List<StatusBar.Effect> _activeEffect = new List<StatusBar.Effect>();
+    private List<StatusBar.TriggeredEffects> _triggeredEffect = new List<StatusBar.TriggeredEffects>();
 
     private Text _visebleCoin;
 
@@ -40,6 +43,7 @@ public class ProfilePlayer
     public bool IsAlive => _playerCoin > 0;
     public int GetCoin => _playerCoin;
     public int GetPlayerSpeed => _playerSpeed;
+    public int GetPermanentArmor => _permanentArmor;
     public string GetPlayerName => _playerName;
     public Sprite GetSpritePlayer => _spritePlayer;
     public Classes GetClasses => _class;
@@ -49,8 +53,24 @@ public class ProfilePlayer
     public int GetPlayerCell => _playerCell;
     public bool IsStep => _step;
     public List<StatusBar.Effect> GetActiveEffect => _activeEffect;
+    public List<StatusBar.TriggeredEffects> GetTriggeredEffect => _triggeredEffect;
     private bool IsPlayingMaxCard => _playingCarad >= _maxPlayingCarad;
 
+    public void ApplyPermanentArmor(int NewArmor)
+    {
+        if (_permanentArmor + NewArmor < 0)
+            _permanentArmor = 0;
+        _permanentArmor += NewArmor;
+        
+    }
+    public void SetActiveEffect(StatusBar.Effect Effect)
+    {
+        _activeEffect.Add(Effect);
+    }
+    public void SetTriggeredEffects(StatusBar.TriggeredEffects Effect)
+    {
+        _triggeredEffect.Add(Effect);
+    }
     public ProfilePlayer(string Name, string LoadPlayerSprite)
     {
         _playerName = Name;
@@ -60,6 +80,7 @@ public class ProfilePlayer
         _playingCarad = 0;
         _maxPlayingCarad = 1;
         _playerCell = 1;
+        _permanentArmor = 0;
         _step = false;
         _invetoryPlayer = new Invetory();
         _equipmentPlayer = new Equipment();
@@ -79,8 +100,8 @@ public class ProfilePlayer
     }
     public void RandClass()
     {
-        Array A = Enum.GetValues(typeof(Classes));
-        _class = (Classes)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+        var array = Enum.GetValues(typeof(Classes));
+        _class = (Classes)array.GetValue(UnityEngine.Random.Range(0, array.Length));
         Tooltip.ShowTooltip_Static("Ваш Класс", _class.ToString());
     }
 
@@ -103,13 +124,31 @@ public class ProfilePlayer
     }
     public void NewTurn()
     {
+        if (IsTriggeredEffect(StatusBar.TriggeredEffects.TR_SHACKLES))
+        {
+            ApplyPlayerSpeed(-2);
+        }
+        if (IsActiveEffect(StatusBar.Effect.SHACKLES))
+        {
+            var k = UnityEngine.Random.Range(1, 6);
+            if (k > 4)
+            {
+                Tooltip.ShowTooltip_Static("Кнадалы сработали. Движение +2.", "Выпало, " + k.ToString());
+                ApplyPlayerSpeed(2);
+                SetTriggeredEffects(StatusBar.TriggeredEffects.TR_SHACKLES);
+            }
+        }
+        if (IsActiveEffect(StatusBar.Effect.VAGABOND))
+        {
+            ApplyCoinDamage(-1);
+        }
         if (!IsActiveEffect(StatusBar.Effect.STOP))
         {
             _playingCarad = 0;
             _step = false;
             if (_class == Classes.OFFICER)
             {
-                int k = UnityEngine.Random.Range(1, 6);
+                var k = UnityEngine.Random.Range(1, 6);
                 if (k > 4)
                 {
                     Tooltip.ShowTooltip_Static("Ваша особбенность сработала", "Выпало, " + k.ToString());
@@ -154,11 +193,32 @@ public class ProfilePlayer
     }
     public bool IsActiveEffect(StatusBar.Effect effect)
     {
-        foreach (var ActiveEffect in _activeEffect)
+        foreach (var activeEffect in _activeEffect)
         {
-            if (ActiveEffect == effect)
+            if (activeEffect == effect)
                 return true;
         }
         return false;
+    }
+    
+    public bool IsTriggeredEffect(StatusBar.TriggeredEffects effect)
+    {
+        foreach (var trigger in _triggeredEffect)
+        {
+            if (trigger == effect)
+                return true;
+        }
+        return false;
+    }
+    public void DestroyStatus(StatusBar.Effect Effect)
+    {
+        for (var i = 0; i < GetActiveEffect.Count; i++)
+        {
+            if (GetActiveEffect[i] == Effect)
+            {
+                GetActiveEffect.RemoveAt(i);
+                return;
+            }
+        }
     }
 }

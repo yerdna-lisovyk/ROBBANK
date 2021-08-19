@@ -25,10 +25,11 @@ public class Card
         BOOTS
     }
 
-    public enum NameEqupment
+    public enum NameEquipment
     {
         BOOTS_OF_SPEED,
         SHOES_WITHOUT_SOLES,
+        MAFIOSO_SHOES,
         FOIL_CAP,
         WELDER_GOGGLES
     }
@@ -42,7 +43,7 @@ public class Card
     private TypeCard _type;
     private TypeTrap _typeTrap;
     private TypeEquipment _typeEquipment;
-    private NameEqupment _nameEqupment;
+    private NameEquipment _nameEquipment;
 
     public int GetQuantity => _quantity;
     public Sprite GetSprite => _sprite;
@@ -52,7 +53,7 @@ public class Card
     public TypeEquipment GetTypeEquipment => _typeEquipment;
     public TypeCard GetTypeCard => _type;
     public TypeTrap GetTypeTrap => _typeTrap;
-    public NameEqupment GetNameEqupment => _nameEqupment;
+    public NameEquipment GetNameEquipment => _nameEquipment;
 
     public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeTrap TypeT = TypeTrap.NO_TRAP)
     {
@@ -64,7 +65,7 @@ public class Card
         _typeTrap = TypeT;
     }
 
-    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, NameEqupment typeBoots)
+    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, NameEquipment typeBoots)
     {
         _name = Name;
         _description = Description;
@@ -72,7 +73,7 @@ public class Card
         _type = TypeC;
         _prise = prise;
         _typeEquipment = typeEquipment;
-        _nameEqupment = typeBoots;
+        _nameEquipment = typeBoots;
     }
 
     public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, int quantity = 0)
@@ -88,7 +89,7 @@ public class Card
     {
         _quantity = quantity;
     }
-    public void AppayQuantity(int quantity)
+    public void ApplyQuantity(int quantity)
     {
         _quantity += quantity;
     }

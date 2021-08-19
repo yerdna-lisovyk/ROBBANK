@@ -43,21 +43,21 @@ public class Equipment
             if (icon.transform.GetComponent<CardInfo>().IsNull)
             {
                 icon.GetComponent<CardInfo>().SetCardInfo(NewBoots);
-                Boots boots = new Boots(icon, NewBoots.GetNameEqupment);
+                Boots boots = new Boots(icon, NewBoots.GetNameEquipment);
                 break;
             }
         }
     }
-    public bool SearchByEquipment(Card.NameEqupment name)
+    public bool SearchByEquipment(Card.NameEquipment name)
     {
-        if (_body.GetComponent<CardInfo>().GetCard.GetNameEqupment == name)
+        if (_body.GetComponent<CardInfo>().GetCard.GetNameEquipment == name)
             return true;
-        if (_head.GetComponent<CardInfo>().GetCard.GetNameEqupment == name)
+        if (_head.GetComponent<CardInfo>().GetCard.GetNameEquipment == name)
             return true;
-        if (_weapon.GetComponent<CardInfo>().GetCard.GetNameEqupment == name)
+        if (_weapon.GetComponent<CardInfo>().GetCard.GetNameEquipment == name)
             return true;
         foreach(var boot in _boots)
-            if (boot.GetComponent<CardInfo>().GetCard.GetNameEqupment == name)
+            if (boot.GetComponent<CardInfo>().GetCard.GetNameEquipment == name)
                 return true;
         return false;
     }

@@ -27,7 +27,7 @@ public class Ammo
         }
         else
         {
-            _ammoCard.AppayQuantity(quantity);
+            _ammoCard.ApplyQuantity(quantity);
             if(_ammoCard.GetQuantity == 0)
                 foreach(var icon in _player.GetInvetory.GetHand)
                 {

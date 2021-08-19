@@ -39,7 +39,7 @@ public class CellInfo : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-        if (!player.IsActiveEffect(StatusBar.Effect.NOTVISIBILITY))
+        if (!player.IsActiveEffect(StatusBar.Effect.NO_VISIBILITY))
         {
             gameObject.transform.Find("Build").gameObject.SetActive(true); 
         }

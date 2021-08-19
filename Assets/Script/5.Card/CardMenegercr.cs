@@ -19,15 +19,15 @@ public class CardMenegercr : MonoBehaviour
         _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
         AllCards.Add(new Card("Чика", "теряешь 3 монеты и ждешь 20 секунд.", 10, "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.TRAP, Card.TypeTrap.CHIKA));
         AllCards.Add(new Card("Мина", "Отдай монету, или жди 20 секунд. 50%", 10, "Simple Buttons/RPG_inventory_icons/pngegg", Card.TypeCard.TRAP, Card.TypeTrap.MINA));
-        AllCards.Add(new Card("Сапог скороход", "Добавляет 2 клетки к ходу.", 5, "Simple Buttons/RPG_inventory_icons/boots", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEqupment.BOOTS_OF_SPEED));
+        AllCards.Add(new Card("Сапог скороход", "Добавляет 2 клетки к ходу.", 5, "Simple Buttons/RPG_inventory_icons/boots", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEquipment.BOOTS_OF_SPEED));
         AllCards.Add(new Card("Бомж", "Отнимает монеты каждый ход.", 5, "VAGABOND", Card.TypeCard.TRAP, Card.TypeTrap.VAGABOND));
-
+        AllCards.Add(new Card("Туфля мафиози", "Показывает следующие три клетки. Если есть две туфли то показывает 6 клеток.", 5, "Simple Buttons/RPG_inventory_icons/men_tuf", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEquipment.MAFIOSO_SHOES));
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());//исправить
         _player.GetInvetory.AddCard(AllCards[1].GetCopyCard());
         _player.GetInvetory.AddCard(AllCards[0].GetCopyCard());
         _player.GetInvetory.AddCard(AllCards[3].GetCopyCard());
         _player.GetAmmo.AddAmmo(40);
-          //_player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
+        //_player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
         // _player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
     }
 
@@ -35,21 +35,20 @@ public class CardMenegercr : MonoBehaviour
     {
         if (typeCard != null)
         {
-            List<Card> tmp = AllCardOfType(typeCard,typeEquipment);
-            int radomItem = Random.Range(0, tmp.Count);
-            return tmp[radomItem].GetCopyCard();
+            var tmp = AllCardOfType(typeCard,typeEquipment);
+            var randomItem = Random.Range(0, tmp.Count);
+            return tmp[randomItem].GetCopyCard();
         }
         return AllCards[Random.Range(0, AllCards.Count)].GetCopyCard();
-
     }
     private List<Card> AllCardOfType(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
     {
-        List<Card> allCardsTypes = new List<Card>();
+        var allCardsTypes = new List<Card>();
         if (typeEquipment == null)
         {
             foreach (var card in AllCards)
             {
-                for (int i = 0; i < typeCard.Length; i++)
+                for (var i = 0; i < typeCard.Length; i++)
                     if (card.GetTypeCard == typeCard[i])
                     {
 
@@ -63,10 +62,10 @@ public class CardMenegercr : MonoBehaviour
         {
             foreach (var card in AllCards)
             {
-                for (int i = 0; i < typeCard.Length; i++)
+                for (var i = 0; i < typeCard.Length; i++)
                     if (card.GetTypeCard == typeCard[i])
                     {
-                        for (int j = 0; j < typeEquipment.Length; j++)
+                        for (var j = 0; j < typeEquipment.Length; j++)
                             if (card.GetTypeEquipment == typeEquipment[j])
                             {
                                 allCardsTypes.Add(card);

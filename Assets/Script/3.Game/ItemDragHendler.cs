@@ -65,7 +65,7 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
             eventData.pointerDrag.transform.position = transform.position;
             if (tag != "Voult")
             {
-                Boots tmp = new Boots(gameObject, GetComponent<CardInfo>().GetCard.GetNameEqupment);
+                Boots tmp = new Boots(gameObject, GetComponent<CardInfo>().GetCard.GetNameEquipment);
             }
             tag = eventData.pointerDrag.tag;
 

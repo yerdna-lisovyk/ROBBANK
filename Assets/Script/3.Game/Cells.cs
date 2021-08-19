@@ -45,7 +45,7 @@ public class Cells : MonoBehaviour
         int size = second - first;
         GameObject[] cellsRange = new GameObject[size];
 
-        for (int i = first, k = 0; i < second; i++, k++)
+        for (int i = first, k = 0; i <second; i++, k++)
         {
             cellsRange[k] = _cells[i];
         }

@@ -24,7 +24,7 @@ public class TimerStatus : MonoBehaviour
                     StartCoroutine(TimerEffectVisibility(seconds,effect));
                     break;
                 }
-            case StatusBar.Effect.NOTVISIBILITY:
+            case StatusBar.Effect.NO_VISIBILITY:
                 {
                     StartCoroutine(TimerEffectNotVisibility(seconds, effect));
                     break;
@@ -54,50 +54,50 @@ public class TimerStatus : MonoBehaviour
             gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount -= Time.deltaTime / seconds;
             yield return null;
         }
-        StatusBar.StaticDestroyStatus(effect);
+        _player.DestroyStatus(effect);
         _player.NewTurn();
         Destroy(gameObject);
     }
 
     private IEnumerator TimerEffectVisibility(int seconds, StatusBar.Effect effect)
     {
-        List <GameObject> cells = Cells.StaticGetCells();
+        var cells = Cells.StaticGetCells();
         while (gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount != 0)
         {
             gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount -= Time.deltaTime / seconds;
-            for(int i =0; i<cells.Count; i++)
+            for(var i =0; i<cells.Count; i++)
             {
-                GameObject SpriteImage = cells[i].transform.GetChild(0).gameObject;
+                var image = cells[i].transform.GetChild(0).gameObject;
                 if (IsHaveTrap(cells[i]))
                 {
-                    SpriteImage.SetActive(true);
+                    image.SetActive(true);
                 }
                 else
                 {
-                    if (SpriteImage.activeSelf == true)
+                    if (image.activeSelf == true)
                     {
-                        SpriteImage.SetActive(false);
+                        image.SetActive(false);
                     }
                 }
             }
             yield return null;
         }
 
-        for (int i = 0; i < cells.Count; i++)
+        for (var i = 0; i < cells.Count; i++)
         {
-            GameObject SpriteImage = cells[i].transform.GetChild(0).gameObject;
-            if (SpriteImage.activeSelf == true)
+            var image = cells[i].transform.GetChild(0).gameObject;
+            if (image.activeSelf == true)
             {
-                SpriteImage.SetActive(false);
+                image.SetActive(false);
             }
         }
-        StatusBar.StaticDestroyStatus(effect);
+        _player.DestroyStatus(effect);
         Destroy(gameObject);
     }
 
     private IEnumerator TimerEffectNotVisibility(int seconds, StatusBar.Effect effect)
     {
-        List<GameObject> cells = Cells.StaticGetCells();
+        var cells = Cells.StaticGetCells();
         ShowAndHideBuild(cells, false);
         while (gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount != 0)
         {
@@ -106,24 +106,24 @@ public class TimerStatus : MonoBehaviour
             yield return null;
         }
         ShowAndHideBuild(cells, true);
-        StatusBar.StaticDestroyStatus(effect);
+        _player.DestroyStatus(effect);
         Destroy(gameObject);
     }
     private void ShowAndHideBuild(List<GameObject> cells,bool active)
     {
-        for (int i = 0; i < cells.Count; i++)
+        for (var i = 0; i < cells.Count; i++)
         {
-            GameObject SpriteImage = cells[i].transform.Find("Build").gameObject;
-            if (SpriteImage.name != "Close Button")
+            var sprite = cells[i].transform.Find("Build").gameObject;
+            if (sprite.name != "Close Button")
             {
-                SpriteImage.SetActive(active);
+                sprite.SetActive(active);
             }
         }
     }
 
     private bool IsHaveTrap(GameObject cell)
     {
-        if(cell.GetComponent<Traps.ChikaTrap>() !=null)
+        if(cell.GetComponent<Traps.ChikaTrap>())
         {
             return true;
         }

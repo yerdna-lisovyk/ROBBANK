@@ -9,13 +9,13 @@ public class Invetory
 
     public int QuantityCard()
     {
-        int Quantity = 0;
+        int quantity = 0;
         foreach (var icon in _hand)
         {
             if (!icon.GetComponent<CardInfo>().IsNull)
-                Quantity++;
+                quantity++;
         }
-        return Quantity;
+        return quantity;
     }
     public Invetory()
     {

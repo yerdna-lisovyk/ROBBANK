@@ -14539,7 +14539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e760d9a5c5b98214d9aa43a03387c2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoing: {fileID: 2024843237}
+  spawnPoint: {fileID: 2024843237}
   cell: {fileID: 3149857092276602336, guid: d6cafc63363a0484cb23038fead361b4, type: 3}
 --- !u!1 &2050468207
 GameObject:

@@ -175,7 +175,7 @@ public class Traps
     {
         private ProfilePlayer _player;
         private Sprite _sprite;
-        private StatusBar.Effect _effect = StatusBar.Effect.NOTVISIBILITY;
+        private StatusBar.Effect _effect = StatusBar.Effect.NO_VISIBILITY;
         public void SetSprite(Sprite sprite)
         {
             _sprite = sprite;
@@ -202,7 +202,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (_player.GetEquipment.SearchByEquipment(Card.NameEqupment.BOOTS_OF_SPEED))
+            if (_player.GetEquipment.SearchByEquipment(Card.NameEquipment.BOOTS_OF_SPEED))
             {
                 _player.ApplyCoinDamage(-2);
             }
@@ -360,7 +360,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (_player.GetEquipment.SearchByEquipment(Card.NameEqupment.FOIL_CAP))
+            if (_player.GetEquipment.SearchByEquipment(Card.NameEquipment.FOIL_CAP))
                 _player.GetEquipment.AddHead(null);
             Destroy(this);
         }
@@ -400,7 +400,7 @@ public class Traps
     {
         private ProfilePlayer _player;
         private Sprite _sprite;
-        private StatusBar.Effect _effect = StatusBar.Effect.NOTVISIBILITY;
+        private StatusBar.Effect _effect = StatusBar.Effect.NO_VISIBILITY;
 
         public void SetSprite(Sprite sprite)
         {
@@ -410,7 +410,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            if (_player.GetEquipment.SearchByEquipment(Card.NameEqupment.WELDER_GOGGLES))
+            if (_player.GetEquipment.SearchByEquipment(Card.NameEquipment.WELDER_GOGGLES))
                 StatusBar.StaticNewStatus(10, _effect, _player);
             Destroy(this);
         }

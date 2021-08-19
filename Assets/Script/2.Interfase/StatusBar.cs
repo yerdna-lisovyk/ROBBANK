@@ -4,12 +4,17 @@ using UnityEngine.UI;
 
 public class StatusBar : MonoBehaviour
 {
+    public enum TriggeredEffects
+    {
+        TR_SHACKLES
+    }
     public enum Effect
     {
         STOP,
         VISIBILITY,
-        NOTVISIBILITY,
-        VAGABOND
+        NO_VISIBILITY,
+        VAGABOND,
+        SHACKLES
     }
 
     private static StatusBar _instans;
@@ -28,19 +33,15 @@ public class StatusBar : MonoBehaviour
     {
         _instans.NewStatus(Seconds, effect, player);
     }
-
-    public static void StaticDestroyStatus(Effect Effect)
-    {
-        _instans.DestroyStatus(Effect);
-    }
+    
     private void NewStatus( int Seconds, Effect effect, ProfilePlayer player)
     {
         _player = player;
-        GameObject NewStatus = Instantiate(_prefabStatus, _statusArea.transform);
-        NewStatus.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = EstablishSprite(effect);
-        NewStatus.transform.GetComponent<TimerStatus>().StartTimer(Seconds, effect, player);
-        _player.GetActiveEffect.Add(effect);
-        _statutes.Add(NewStatus);
+        var newStatus = Instantiate(_prefabStatus, _statusArea.transform);
+        newStatus.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = EstablishSprite(effect);
+        newStatus.transform.GetComponent<TimerStatus>().StartTimer(Seconds, effect, player);
+        _player.SetActiveEffect(effect);
+        _statutes.Add(newStatus);
     }
 
     private Sprite EstablishSprite(Effect effect)
@@ -55,7 +56,7 @@ public class StatusBar : MonoBehaviour
                 {
                     return Resources.Load<Sprite>("eye");
                 }
-            case Effect.NOTVISIBILITY:
+            case Effect.NO_VISIBILITY:
                 {
                     return Resources.Load<Sprite>("NonEye");
                 }
@@ -66,26 +67,8 @@ public class StatusBar : MonoBehaviour
         }
         return null;
     }
+    
 
-    private void DestroyStatus(Effect Effect)
-    {
-        for (int i = 0; i < _player.GetActiveEffect.Count; i++)
-        {
-            if (_player.GetActiveEffect[i] == Effect)
-            {
-                _player.GetActiveEffect.RemoveAt(i);
-                break;
-            }
-        }
-    }
 
-    private void DestroyAllStates()
-    {
-        _player.GetActiveEffect.Clear();
-        foreach (var status in _statutes)
-        {
-            Destroy(status);
-        }
-    }
 
 }
