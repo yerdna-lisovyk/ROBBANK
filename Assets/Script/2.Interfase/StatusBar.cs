@@ -14,7 +14,9 @@ public class StatusBar : MonoBehaviour
         VISIBILITY,
         NO_VISIBILITY,
         VAGABOND,
-        SHACKLES
+        SHACKLES,
+        ARMOR_OUTFIT,
+        ONE_FOR_TWO
     }
 
     private static StatusBar _instans;

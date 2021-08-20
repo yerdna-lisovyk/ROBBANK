@@ -86,6 +86,18 @@ public class Card
         _prise = prise;
         _quantity = quantity;
     }
+
+    private Card(Card CopyCard)
+    {
+        _name = CopyCard.GetName;
+        _description = CopyCard._description;
+        _sprite = CopyCard.GetSprite;
+        _prise = CopyCard.GetPrise;
+        _quantity = CopyCard.GetQuantity;
+        _type = CopyCard.GetTypeCard;
+        _typeEquipment = CopyCard.GetTypeEquipment;
+        _typeTrap = CopyCard.GetTypeTrap;
+    }
     public void SetQuantity(int quantity)
     {
         _quantity = quantity;
@@ -115,7 +127,7 @@ public class Card
 
     public Card GetCopyCard()
     {
-        Card card = this;
+        var card = new Card(this);
         return card;
     }
 

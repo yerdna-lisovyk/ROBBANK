@@ -26,7 +26,11 @@ public class CardMenegercr : MonoBehaviour
         _player.GetInventors.AddCard(AllCards[1].GetCopyCard());
         _player.GetInventors.AddCard(AllCards[0].GetCopyCard());
         _player.GetInventors.AddCard(AllCards[3].GetCopyCard());
-        _player.GetAmmo.AddAmmo(40);
+        _player.GetAmmo.AddAmmo(10);
+        _player.GetAmmo.AddAmmo(20);
+        _player.GetAmmo.AddAmmo(20); 
+        _player.GetAmmo.AddAmmo(15);
+        _player.GetAmmo.AddAmmo(10);
         //_player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
         // _player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
     }

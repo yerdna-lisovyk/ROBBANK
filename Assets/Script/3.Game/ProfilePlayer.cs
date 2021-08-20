@@ -164,7 +164,7 @@ public class ProfilePlayer
         {
             if(_playerCoin == 1 && Damage <0)
             {
-                int k = UnityEngine.Random.Range(1, 6);
+                var k = UnityEngine.Random.Range(1, 6);
                 if (k <= 4)
                 {
                     Tooltip.ShowTooltip_Static("Ваша осбенность не сработала. Выпало : " + k.ToString(), "Вы умерли)");
@@ -172,7 +172,16 @@ public class ProfilePlayer
                 }
             }
         }
-        _playerCoin += Damage;
+
+        if (Damage < 0 && IsActiveEffect(StatusBar.Effect.ARMOR_OUTFIT))
+        {
+           var damageDone=  GetEquipment.GetBody.GetComponent<Outfit.BulletproofVest>().DamageArmor(Damage);
+           _playerCoin -= damageDone;
+        }
+        else
+        {
+            _playerCoin += Damage;
+        }
         _visibleCoin.text = GetCoin.ToString();
     }
     public void SetPlayerCoin(int NewCoin)
