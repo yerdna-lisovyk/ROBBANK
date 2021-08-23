@@ -217,14 +217,12 @@ public class Build
         {
 
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            _player.SetCanAttack(false);
-            _player.SetImpervious(true);
+            _player.SetActiveEffect(StatusBar.Effect.BAR);
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
-            _player.SetCanAttack(true);
-            _player.SetImpervious(false);
+            _player.DestroyStatus(StatusBar.Effect.BAR);
         }
     }
 
@@ -266,6 +264,7 @@ public class Build
         private string _descriptionEvent = "Вы получили 15 монет";
         private ProfilePlayer _player;
         private Sprite _sptiteEvent;
+        private int _coin = 15;
 
         private void Awake()
         {
@@ -278,10 +277,17 @@ public class Build
             
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
             Tooltip.ShowTooltip_Static(_nameEvent, _descriptionEvent);
-            if (_player.GetClasses == ProfilePlayer.Classes.MOM_FRIEND)
+            if (_player.IsActiveEffect(StatusBar.Effect.BACKPACK))
             {
-                _player.ApplyCoinDamage(30);
-            }else _player.ApplyCoinDamage(15);
+                _player.ApplyCoinDamage(_coin*2);
+            }else if (_player.IsActiveEffect(StatusBar.Effect.BACKPACK))
+            {
+                _player.ApplyCoinDamage(_coin*3);
+            }
+            else
+            {
+                _player.ApplyCoinDamage(_coin);
+            }
 
         }
     }

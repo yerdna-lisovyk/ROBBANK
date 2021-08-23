@@ -27,9 +27,7 @@ public class ProfilePlayer
     private int _permanentArmor;
     
     private bool _step;
-    private bool _canAttack = true;
-    private bool _impervious = false;
-
+    
     private List<StatusBar.Effect> _activeEffect = new List<StatusBar.Effect>();
     private List<StatusBar.TriggeredEffects> _triggeredEffect = new List<StatusBar.TriggeredEffects>();
 
@@ -37,9 +35,7 @@ public class ProfilePlayer
 
     private int _playingCard;
     private int _maxPlayingCard;
-
-    public bool IsCanAttack => _canAttack;
-    public bool IsImpervious => _impervious;
+    
     public bool IsAlive => _playerCoin > 0;
     public int GetCoin => _playerCoin;
     public int GetPlayerSpeed => _playerSpeed;
@@ -90,14 +86,6 @@ public class ProfilePlayer
         _visibleCoin.text = _playerCoin.ToString();
         RandClass();
     }
-    public void SetCanAttack(bool f)
-    {
-        _canAttack = f;
-    }
-    public void SetImpervious(bool f)
-    {
-        _impervious = f;
-    }
     public void RandClass()
     {
         var array = Enum.GetValues(typeof(Classes));
@@ -124,9 +112,14 @@ public class ProfilePlayer
     }
     public void NewTurn()
     {
+        if (IsActiveEffect(StatusBar.Effect.BIG_BACKPACK))
+        {
+            StatusBar.StaticNewStatus(5,StatusBar.Effect.STOP,this);
+        }
         if (IsTriggeredEffect(StatusBar.TriggeredEffects.TR_SHACKLES))
         {
             ApplyPlayerSpeed(-2);
+            DestroyTriggeredEffect(StatusBar.TriggeredEffects.TR_SHACKLES);
         }
         if (IsActiveEffect(StatusBar.Effect.SHACKLES))
         {
@@ -200,11 +193,11 @@ public class ProfilePlayer
             _playerSpeed = 0;
         _playerSpeed += Speed;
     }
-    public bool IsActiveEffect(StatusBar.Effect effect)
+    public bool IsActiveEffect(StatusBar.Effect Effect)
     {
         foreach (var activeEffect in _activeEffect)
         {
-            if (activeEffect == effect)
+            if (activeEffect == Effect)
                 return true;
         }
         return false;
@@ -218,6 +211,17 @@ public class ProfilePlayer
                 return true;
         }
         return false;
+    }
+    public void DestroyTriggeredEffect(StatusBar.TriggeredEffects effect)
+    {
+        for (var i = 0; i < GetTriggeredEffect.Count; i++)
+        {
+            if (GetTriggeredEffect[i] == effect)
+            {
+                GetActiveEffect.RemoveAt(i);
+                return;
+            }
+        }
     }
     public void DestroyStatus(StatusBar.Effect Effect)
     {

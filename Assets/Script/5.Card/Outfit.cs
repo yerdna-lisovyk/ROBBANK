@@ -58,4 +58,48 @@ public class Outfit
             _player.DestroyStatus(StatusBar.Effect.ONE_FOR_TWO);
         }
     }
+    
+    public class SapperClothing : MonoBehaviour
+    {
+        private ProfilePlayer _player;
+        private void Start()
+        {
+            _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
+            _player.SetActiveEffect(StatusBar.Effect.SAPPER_CLOTHING);
+        }
+        
+        private void OnDestroy()
+        {
+            _player.DestroyStatus(StatusBar.Effect.SAPPER_CLOTHING);
+        }
+    }
+    
+    public class Backpack : MonoBehaviour
+    {
+        private ProfilePlayer _player;
+        private void Start()
+        {
+            _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
+            _player.SetActiveEffect(StatusBar.Effect.BACKPACK);
+        }
+        
+        private void OnDestroy()
+        {
+            _player.DestroyStatus(StatusBar.Effect.BACKPACK);
+        }
+    }
+    public class BigBackpack : MonoBehaviour
+    {
+        private ProfilePlayer _player;
+        private void Start()
+        {
+            _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
+            _player.SetActiveEffect(StatusBar.Effect.BIG_BACKPACK);
+        }
+        
+        private void OnDestroy()
+        {
+            _player.DestroyStatus(StatusBar.Effect.BIG_BACKPACK);
+        }
+    }
 }

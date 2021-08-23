@@ -10,13 +10,18 @@ public class StatusBar : MonoBehaviour
     }
     public enum Effect
     {
-        STOP,
-        VISIBILITY,
-        NO_VISIBILITY,
-        VAGABOND,
-        SHACKLES,
-        ARMOR_OUTFIT,
-        ONE_FOR_TWO
+        STOP, //you can't move
+        VISIBILITY, //cell visibility
+        NO_VISIBILITY, // NO cell visibility
+        VAGABOND,// gradual damage
+        SHACKLES, 
+        ARMOR_OUTFIT, 
+        ONE_FOR_TWO,
+        SAPPER_CLOTHING, // protects  mine and stretching
+        OVERALL, //protects against tentacles, whip and pit
+        BAR, //cannot attack and cannot be attacked
+        BACKPACK,
+        BIG_BACKPACK
     }
 
     private static StatusBar _instans;
@@ -31,24 +36,24 @@ public class StatusBar : MonoBehaviour
         _prefabStatus = Resources.Load<GameObject>("Object/Starus");
         _instans = this;
     }
-    public static void StaticNewStatus(int Seconds, Effect effect, ProfilePlayer player)
+    public static void StaticNewStatus(int Seconds, Effect Effect, ProfilePlayer player)
     {
-        _instans.NewStatus(Seconds, effect, player);
+        _instans.NewStatus(Seconds, Effect, player);
     }
     
-    private void NewStatus( int Seconds, Effect effect, ProfilePlayer player)
+    private void NewStatus( int Seconds, Effect Effect, ProfilePlayer player)
     {
         _player = player;
         var newStatus = Instantiate(_prefabStatus, _statusArea.transform);
-        newStatus.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = EstablishSprite(effect);
-        newStatus.transform.GetComponent<TimerStatus>().StartTimer(Seconds, effect, player);
-        _player.SetActiveEffect(effect);
+        newStatus.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = EstablishSprite(Effect);
+        newStatus.transform.GetComponent<TimerStatus>().StartTimer(Seconds, Effect, player);
+        _player.SetActiveEffect(Effect);
         _statutes.Add(newStatus);
     }
 
-    private Sprite EstablishSprite(Effect effect)
+    private Sprite EstablishSprite(Effect Effect)
     {
-        switch(effect)
+        switch(Effect)
         {
             case Effect.STOP:
                 {

@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Invetory
 {
     private GameObject[] _hand;
+    private List<Card> _cards = new List<Card>();
 
     public GameObject[] GetHand => _hand;
+    public List<Card> GetCards=> _cards;
 
     public int QuantityCard()
     {
-        int quantity = 0;
+        var quantity = 0;
         foreach (var icon in _hand)
         {
             if (!icon.GetComponent<CardInfo>().IsNull)
@@ -27,6 +30,7 @@ public class Invetory
         {
             if (icon.GetComponent<CardInfo>().IsNull)
             {
+                _cards.Add(NewCard);
                 icon.GetComponent<CardInfo>().SetCardInfo(NewCard);
                 break;
             }

@@ -73,7 +73,7 @@ public class Cells : MonoBehaviour
             }
             else
             {
-                int rand = 6;// Random.Range(1, 6);
+                var rand = Random.Range(1, 6);
                 new Build(_cells[i], rand);
             }
         }

@@ -32,7 +32,8 @@ public class Card
         MAFIOSO_SHOES,
         FOIL_CAP,
         WELDER_GOGGLES,
-        BULLETPROOF_VEST
+        BULLETPROOF_VEST,
+        OVERALL
     }
 
     private Sprite _sprite;
@@ -66,7 +67,7 @@ public class Card
         _typeTrap = TypeT;
     }
 
-    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, NameEquipment typeBoots)
+    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, NameEquipment nameEquipment)
     {
         _name = Name;
         _description = Description;
@@ -74,7 +75,7 @@ public class Card
         _type = TypeC;
         _prise = prise;
         _typeEquipment = typeEquipment;
-        _nameEquipment = typeBoots;
+        _nameEquipment = nameEquipment;
     }
 
     public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, int quantity = 0)

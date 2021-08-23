@@ -9,34 +9,34 @@ public class TimerStatus : MonoBehaviour
 
 
 
-    public void StartTimer(int seconds, StatusBar.Effect effect, ProfilePlayer player)
+    public void StartTimer(int seconds, StatusBar.Effect Effect, ProfilePlayer player)
     {
         _player = player;
-        switch (effect)
+        switch (Effect)
         {
             case StatusBar.Effect.STOP:
                 {
-                    StartCoroutine(TimerEffectStop(seconds, effect));
+                    StartCoroutine(TimerEffectStop(seconds, Effect));
                     break;
                 }
             case StatusBar.Effect.VISIBILITY:
                 {
-                    StartCoroutine(TimerEffectVisibility(seconds,effect));
+                    StartCoroutine(TimerEffectVisibility(seconds,Effect));
                     break;
                 }
             case StatusBar.Effect.NO_VISIBILITY:
                 {
-                    StartCoroutine(TimerEffectNotVisibility(seconds, effect));
+                    StartCoroutine(TimerEffectNotVisibility(seconds, Effect));
                     break;
                 }
             case StatusBar.Effect.VAGABOND:
                 {
-                    StartCoroutine(TimerEffectVagabond(seconds,effect, player));
+                    StartCoroutine(TimerEffectVagabond(seconds,Effect, player));
                     break;
                 }
         }
     }
-    private IEnumerator TimerEffectVagabond(float seconds ,StatusBar.Effect effect, ProfilePlayer player)
+    private IEnumerator TimerEffectVagabond(float seconds ,StatusBar.Effect Effect, ProfilePlayer player)
     {
         gameObject.GetComponent<Button>().onClick.AddListener(()=>InformationEffect.Vagabon.VagabonMassage(_player));
         while (!InformationEffect.Vagabon._massgeYes)
@@ -46,7 +46,7 @@ public class TimerStatus : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private IEnumerator TimerEffectStop(int seconds, StatusBar.Effect effect)
+    private IEnumerator TimerEffectStop(int seconds, StatusBar.Effect Effect)
     {
         _player.EndTurn();
         while (gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount != 0)
@@ -54,12 +54,12 @@ public class TimerStatus : MonoBehaviour
             gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount -= Time.deltaTime / seconds;
             yield return null;
         }
-        _player.DestroyStatus(effect);
+        _player.DestroyStatus(Effect);
         _player.NewTurn();
         Destroy(gameObject);
     }
 
-    private IEnumerator TimerEffectVisibility(int seconds, StatusBar.Effect effect)
+    private IEnumerator TimerEffectVisibility(int seconds, StatusBar.Effect Effect)
     {
         var cells = Cells.StaticGetCells();
         while (gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount != 0)
@@ -91,11 +91,11 @@ public class TimerStatus : MonoBehaviour
                 image.SetActive(false);
             }
         }
-        _player.DestroyStatus(effect);
+        _player.DestroyStatus(Effect);
         Destroy(gameObject);
     }
 
-    private IEnumerator TimerEffectNotVisibility(int seconds, StatusBar.Effect effect)
+    private IEnumerator TimerEffectNotVisibility(int seconds, StatusBar.Effect Effect)
     {
         var cells = Cells.StaticGetCells();
         ShowAndHideBuild(cells, false);
@@ -106,7 +106,7 @@ public class TimerStatus : MonoBehaviour
             yield return null;
         }
         ShowAndHideBuild(cells, true);
-        _player.DestroyStatus(effect);
+        _player.DestroyStatus(Effect);
         Destroy(gameObject);
     }
     private void ShowAndHideBuild(List<GameObject> cells,bool active)

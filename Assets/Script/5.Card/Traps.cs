@@ -70,10 +70,13 @@ public class Traps
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            _player.ApplyCoinDamage(-3);
-            StatusBar.StaticNewStatus(20, _effect, _player);
-            Destroy(this);
+            if (!_player.IsActiveEffect(StatusBar.Effect.SAPPER_CLOTHING))
+            {
+                _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+                _player.ApplyCoinDamage(-3);
+                StatusBar.StaticNewStatus(20, _effect, _player);
+                Destroy(this);
+            }
         }
     }
     public class Stretching : MonoBehaviour
@@ -88,10 +91,13 @@ public class Traps
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            _player.ApplyCoinDamage(-3);
-            StatusBar.StaticNewStatus(20, _effect, _player);
-            Destroy(this);
+            if (!_player.IsActiveEffect(StatusBar.Effect.SAPPER_CLOTHING))
+            {
+                _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+                _player.ApplyCoinDamage(-3);
+                StatusBar.StaticNewStatus(20, _effect, _player);
+                Destroy(this);
+            }
         }
     }
 
