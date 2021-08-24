@@ -55,6 +55,7 @@ public class Cells : MonoBehaviour
     private void Awake()
     {
         _instans = this;
+        SpawnCell();
     }
     private void SpawnBuild()
     {

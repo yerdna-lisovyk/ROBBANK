@@ -14,6 +14,12 @@ public class Head
                 icon.AddComponent<Overall>();
                 break;
             }
+            case Card.NameEquipment.MINING_HELMET:
+            {
+                Debug.Log(1);
+                icon.AddComponent<MiningHelmet>();
+                break;
+            }
         }
     }
     public class Overall : MonoBehaviour
@@ -52,12 +58,42 @@ public class Head
         private void Start()
         {
             _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
-            _player.SetActiveEffect(StatusBar.Effect.OVERALL);
+            _player.SetActiveEffect(StatusBar.Effect.VISIBILITY_RANGE);
+            StartCoroutine(TimerEffectVisibility());
         }
         
         private void OnDestroy()
         {
-            _player.DestroyStatus(StatusBar.Effect.OVERALL);
+            _player.DestroyStatus(StatusBar.Effect.VISIBILITY_RANGE);
+        }
+
+        private IEnumerator TimerEffectVisibility()
+        {
+            var cellOfRange = new GameObject[2];
+            cellOfRange = Cells.StaticGetCellsOfRange(_player.GetPlayerCell,_player.GetPlayerCell 
+                                                                            + cellOfRange.Length);
+            while (_player.IsActiveEffect(StatusBar.Effect.VISIBILITY_RANGE))
+            {
+                foreach (var cell in cellOfRange)
+                {
+                    cell.transform.GetChild(0).gameObject.SetActive(false);
+                }
+
+                cellOfRange = Cells.StaticGetCellsOfRange(_player.GetPlayerCell,_player.GetPlayerCell 
+                    + cellOfRange.Length);
+                foreach (var cell in cellOfRange)
+                {
+                    cell.transform.GetChild(0).gameObject.SetActive(true);
+                }
+                yield return null;
+            }
+            cellOfRange = Cells.StaticGetCellsOfRange(_player.GetPlayerCell,_player.GetPlayerCell 
+                                                                            + cellOfRange.Length);
+            foreach (var cell in cellOfRange)
+            {
+                cell.transform.GetChild(0).gameObject.SetActive(false);
+            }
+
         }
     }
 }

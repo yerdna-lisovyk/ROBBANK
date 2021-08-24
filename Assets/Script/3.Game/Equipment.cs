@@ -31,6 +31,7 @@ public class Equipment
     public void AddHead(Card NewHead)
     {
         _head.GetComponent<CardInfo>().SetCardInfo(NewHead);
+        var head = new Head(_head,Card.NameEquipment.MINING_HELMET);
     }
     public void AddWeapon(Card NewWeapon)
     {

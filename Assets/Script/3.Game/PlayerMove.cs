@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     {
         cell = CellNext();
         transform.position = new Vector3(transform.position.x + (cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
-       // _player.EndTurn();
+        // _player.EndTurn();
     }
 
     private GameObject CellNext()

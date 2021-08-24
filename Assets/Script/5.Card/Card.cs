@@ -33,7 +33,8 @@ public class Card
         FOIL_CAP,
         WELDER_GOGGLES,
         BULLETPROOF_VEST,
-        OVERALL
+        OVERALL,
+        MINING_HELMET
     }
 
     private Sprite _sprite;
