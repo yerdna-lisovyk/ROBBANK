@@ -53,7 +53,7 @@ public class Traps
         }
         private void No()
         {
-            StatusBar.StaticNewStatus(20, _effect, _player);
+            StatusBar.StaticNewStatus(_effect, _player,20);
         }
     }
 
@@ -74,7 +74,7 @@ public class Traps
             {
                 _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
                 _player.ApplyCoinDamage(-3);
-                StatusBar.StaticNewStatus(20, _effect, _player);
+                StatusBar.StaticNewStatus(_effect, _player,20);
                 Destroy(this);
             }
         }
@@ -95,7 +95,7 @@ public class Traps
             {
                 _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
                 _player.ApplyCoinDamage(-3);
-                StatusBar.StaticNewStatus(20, _effect, _player);
+                StatusBar.StaticNewStatus( _effect, _player,20);
                 Destroy(this);
             }
         }
@@ -114,7 +114,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            StatusBar.StaticNewStatus(30, _effect, _player);
+            StatusBar.StaticNewStatus( _effect, _player,30);
             Destroy(this);
         }
     }
@@ -131,7 +131,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            StatusBar.StaticNewStatus(40, _effect, _player);
+            StatusBar.StaticNewStatus(_effect, _player,40);
             Destroy(this);
         }
     }
@@ -149,7 +149,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            StatusBar.StaticNewStatus(10, _effect, _player);
+            StatusBar.StaticNewStatus( _effect, _player,10);
             Destroy(this);
         }
     }
@@ -190,7 +190,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            StatusBar.StaticNewStatus(40, _effect, _player);
+            StatusBar.StaticNewStatus( _effect, _player,40);
             Destroy(this);
         }
     }
@@ -256,7 +256,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            StatusBar.StaticNewStatus(10, _effect, _player);
+            StatusBar.StaticNewStatus(_effect, _player);
             Destroy(this);
         }
     }
@@ -283,7 +283,7 @@ public class Traps
             }
             else
             {
-                StatusBar.StaticNewStatus(20, _effect, _player);
+                StatusBar.StaticNewStatus(_effect, _player,20);
             }
             Destroy(this);
         }
@@ -303,7 +303,7 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            StatusBar.StaticNewStatus(25, _effect, _player);
+            StatusBar.StaticNewStatus(_effect, _player,25);
             Destroy(this);
         }
     }
@@ -331,7 +331,7 @@ public class Traps
         }
         private void No()
         {
-            StatusBar.StaticNewStatus(10, _effect, _player);
+            StatusBar.StaticNewStatus(_effect, _player,10);
         }
     }
 
@@ -397,7 +397,7 @@ public class Traps
                 if (bot != null)
                     second += 2;
             }
-            StatusBar.StaticNewStatus(second, _effect, _player);
+            StatusBar.StaticNewStatus(_effect, _player,second);
             Destroy(this);
         }
     }
@@ -417,7 +417,7 @@ public class Traps
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
             if (_player.GetEquipment.SearchByEquipment(Card.NameEquipment.WELDER_GOGGLES))
-                StatusBar.StaticNewStatus(10, _effect, _player);
+                StatusBar.StaticNewStatus(_effect, _player,10);
             Destroy(this);
         }
     }
@@ -445,7 +445,7 @@ public class Traps
         }
         private void No()
         {
-            StatusBar.StaticNewStatus(10, _effect, _player);
+            StatusBar.StaticNewStatus(_effect, _player,10);
         }
 
     }

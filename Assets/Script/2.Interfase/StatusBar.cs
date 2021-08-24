@@ -12,6 +12,7 @@ public class StatusBar : MonoBehaviour
     {
         STOP, //you can't move
         VISIBILITY, //cell visibility
+        VISIBILITY_RANGE,
         NO_VISIBILITY, // NO cell visibility
         VAGABOND,// gradual damage
         SHACKLES, 
@@ -36,7 +37,7 @@ public class StatusBar : MonoBehaviour
         _prefabStatus = Resources.Load<GameObject>("Object/Starus");
         _instans = this;
     }
-    public static void StaticNewStatus(int Seconds, Effect Effect, ProfilePlayer player)
+    public static void StaticNewStatus( Effect Effect, ProfilePlayer player,int Seconds=0)
     {
         _instans.NewStatus(Seconds, Effect, player);
     }
@@ -63,6 +64,10 @@ public class StatusBar : MonoBehaviour
                 {
                     return Resources.Load<Sprite>("eye");
                 }
+            case Effect.VISIBILITY_RANGE:
+            {
+                return Resources.Load<Sprite>("eye");
+            }
             case Effect.NO_VISIBILITY:
                 {
                     return Resources.Load<Sprite>("NonEye");

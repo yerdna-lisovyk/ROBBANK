@@ -45,4 +45,19 @@ public class Head
             _player.DestroyStatus(StatusBar.Effect.OVERALL);
         }
     }
+    
+    public class MiningHelmet : MonoBehaviour
+    {
+        private ProfilePlayer _player;
+        private void Start()
+        {
+            _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
+            _player.SetActiveEffect(StatusBar.Effect.OVERALL);
+        }
+        
+        private void OnDestroy()
+        {
+            _player.DestroyStatus(StatusBar.Effect.OVERALL);
+        }
+    }
 }

@@ -81,7 +81,7 @@ public class Build
             {
                 if (_player.GetInventors.QuantityCard() < 2 && _player.GetCoin <= 2)
                 {
-                    StatusBar.StaticNewStatus(30, StatusBar.Effect.STOP, _player);
+                    StatusBar.StaticNewStatus( StatusBar.Effect.STOP, _player,30);
                 }
                 else
                 if (_player.GetInventors.QuantityCard() < 2)
@@ -254,7 +254,7 @@ public class Build
         private void No()
         {
             _player.ApplyCoinDamage(-2);
-            StatusBar.StaticNewStatus(30, StatusBar.Effect.VISIBILITY, _player);
+            StatusBar.StaticNewStatus( StatusBar.Effect.VISIBILITY, _player,30);
         }
     }
 

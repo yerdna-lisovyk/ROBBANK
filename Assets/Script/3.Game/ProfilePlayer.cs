@@ -114,7 +114,7 @@ public class ProfilePlayer
     {
         if (IsActiveEffect(StatusBar.Effect.BIG_BACKPACK))
         {
-            StatusBar.StaticNewStatus(5,StatusBar.Effect.STOP,this);
+            StatusBar.StaticNewStatus(StatusBar.Effect.STOP,this,5);
         }
         if (IsTriggeredEffect(StatusBar.TriggeredEffects.TR_SHACKLES))
         {

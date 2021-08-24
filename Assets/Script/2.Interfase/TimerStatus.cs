@@ -6,8 +6,7 @@ using System.Collections.Generic;
 public class TimerStatus : MonoBehaviour
 {
     private ProfilePlayer _player;
-
-
+    
 
     public void StartTimer(int seconds, StatusBar.Effect Effect, ProfilePlayer player)
     {
@@ -31,12 +30,12 @@ public class TimerStatus : MonoBehaviour
                 }
             case StatusBar.Effect.VAGABOND:
                 {
-                    StartCoroutine(TimerEffectVagabond(seconds,Effect, player));
+                    StartCoroutine(TimerEffectVagabond(Effect, player));
                     break;
                 }
         }
     }
-    private IEnumerator TimerEffectVagabond(float seconds ,StatusBar.Effect Effect, ProfilePlayer player)
+    private IEnumerator TimerEffectVagabond(StatusBar.Effect Effect, ProfilePlayer player)
     {
         gameObject.GetComponent<Button>().onClick.AddListener(()=>InformationEffect.Vagabon.VagabonMassage(_player));
         while (!InformationEffect.Vagabon._massgeYes)
