@@ -190,7 +190,10 @@ public class Traps
         private void OnTriggerEnter2D(Collider2D collision)
         {
             _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
-            StatusBar.StaticNewStatus( _effect, _player,40);
+            if (!_player.IsActiveEffect(StatusBar.Effect.DIVING_MASK))
+            {
+                StatusBar.StaticNewStatus(_effect, _player, 40);
+            }
             Destroy(this);
         }
     }

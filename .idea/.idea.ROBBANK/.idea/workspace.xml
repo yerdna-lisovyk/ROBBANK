@@ -21,12 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="New Animation">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/Cells.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/Cells.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/2.Interfase/InformationCellBox.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/ROBBANK/Assets/Script/3.Game/Build.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/2.Interfase/DisePanel.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -68,16 +66,16 @@
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Ammo.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Invetory.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Outfit.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Build.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/TimerStatus.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Cells.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
       </list>
     </option>
@@ -161,7 +159,9 @@
       <workItem from="1629475679608" duration="805000" />
       <workItem from="1629543582895" duration="1937000" />
       <workItem from="1629626450911" duration="1664000" />
-      <workItem from="1629806307727" duration="3158000" />
+      <workItem from="1629806307727" duration="3211000" />
+      <workItem from="1630832302220" duration="1000" />
+      <workItem from="1630832526166" duration="1610000" />
     </task>
     <task id="LOCAL-00001" summary="Fix">
       <created>1628666619198</created>
@@ -233,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629807157422</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add helem mining">
+      <created>1629809541568</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1629809541568</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +280,8 @@
     <MESSAGE value="Boots" />
     <MESSAGE value="Ammo Fix" />
     <MESSAGE value="Fix Name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Name" />
+    <MESSAGE value="add helem mining" />
+    <option name="LAST_COMMIT_MESSAGE" value="add helem mining" />
   </component>
   <component name="WindowStateProjectService">
     <state x="425" y="187" key="run.anything.popup" timestamp="1629475984902">

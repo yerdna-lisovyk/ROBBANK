@@ -22,7 +22,9 @@ public class StatusBar : MonoBehaviour
         OVERALL, //protects against tentacles, whip and pit
         BAR, //cannot attack and cannot be attacked
         BACKPACK,
-        BIG_BACKPACK
+        BIG_BACKPACK,
+        DIVING_MASK,
+        THUNDER
     }
 
     private static StatusBar _instans;

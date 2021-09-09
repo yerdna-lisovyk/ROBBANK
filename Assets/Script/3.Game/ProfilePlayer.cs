@@ -25,6 +25,7 @@ public class ProfilePlayer
     private int _playerSpeed;
     private int _playerCell;
     private int _permanentArmor;
+    private int _weaponRange;
     
     private bool _step;
     
@@ -40,6 +41,7 @@ public class ProfilePlayer
     public int GetCoin => _playerCoin;
     public int GetPlayerSpeed => _playerSpeed;
     public int GetPermanentArmor => _permanentArmor;
+    public int GetWeaponRange => _weaponRange;
     public string GetPlayerName => _playerName;
     public Sprite GetSpritePlayer => _spritePlayer;
     public Classes GetClasses => _class;
@@ -59,6 +61,13 @@ public class ProfilePlayer
         _permanentArmor += NewArmor;
         
     }
+    public void ApplyWeaponRange(int NewWeaponRange)
+    {
+        if (_permanentArmor + NewWeaponRange < 0)
+            _permanentArmor = 0;
+        _permanentArmor += NewWeaponRange;
+        
+    }
     public void SetActiveEffect(StatusBar.Effect Effect)
     {
         _activeEffect.Add(Effect);
@@ -75,6 +84,7 @@ public class ProfilePlayer
         _playerSpeed = 1;
         _playingCard = 0;
         _maxPlayingCard = 1;
+        _weaponRange = 0;
         _playerCell = 1;
         _permanentArmor = 0;
         _step = false;
@@ -115,6 +125,10 @@ public class ProfilePlayer
         if (IsActiveEffect(StatusBar.Effect.BIG_BACKPACK))
         {
             StatusBar.StaticNewStatus(StatusBar.Effect.STOP,this,5);
+        }
+        if (IsActiveEffect(StatusBar.Effect.THUNDER))
+        {
+            StatusBar.StaticNewStatus(StatusBar.Effect.STOP,this,45);
         }
         if (IsTriggeredEffect(StatusBar.TriggeredEffects.TR_SHACKLES))
         {

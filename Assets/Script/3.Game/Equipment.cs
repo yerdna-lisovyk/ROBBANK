@@ -111,7 +111,7 @@ public class Equipment
 
     public void RemoveRandEquip()
     {
-        List<GameObject> Equip = new List<GameObject>();
+        var Equip = new List<GameObject>();
         if (!_body.GetComponent<CardInfo>().IsNull)
             Equip.Add(_body);
         if (_head.GetComponent<CardInfo>().IsNull)
