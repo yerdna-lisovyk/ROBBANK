@@ -154,13 +154,15 @@ public class Head
             _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
             var itemButton  = transform.parent.gameObject.GetComponent<Button>();
             itemButton.onClick.AddListener(ActivateEffect);
-            Debug.Log(1);
         }
 
         private void ActivateEffect()
         {
-            Debug.Log("RE RE");
-            //_player.MoveToPoint(_player.GetPlayerCell+4);
+            if(!_player.IsActiveEffect(StatusBar.Effect.HEAD_RECHARGE))
+            {
+                _player.GetPlayerPoint.GetComponent<PlayerMove>().MoveToPoint(_player.GetPlayerCell+4);
+                StatusBar.StaticNewStatus(StatusBar.Effect.HEAD_RECHARGE,_player,45);
+            }
         }
     }
 }

@@ -33,6 +33,11 @@ public class TimerStatus : MonoBehaviour
                     StartCoroutine(TimerEffectVagabond(Effect, player));
                     break;
                 }
+            case StatusBar.Effect.HEAD_RECHARGE:
+                {
+                    StartCoroutine(Recharge(seconds, Effect));
+                    break;
+                }
         }
     }
     private IEnumerator TimerEffectVagabond(StatusBar.Effect Effect, ProfilePlayer player)
@@ -45,6 +50,16 @@ public class TimerStatus : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private IEnumerator Recharge(int seconds, StatusBar.Effect Effect)
+    {
+        while (gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount != 0)
+        {
+            gameObject.transform.GetChild(0).GetComponent<Image>().fillAmount -= Time.deltaTime / seconds;
+            yield return null;
+        }
+        _player.DestroyStatus(Effect);
+        Destroy(gameObject);
+    }
     private IEnumerator TimerEffectStop(int seconds, StatusBar.Effect Effect)
     {
         _player.EndTurn();

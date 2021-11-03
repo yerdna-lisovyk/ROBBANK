@@ -21,6 +21,8 @@ public class ProfilePlayer
     private Ammo _ammoPlayer;
     private Classes _class;
 
+    private GameObject _playerPoint;
+
     private int _playerCoin;
     private int _playerSpeed;
     private int _playerCell;
@@ -48,11 +50,12 @@ public class ProfilePlayer
     public Invetory GetInventors => _inventorsPlayer;
     public Equipment GetEquipment => _equipmentPlayer;
     public Ammo GetAmmo => _ammoPlayer;
+    public GameObject GetPlayerPoint => _playerPoint;
     public int GetPlayerCell => _playerCell;
     public bool IsStep => _step;
     public List<StatusBar.Effect> GetActiveEffect => _activeEffect;
     public List<StatusBar.TriggeredEffects> GetTriggeredEffect => _triggeredEffect;
-    private bool IsPlayingMaxCard => _playingCard >= _maxPlayingCard;
+    private bool GetIsPlayingMaxCard => _playingCard >= _maxPlayingCard;
 
     public void ApplyPermanentArmor(int NewArmor)
     {
@@ -93,6 +96,7 @@ public class ProfilePlayer
         _storagePlayer = new Storage();
         _visibleCoin = GameObject.Find("Coin").GetComponent<Text>();
         _visibleCoin.text = _playerCoin.ToString();
+        _playerPoint = GameObject.Find("Player");
         RandClass();
     }
     public void RandClass()
@@ -116,7 +120,7 @@ public class ProfilePlayer
     public void PlayingCard()
     {
         _playingCard++;
-        if (IsPlayingMaxCard)
+        if (GetIsPlayingMaxCard)
             EndTurn();
     }
     public void NewTurn()

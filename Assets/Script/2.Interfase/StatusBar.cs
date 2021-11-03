@@ -24,7 +24,8 @@ public class StatusBar : MonoBehaviour
         BACKPACK,
         BIG_BACKPACK,
         DIVING_MASK,
-        THUNDER
+        THUNDER,
+        HEAD_RECHARGE
     }
 
     private static StatusBar _instans;
@@ -78,8 +79,12 @@ public class StatusBar : MonoBehaviour
                 {
                     return Resources.Load<Sprite>("VAGABOND");
                 }
+            case Effect.HEAD_RECHARGE:
+            {
+                return Resources.Load<Sprite>("helmets");
+            }
         }
-        return null;
+        return Resources.Load<Sprite>("error");;
     }
     
 

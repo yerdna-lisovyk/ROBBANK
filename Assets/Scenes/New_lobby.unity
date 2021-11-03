@@ -17606,6 +17606,11 @@ PrefabInstance:
       propertyPath: _profile
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6181829153491162078, guid: e46d52b2fa28fbc44a55e85fc86dd809,
+        type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 178976614}
     - target: {fileID: 6181829153491162085, guid: e46d52b2fa28fbc44a55e85fc86dd809,
         type: 3}
       propertyPath: m_Name
