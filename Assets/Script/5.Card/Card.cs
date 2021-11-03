@@ -34,7 +34,8 @@ public class Card
         WELDER_GOGGLES,
         BULLETPROOF_VEST,
         OVERALL,
-        MINING_HELMET
+        MINING_HELMET,
+        ANIME_HEADBAND
     }
 
     private Sprite _sprite;
@@ -98,6 +99,7 @@ public class Card
         _quantity = CopyCard.GetQuantity;
         _type = CopyCard.GetTypeCard;
         _typeEquipment = CopyCard.GetTypeEquipment;
+        _nameEquipment = CopyCard.GetNameEquipment;
         _typeTrap = CopyCard.GetTypeTrap;
     }
     public void SetQuantity(int quantity)
@@ -127,7 +129,7 @@ public class Card
         _type = NewTypeCard;
     }
 
-    public Card GetCopyCard()
+    public Card CopyCard()
     {
         var card = new Card(this);
         return card;

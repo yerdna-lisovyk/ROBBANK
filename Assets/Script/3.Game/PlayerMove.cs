@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class PlayerMove : MonoBehaviour
 {
     private TimeBar _time;
-    private GameObject cell;
+    private GameObject _cell;
     private ProfilePlayer _player;
 
-    [SerializeField] private Button _button = null;
+    [SerializeField] private Button button = null;
 
     public ProfilePlayer GetProfilePlayer => _player;
 
@@ -18,29 +18,29 @@ public class PlayerMove : MonoBehaviour
         _time = GameObject.Find("TimeBar").GetComponent<TimeBar>();
     }
 
-    public void SetInteractebal(bool Interactebal)
+    public void SetInteractional(bool Interacted)
     {
-        _button.interactable = Interactebal;
+        button.interactable = Interacted;
     }
     public void Move()
     {
-        cell = CellNext();
-        transform.position = new Vector3(transform.position.x + (cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
+        _cell = CellNext();
+        transform.position = new Vector3(transform.position.x + (_cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
         // _player.EndTurn();
     }
 
     private GameObject CellNext()
     {
         _player.SetPlayerCell(_player.GetPlayerSpeed);
-        string NameCellNext = "Cell_" + _player.GetPlayerCell;
-        return GameObject.Find(NameCellNext);
+        string nameCellNext = "Cell_" + _player.GetPlayerCell;
+        return GameObject.Find(nameCellNext);
     }
 
     private GameObject CellBack()
     {
         _player.SetPlayerCell(_player.GetPlayerSpeed);
-        string NameCellNext = "Cell_" + _player.GetPlayerCell;
-        return GameObject.Find(NameCellNext);
+        string nameCellNext = "Cell_" + _player.GetPlayerCell;
+        return GameObject.Find(nameCellNext);
 
     }
 
@@ -48,9 +48,9 @@ public class PlayerMove : MonoBehaviour
     public void MoveToPoint(int PointMove)
     {
         _player.SetPlayerCell(PointMove);
-        string NameCellNext = "Cell_" + _player.GetPlayerCell;
-        cell = GameObject.Find(NameCellNext);
-        transform.position = new Vector3(transform.position.x + (cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
+        string nameCellNext = "Cell_" + _player.GetPlayerCell;
+        _cell = GameObject.Find(nameCellNext);
+        transform.position = new Vector3(transform.position.x + (_cell.transform.position.x - transform.position.x - 0.1f), transform.position.y, transform.position.z);
     }
 
 }

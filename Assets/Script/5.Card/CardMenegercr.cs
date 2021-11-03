@@ -22,20 +22,19 @@ public class CardMenegercr : MonoBehaviour
         AllCards.Add(new Card("Сапог скороход", "Добавляет 2 клетки к ходу.", 5, "Simple Buttons/RPG_inventory_icons/boots", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEquipment.BOOTS_OF_SPEED));
         AllCards.Add(new Card("Бомж", "Отнимает монеты каждый ход.", 5, "VAGABOND", Card.TypeCard.TRAP, Card.TypeTrap.VAGABOND));
         AllCards.Add(new Card("Туфля мафиози", "Показывает следующие три клетки. Если есть две туфли то показывает 6 клеток.", 5, "Simple Buttons/RPG_inventory_icons/men_tuf", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.BOOTS, Card.NameEquipment.MAFIOSO_SHOES));
-        AllCards.Add(new Card("Шахтерская каска", "видит первые две клетки",
+        AllCards.Add(new Card("Шахтерская каска", "видит первые две клетки", 
             5, "Simple Buttons/RPG_inventory_icons/Helem", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.HEAD, Card.NameEquipment.MINING_HELMET));
-        _player.GetInventors.AddCard(AllCards[0].GetCopyCard());//исправить
-        _player.GetInventors.AddCard(AllCards[1].GetCopyCard());
-        _player.GetInventors.AddCard(AllCards[0].GetCopyCard());
-        _player.GetInventors.AddCard(AllCards[3].GetCopyCard());
-        _player.GetEquipment.AddEquipment(AllCards[5].GetCopyCard());
+        AllCards.Add(new Card("Повязка аниме", " Позволяет сделать рывок на 4 клетки вперёд. Перезарядка 45сек.", 
+            600, "Simple Buttons/RPG_inventory_icons/Anime", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.HEAD, Card.NameEquipment.ANIME_HEADBAND));
+        
+
+        _player.GetInventors.AddCard(AllCards[0].CopyCard());//исправить
+        _player.GetInventors.AddCard(AllCards[1].CopyCard());
+        _player.GetInventors.AddCard(AllCards[0].CopyCard());
+        _player.GetInventors.AddCard(AllCards[3].CopyCard());
+        _player.GetEquipment.AddEquipment(AllCards[6].CopyCard());
         _player.GetAmmo.AddAmmo(10);
         _player.GetAmmo.AddAmmo(20);
-        _player.GetAmmo.AddAmmo(20); 
-        _player.GetAmmo.AddAmmo(15);
-        _player.GetAmmo.AddAmmo(10);
-        //_player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
-        // _player.GetEquipment.AddBoots(AllCards[2].GetCopyCard());
     }
 
     private Card RandCard(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
@@ -44,9 +43,9 @@ public class CardMenegercr : MonoBehaviour
         {
             var tmp = AllCardOfType(typeCard,typeEquipment);
             var randomItem = Random.Range(0, tmp.Count);
-            return tmp[randomItem].GetCopyCard();
+            return tmp[randomItem].CopyCard();
         }
-        return AllCards[Random.Range(0, AllCards.Count)].GetCopyCard();
+        return AllCards[Random.Range(0, AllCards.Count)].CopyCard();
     }
     private List<Card> AllCardOfType(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
     {

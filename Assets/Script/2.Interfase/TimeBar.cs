@@ -35,9 +35,9 @@ public class TimeBar : MonoBehaviour
             }
             if (_player.IsStep)
             {
-                _button.SetInteractebal(false);
+                _button.SetInteractional(false);
             }
-            else _button.SetInteractebal(true);
+            else _button.SetInteractional(true);
 
             yield return null;
         }

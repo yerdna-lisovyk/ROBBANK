@@ -16,16 +16,26 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="New Animation">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/2.Interfase/TimeBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/2.Interfase/TimeBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/Ammo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/Ammo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +63,6 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/InformationCellBox.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/TrapDrop.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/1.Menu/Sting_lobby.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/Clear.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/Dice.cs" />
@@ -65,18 +74,19 @@
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Storage.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Ammo.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Invetory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Outfit.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Build.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/TimerStatus.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/3.Game/Cells.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Outfit.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/TrapDrop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/3.Game/Cells.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
       </list>
     </option>
   </component>
@@ -86,6 +96,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
@@ -162,6 +173,9 @@
       <workItem from="1629806307727" duration="3211000" />
       <workItem from="1630832302220" duration="1000" />
       <workItem from="1630832526166" duration="1610000" />
+      <workItem from="1635942152132" duration="4954000" />
+      <workItem from="1635951862332" duration="1939000" />
+      <workItem from="1635953888037" duration="674000" />
     </task>
     <task id="LOCAL-00001" summary="Fix">
       <created>1628666619198</created>
@@ -254,6 +268,11 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -284,13 +303,21 @@
     <option name="LAST_COMMIT_MESSAGE" value="add helem mining" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="535" y="136" key="RiderGenerateDialog" timestamp="1635949985618">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="535" y="136" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1635949985617" />
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog" timestamp="1635951661917">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1635951661917" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1629475984902">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1629475984902" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1629296267205">
+    <state x="431" y="145" width="672" height="160" key="search.everywhere.popup" timestamp="1635952930960">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1629296267205" />
+    <state x="431" y="145" width="672" height="160" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1635952930960" />
   </component>
 </project>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProfilePlayer
+public class ProfilePlayer 
 {
     public enum Classes
     {
@@ -59,7 +59,6 @@ public class ProfilePlayer
         if (_permanentArmor + NewArmor < 0)
             _permanentArmor = 0;
         _permanentArmor += NewArmor;
-        
     }
     public void ApplyWeaponRange(int NewWeaponRange)
     {

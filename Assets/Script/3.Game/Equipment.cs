@@ -26,16 +26,18 @@ public class Equipment
     public void AddBody(Card NewBody)
     {
         _body.GetComponent<CardInfo>().SetCardInfo(NewBody);
+        var body = new Outfit(_body,NewBody.GetNameEquipment);
     }
 
     public void AddHead(Card NewHead)
     {
         _head.GetComponent<CardInfo>().SetCardInfo(NewHead);
-        var head = new Head(_head,Card.NameEquipment.MINING_HELMET);
+        var head = new Head(_head,NewHead.GetNameEquipment);
     }
     public void AddWeapon(Card NewWeapon)
     {
         _weapon.GetComponent<CardInfo>().SetCardInfo(NewWeapon);
+      //  var head = new Head(_head,NewWeapon.GetNameEquipment);
     }
     public void AddBoots(Card NewBoots)
     {
@@ -74,6 +76,7 @@ public class Equipment
             case Card.TypeEquipment.HEAD:
                 {
                     AddHead(NewEquipment);
+                    
                     break;
                 }
             case Card.TypeEquipment.BOOTS:

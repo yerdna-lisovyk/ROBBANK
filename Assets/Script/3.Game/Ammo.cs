@@ -27,7 +27,7 @@ public class Ammo
         {
                 if (!icon.GetComponent<CardInfo>().IsNull)
                 {
-                    var card = icon.GetComponent<CardInfo>().GetCard.GetCopyCard();
+                    var card = icon.GetComponent<CardInfo>().GetCard.CopyCard();
                     if (card.GetTypeCard == Card.TypeCard.AMMO)
                     {
                         if (card.GetQuantity+quantity <= _maxQuantity)
@@ -55,7 +55,7 @@ public class Ammo
         }
             if (quantity != 0)
             {
-                var ammoCardCopy = _ammoCard.GetCopyCard();
+                var ammoCardCopy = _ammoCard.CopyCard();
                 ammoCardCopy.ApplyQuantity(quantity);
                 _player.GetInventors.AddCard(ammoCardCopy);
                 _quantityAmmo += quantity;

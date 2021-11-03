@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Head
@@ -16,8 +17,12 @@ public class Head
             }
             case Card.NameEquipment.MINING_HELMET:
             {
-                Debug.Log(1);
                 icon.AddComponent<MiningHelmet>();
+                break;
+            }
+            case Card.NameEquipment.ANIME_HEADBAND:
+            {
+                icon.AddComponent<AnimeHeadband>();
                 break;
             }
         }
@@ -124,19 +129,38 @@ public class Head
             _player.ApplyWeaponRange(-3);
         }
     }
+    
     public class Binoculars : MonoBehaviour
     {
         private ProfilePlayer _player;
+
         private void Start()
         {
             _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
             _player.ApplyWeaponRange(10);
         }
-        
+
         private void OnDestroy()
         {
             _player.ApplyWeaponRange(-10);
         }
     }
-    
+    public class AnimeHeadband : MonoBehaviour
+    {
+        private ProfilePlayer _player;
+
+        private void Start()
+        {
+            _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
+            var itemButton  = transform.parent.gameObject.GetComponent<Button>();
+            itemButton.onClick.AddListener(ActivateEffect);
+            Debug.Log(1);
+        }
+
+        private void ActivateEffect()
+        {
+            Debug.Log("RE RE");
+            //_player.MoveToPoint(_player.GetPlayerCell+4);
+        }
+    }
 }
