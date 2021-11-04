@@ -165,4 +165,18 @@ public class Head
             }
         }
     }
+    public class Mask : MonoBehaviour
+    {
+        private ProfilePlayer _player;
+        private void Start()
+        {
+            _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
+            _player.SetActiveEffect(StatusBar.Effect.MASK);
+        }
+        
+        private void OnDestroy()
+        {
+            _player.DestroyStatus(StatusBar.Effect.MASK);
+        }
+    }
 }

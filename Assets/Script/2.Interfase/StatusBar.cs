@@ -25,7 +25,8 @@ public class StatusBar : MonoBehaviour
         BIG_BACKPACK,
         DIVING_MASK,
         THUNDER,
-        HEAD_RECHARGE
+        HEAD_RECHARGE,
+        MASK
     }
 
     private static StatusBar _instans;
