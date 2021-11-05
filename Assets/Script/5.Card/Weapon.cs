@@ -22,7 +22,6 @@ public class Weapon
         {
             _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
             _player.SetWeaponRange(3);
-            Debug.Log(_player.GetWeaponRange);
         }
         
         private void OnDestroy()
