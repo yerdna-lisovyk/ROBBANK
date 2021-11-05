@@ -204,6 +204,10 @@ public class ProfilePlayer
     {
         _playerCell += NewPlayerCell;
     }
+    public void SetWeaponRange(int NewWeaponRange)
+    {
+        _playerCell += NewWeaponRange;
+    }
     public void ApplyPlayerSpeed(int Speed)
     {
         if (_playerSpeed + Speed < 0)

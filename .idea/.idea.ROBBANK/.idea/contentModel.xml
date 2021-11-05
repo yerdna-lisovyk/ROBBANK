@@ -55,6 +55,7 @@
             <e p="Outfit.cs" t="Include" />
             <e p="TrapDrop.cs" t="Include" />
             <e p="Traps.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
           </e>
         </e>
       </e>

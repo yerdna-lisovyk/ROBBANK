@@ -26,13 +26,13 @@ public class Equipment
     public void AddBody(Card NewBody)
     {
         _body.GetComponent<CardInfo>().SetCardInfo(NewBody);
-        var body = new Outfit(_body,NewBody.GetNameEquipment);
+        new Outfit(_body,NewBody.GetNameEquipment);
     }
 
     public void AddHead(Card NewHead)
     {
         _head.GetComponent<CardInfo>().SetCardInfo(NewHead);
-        var head = new Head(_head,NewHead.GetNameEquipment);
+        new Head(_head,NewHead.GetNameEquipment);
     }
     public void AddWeapon(Card NewWeapon)
     {
