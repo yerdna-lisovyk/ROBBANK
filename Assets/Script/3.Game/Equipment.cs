@@ -37,7 +37,7 @@ public class Equipment
     public void AddWeapon(Card NewWeapon)
     {
         _weapon.GetComponent<CardInfo>().SetCardInfo(NewWeapon);
-      //  var head = new Head(_head,NewWeapon.GetNameEquipment);
+        new Weapon(_head,NewWeapon.GetNameEquipment);
     }
     public void AddBoots(Card NewBoots)
     {
@@ -46,7 +46,7 @@ public class Equipment
             if (icon.transform.GetComponent<CardInfo>().IsNull)
             {
                 icon.GetComponent<CardInfo>().SetCardInfo(NewBoots);
-                Boots boots = new Boots(icon, NewBoots.GetNameEquipment);
+                new Boots(icon, NewBoots.GetNameEquipment);
                 break;
             }
         }

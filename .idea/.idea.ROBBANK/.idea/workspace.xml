@@ -5,11 +5,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="add new item(Mask)">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="Add Weapon">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,15 +54,15 @@
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Outfit.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/TrapDrop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/TimerStatus.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
       </list>
     </option>
   </component>
@@ -153,7 +154,7 @@
       <workItem from="1635953888037" duration="3649000" />
       <workItem from="1636029858660" duration="691000" />
       <workItem from="1636030585184" duration="28000" />
-      <workItem from="1636113742669" duration="454000" />
+      <workItem from="1636113742669" duration="1175000" />
     </task>
     <task id="LOCAL-00001" summary="Fix">
       <created>1628666619198</created>
@@ -253,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636030602497</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add Weapon">
+      <created>1636114256389</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1636114256389</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +310,8 @@
     <MESSAGE value="Fix CopyCard,Add new Head" />
     <MESSAGE value="Add status countdown" />
     <MESSAGE value="add new item(Mask)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new item(Mask)" />
+    <MESSAGE value="Add Weapon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Weapon" />
   </component>
   <component name="WindowStateProjectService">
     <state x="535" y="136" key="RiderGenerateDialog" timestamp="1635949985618">

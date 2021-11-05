@@ -35,7 +35,8 @@ public class Card
         BULLETPROOF_VEST,
         OVERALL,
         MINING_HELMET,
-        ANIME_HEADBAND
+        ANIME_HEADBAND,
+        PISTOL
     }
 
     private Sprite _sprite;
@@ -102,6 +103,9 @@ public class Card
         _nameEquipment = CopyCard.GetNameEquipment;
         _typeTrap = CopyCard.GetTypeTrap;
     }
+
+
+
     public void SetQuantity(int quantity)
     {
         _quantity = quantity;

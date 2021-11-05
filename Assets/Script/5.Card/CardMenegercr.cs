@@ -26,13 +26,15 @@ public class CardMenegercr : MonoBehaviour
             5, "Simple Buttons/RPG_inventory_icons/Helem", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.HEAD, Card.NameEquipment.MINING_HELMET));
         AllCards.Add(new Card("Повязка аниме", " Позволяет сделать рывок на 4 клетки вперёд. Перезарядка 45сек.", 
             600, "Simple Buttons/RPG_inventory_icons/Anime", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.HEAD, Card.NameEquipment.ANIME_HEADBAND));
-        
+        AllCards.Add(new Card("Пистолет", "Увеличивает расстояние на 3 клетки", 3000,"Simple Buttons/RPG_inventory_icons/pistol", Card.TypeCard.EQUIPMENT,
+            Card.TypeEquipment.WEAPON, Card.NameEquipment.PISTOL));
 
         _player.GetInventors.AddCard(AllCards[0].CopyCard());//исправить
         _player.GetInventors.AddCard(AllCards[1].CopyCard());
         _player.GetInventors.AddCard(AllCards[0].CopyCard());
         _player.GetInventors.AddCard(AllCards[3].CopyCard());
         _player.GetEquipment.AddEquipment(AllCards[6].CopyCard());
+        _player.GetEquipment.AddEquipment(AllCards[7].CopyCard());
         _player.GetAmmo.AddAmmo(10);
         _player.GetAmmo.AddAmmo(20);
     }

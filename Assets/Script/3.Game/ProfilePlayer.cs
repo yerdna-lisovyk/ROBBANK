@@ -206,7 +206,7 @@ public class ProfilePlayer
     }
     public void SetWeaponRange(int NewWeaponRange)
     {
-        _playerCell += NewWeaponRange;
+        _weaponRange += NewWeaponRange;
     }
     public void ApplyPlayerSpeed(int Speed)
     {
