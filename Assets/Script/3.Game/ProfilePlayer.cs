@@ -28,6 +28,7 @@ public class ProfilePlayer
     private int _playerCell;
     private int _permanentArmor;
     private int _weaponRange;
+    private int _weaponDamage;
     
     private bool _step;
     

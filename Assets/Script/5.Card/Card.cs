@@ -42,7 +42,7 @@ public class Card
     private Sprite _sprite;
     private string _name;
     private string _description;
-    private int _prise;
+    private readonly int _prise;
     private int _quantity;
 
     private TypeCard _type;

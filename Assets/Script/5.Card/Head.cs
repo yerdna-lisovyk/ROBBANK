@@ -179,4 +179,5 @@ public class Head
             _player.DestroyStatus(StatusBar.Effect.MASK);
         }
     }
+    
 }

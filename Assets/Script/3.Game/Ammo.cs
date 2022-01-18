@@ -53,12 +53,12 @@ public class Ammo
                     }
                 }
         }
-            if (quantity != 0)
-            {
-                var ammoCardCopy = _ammoCard.CopyCard();
-                ammoCardCopy.ApplyQuantity(quantity);
-                _player.GetInventors.AddCard(ammoCardCopy);
-                _quantityAmmo += quantity;
-            }
+        if (quantity != 0)
+        {
+            var ammoCardCopy = _ammoCard.CopyCard();
+            ammoCardCopy.ApplyQuantity(quantity);
+            _player.GetInventors.AddCard(ammoCardCopy);
+            _quantityAmmo += quantity;
+        }
     }
 }

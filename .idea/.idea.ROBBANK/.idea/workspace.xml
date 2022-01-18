@@ -5,17 +5,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="Add Weapon">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ROBBANK/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" afterDir="false" />
-    </list>
+    <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="123" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,10 +30,19 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/Durka007/ROBBANK" />
+      </set>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Script/2.Interfase/InformationCellBox.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/2.Interfase/DisePanel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/ROBBANK/Assets/Script/1.Menu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Admin/ROBBANK/Assets/Script/3.Game/Ammo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/2.Interfase/InformationCellBox.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -47,7 +58,6 @@
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Boots.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Body.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Storage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/3.Game/Ammo.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Invetory.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Build.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Cells.cs" />
@@ -57,11 +67,14 @@
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/TimerStatus.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/3.Game/Ammo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/1.Menu/MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardInfo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
       </list>
     </option>
@@ -86,7 +99,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="ReSpellerSettingsId" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -154,7 +167,10 @@
       <workItem from="1635953888037" duration="3649000" />
       <workItem from="1636029858660" duration="691000" />
       <workItem from="1636030585184" duration="28000" />
-      <workItem from="1636113742669" duration="1175000" />
+      <workItem from="1636113742669" duration="1372000" />
+      <workItem from="1642508284776" duration="80000" />
+      <workItem from="1642508510273" duration="951000" />
+      <workItem from="1642509490617" duration="2361000" />
     </task>
     <task id="LOCAL-00001" summary="Fix">
       <created>1628666619198</created>
@@ -261,7 +277,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636114256389</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add Weapon">
+      <created>1636115030250</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1636115030250</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Fix">
+      <created>1636115051155</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1636115051155</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,8 +329,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fix" />
     <MESSAGE value="New Animation" />
     <MESSAGE value="Information Cell" />
     <MESSAGE value="Boots" />
@@ -311,25 +341,50 @@
     <MESSAGE value="Add status countdown" />
     <MESSAGE value="add new item(Mask)" />
     <MESSAGE value="Add Weapon" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Weapon" />
+    <MESSAGE value="Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="517" y="237" key="#Notifications" timestamp="1642509499705">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="517" y="237" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1642509499705" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1642509712371">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1642509712371" />
+    <state x="647" y="310" key="Github.ShareDialog" timestamp="1642509202005">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="647" y="310" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1642509202005" />
     <state x="535" y="136" key="RiderGenerateDialog" timestamp="1635949985618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="535" y="136" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1635949985617" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1642510607060">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1642510607060" />
+    <state x="657" y="326" key="VCS.EditChangelistDialog" timestamp="1642508781840">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="657" y="326" key="VCS.EditChangelistDialog/0.0.1536.824@0.0.1536.824" timestamp="1642508781840" />
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog" timestamp="1635954947614">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1635954947614" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1636030606704">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1636115058907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1636030606704" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1629475984902">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1636115058907" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1642509712371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1629475984902" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1642509712371" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1642510839430">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1642510839430" />
     <state x="431" y="145" width="672" height="160" key="search.everywhere.popup" timestamp="1635952930960">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
