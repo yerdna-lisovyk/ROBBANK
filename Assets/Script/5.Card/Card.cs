@@ -36,7 +36,11 @@ public class Card
         OVERALL,
         MINING_HELMET,
         ANIME_HEADBAND,
-        PISTOL
+        PISTOL,
+        CARDBOARD_MACHINE,
+        SVT_40,
+        BOXING_GLOVE,
+        SNIPER_RIFLE
     }
 
     private Sprite _sprite;

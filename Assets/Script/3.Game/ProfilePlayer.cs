@@ -53,11 +53,17 @@ public class ProfilePlayer
     public Ammo GetAmmo => _ammoPlayer;
     public GameObject GetPlayerPoint => _playerPoint;
     public int GetPlayerCell => _playerCell;
+    
+    public int GetWeaponDamage => _weaponDamage;
     public bool IsStep => _step;
     public List<StatusBar.Effect> GetActiveEffect => _activeEffect;
     public List<StatusBar.TriggeredEffects> GetTriggeredEffect => _triggeredEffect;
     private bool GetIsPlayingMaxCard => _playingCard >= _maxPlayingCard;
 
+    public void SetWeaponDamage(int NewDamage)
+    {
+        _weaponDamage = NewDamage;
+    }
     public void ApplyPermanentArmor(int NewArmor)
     {
         if (_permanentArmor + NewArmor < 0)
@@ -89,6 +95,7 @@ public class ProfilePlayer
         _maxPlayingCard = 1;
         _weaponRange = 0;
         _playerCell = 1;
+        _weaponRange = 1;
         _permanentArmor = 0;
         _step = false;
         _inventorsPlayer = new Invetory();

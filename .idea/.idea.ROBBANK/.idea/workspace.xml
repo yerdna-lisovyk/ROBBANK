@@ -5,7 +5,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="123" />
+    <list default="true" id="038b2806-2374-45b3-a123-cbdb274b874a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,8 +40,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/2.Interfase/DisePanel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/3.Game/ShowInformationCell.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/ROBBANK/Assets/Script/1.Menu/MainMenu.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Admin/ROBBANK/Assets/Script/3.Game/Ammo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/2.Interfase/InformationCellBox.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -69,13 +67,13 @@
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Ammo.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/1.Menu/MainMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
       </list>
     </option>
   </component>
@@ -170,7 +168,8 @@
       <workItem from="1636113742669" duration="1372000" />
       <workItem from="1642508284776" duration="80000" />
       <workItem from="1642508510273" duration="951000" />
-      <workItem from="1642509490617" duration="2361000" />
+      <workItem from="1642509490617" duration="3517000" />
+      <workItem from="1642596985269" duration="450000" />
     </task>
     <task id="LOCAL-00001" summary="Fix">
       <created>1628666619198</created>
