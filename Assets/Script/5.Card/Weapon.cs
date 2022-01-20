@@ -99,4 +99,22 @@ public class Weapon
             _player.SetWeaponRange(1);
         }
     }
+
+    public class Shotgun : MonoBehaviour
+    {
+        private ProfilePlayer _player;
+        private void Start()
+        {
+            _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
+            _player.SetActiveEffect(StatusBar.Effect.PROTECTION_MELEE);
+            _player.SetWeaponSpan(2);
+            _player.ApplyWeaponRange(-2);
+        }
+        
+        private void OnDestroy()
+        {
+            _player.SetWeaponSpan(1); 
+            _player.DestroyStatus(StatusBar.Effect.PROTECTION_MELEE);
+        }
+    }
 }

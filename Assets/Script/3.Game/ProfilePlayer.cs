@@ -27,8 +27,10 @@ public class ProfilePlayer
     private int _playerSpeed;
     private int _playerCell;
     private int _permanentArmor;
+    
     private int _weaponRange;
     private int _weaponDamage;
+    private int _weaponSpan;
     
     private bool _step;
     
@@ -43,6 +45,7 @@ public class ProfilePlayer
     public bool IsAlive => _playerCoin > 0;
     public int GetCoin => _playerCoin;
     public int GetPlayerSpeed => _playerSpeed;
+    public int GetWeaponSpan => _weaponSpan;
     public int GetPermanentArmor => _permanentArmor;
     public int GetWeaponRange => _weaponRange;
     public string GetPlayerName => _playerName;
@@ -60,6 +63,10 @@ public class ProfilePlayer
     public List<StatusBar.TriggeredEffects> GetTriggeredEffect => _triggeredEffect;
     private bool GetIsPlayingMaxCard => _playingCard >= _maxPlayingCard;
 
+    public void SetWeaponSpan(int NewSpan)
+    {
+        _weaponSpan = NewSpan;
+    }
     public void SetWeaponDamage(int NewDamage)
     {
         _weaponDamage = NewDamage;
@@ -72,8 +79,8 @@ public class ProfilePlayer
     }
     public void ApplyWeaponRange(int NewWeaponRange)
     {
-        if (_permanentArmor + NewWeaponRange < 0)
-            _permanentArmor = 0;
+        if (_permanentArmor + NewWeaponRange <= 0)
+            _permanentArmor = 1;
         _permanentArmor += NewWeaponRange;
         
     }

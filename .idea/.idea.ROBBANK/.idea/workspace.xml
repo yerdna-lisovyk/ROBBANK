@@ -64,13 +64,13 @@
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/TrapDrop.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/PlayerMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/TimerStatus.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Equipment.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/Ammo.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/1.Menu/MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Card.cs" />
@@ -170,6 +170,7 @@
       <workItem from="1642508510273" duration="951000" />
       <workItem from="1642509490617" duration="3517000" />
       <workItem from="1642596985269" duration="450000" />
+      <workItem from="1642680216341" duration="1743000" />
     </task>
     <task id="LOCAL-00001" summary="Fix">
       <created>1628666619198</created>

@@ -40,7 +40,8 @@ public class Card
         CARDBOARD_MACHINE,
         SVT_40,
         BOXING_GLOVE,
-        SNIPER_RIFLE
+        SNIPER_RIFLE,
+        SHOTGUN
     }
 
     private Sprite _sprite;
