@@ -77,11 +77,9 @@ public class ProfilePlayer
             _permanentArmor = 0;
         _permanentArmor += NewArmor;
     }
-    public void ApplyWeaponRange(int NewWeaponRange)
+    public void ApplyWeaponRange(int WeaponRange)
     {
-        if (_permanentArmor + NewWeaponRange <= 0)
-            _permanentArmor = 1;
-        _permanentArmor += NewWeaponRange;
+        _permanentArmor += WeaponRange;
         
     }
     public void SetActiveEffect(StatusBar.Effect Effect)

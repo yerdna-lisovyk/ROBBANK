@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler, IDropHandler
 {
-    private CanvasGroup canvasGroup;
-    private Transform perrentToretyrnTo = null;
+    private CanvasGroup _canvasGroup;
+    private Transform _perrentToretyrnTo = null;
     private VoultMeneger _voult;
     private ProfilePlayer _player;
 
@@ -13,11 +13,13 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
     {
         _player = GameObject.Find("GameMeneger").GetComponent<PlayerMeneger>().GetPlayer(0);
         _voult = GameObject.Find("GameMeneger").GetComponent<VoultMeneger>();
-        canvasGroup = GetComponent<CanvasGroup>();
+        _canvasGroup = GetComponent<CanvasGroup>();
     }
     public void ShowInfoCard()
     {
-        InformationButton.StaticShowInformatinButton(gameObject, transform.parent.parent.parent.parent);
+        var parent = transform.parent.parent.parent.parent;
+        InformationButton.StaticShowInformatinButton(gameObject, parent);
+        ActivateButton.StaticShowActivateButton(gameObject,parent);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -35,8 +37,8 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
             Camera.main.gameObject.GetComponent<CameraControl>().enabled = true;
         }
 
-        canvasGroup.blocksRaycasts = true;
-        transform.SetParent(perrentToretyrnTo);
+        _canvasGroup.blocksRaycasts = true;
+        transform.SetParent(_perrentToretyrnTo);
         transform.localPosition = Vector3.zero;
 
     }
@@ -45,8 +47,8 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
     {
         InformationButton.StaticHideInformatinButton();
         Camera.main.gameObject.GetComponent<CameraControl>().enabled = false;
-        canvasGroup.blocksRaycasts = false;
-        perrentToretyrnTo = transform.parent;
+        _canvasGroup.blocksRaycasts = false;
+        _perrentToretyrnTo = transform.parent;
         transform.SetParent(GameObject.Find("HUD").transform);
     }
 
@@ -56,14 +58,14 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
         if (eventData.pointerDrag != null &&
             GetComponent<Image>().sprite == null &&
             eventData.pointerDrag.GetComponent<Image>().sprite != null &&
-            (tag == "Voult" || eventData.pointerDrag.tag == tag) &&
+            (CompareTag("Voult") || eventData.pointerDrag.CompareTag(tag)) &&
             !_player.IsStep)
         {
           //  if (eventData.pointerDrag.tag != tag)
             //    _player.PlayingCard();
             SwapCardInfo(GetComponent<CardInfo>(), eventData.pointerDrag.GetComponent<CardInfo>());
             eventData.pointerDrag.transform.position = transform.position;
-            if (tag != "Voult")
+            if (!CompareTag("Voult"))
             {
                 Boots tmp = new Boots(gameObject, GetComponent<CardInfo>().GetCard.GetNameEquipment);
             }

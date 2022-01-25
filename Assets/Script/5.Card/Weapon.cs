@@ -115,6 +115,7 @@ public class Weapon
         {
             _player.SetWeaponSpan(1); 
             _player.DestroyStatus(StatusBar.Effect.PROTECTION_MELEE);
+            _player.ApplyWeaponRange(2);
         }
     }
 }

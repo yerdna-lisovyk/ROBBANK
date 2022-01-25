@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 
 public class Card
@@ -49,6 +50,8 @@ public class Card
     private string _description;
     private readonly int _prise;
     private int _quantity;
+
+    public Action GetAction { get; set; }
 
     private TypeCard _type;
     private TypeTrap _typeTrap;

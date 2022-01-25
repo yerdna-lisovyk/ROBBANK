@@ -13,6 +13,7 @@
             <e p="Sting_lobby.cs" t="Include" />
           </e>
           <e p="2.Interfase" t="Include">
+            <e p="ActivateButton.cs" t="Include" />
             <e p="BlockPanel.cs" t="Include" />
             <e p="CameraControl.cs" t="Include" />
             <e p="Clear.cs" t="Include" />
@@ -52,6 +53,7 @@
             <e p="CardMenegercr.cs" t="Include" />
             <e p="Head.cs" t="Include" />
             <e p="InformationEffect.cs" t="Include" />
+            <e p="Item.cs" t="Include" />
             <e p="Outfit.cs" t="Include" />
             <e p="TrapDrop.cs" t="Include" />
             <e p="Traps.cs" t="Include" />
