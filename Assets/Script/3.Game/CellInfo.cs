@@ -28,6 +28,7 @@ public class CellInfo : MonoBehaviour
         _activeCard.Add(card);
     }
 
+
     public void SetBuildInfo(Sprite sprite, string title, string description)
     {
         _spriteBuild = sprite;

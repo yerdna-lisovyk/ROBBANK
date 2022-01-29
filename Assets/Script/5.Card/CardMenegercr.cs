@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
 
-
-public class CardMenegercr : MonoBehaviour
+public class CardMenegercr : ItemAction 
 {
     private static CardMenegercr _instans;
     private List<Card> AllCards = new List<Card>();
@@ -28,11 +29,16 @@ public class CardMenegercr : MonoBehaviour
             600, "Simple Buttons/RPG_inventory_icons/Anime", Card.TypeCard.EQUIPMENT, Card.TypeEquipment.HEAD, Card.NameEquipment.ANIME_HEADBAND));
         AllCards.Add(new Card("Пистолет", "Увеличивает расстояние на 3 клетки", 3000,"Simple Buttons/RPG_inventory_icons/pistol", Card.TypeCard.EQUIPMENT,
             Card.TypeEquipment.WEAPON, Card.NameEquipment.PISTOL));
-
+        AllCards.Add(new Card("Саперная лапта", "Наткнувшись на мину, вы с легкостью её отбиваете", 10, "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.INVENTORY, Card.TypeTrap.NO_TRAP,
+            (() => AddStatus(StatusBar.Effect.PROTECTION_MELEE)),(() =>DestroyStatus(StatusBar.Effect.PROTECTION_MELEE))));
+        AllCards.Add(new Card("Метла", " Если мина то, она выкапывается и переходит в инвентарь.", 10, "Simple Buttons/RPG_inventory_icons/Helem", Card.TypeCard.INVENTORY, Card.TypeTrap.NO_TRAP,
+            null,null
+            ,(() => Broom())));
         _player.GetInventors.AddCard(AllCards[0].CopyCard());//исправить
         _player.GetInventors.AddCard(AllCards[1].CopyCard());
         _player.GetInventors.AddCard(AllCards[0].CopyCard());
         _player.GetInventors.AddCard(AllCards[3].CopyCard());
+        _player.GetInventors.AddCard(AllCards[9].CopyCard());
         _player.GetEquipment.AddEquipment(AllCards[6].CopyCard());
         _player.GetEquipment.AddEquipment(AllCards[7].CopyCard());
         _player.GetAmmo.AddAmmo(10);

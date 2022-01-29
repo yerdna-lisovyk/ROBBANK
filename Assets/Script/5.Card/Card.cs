@@ -51,8 +51,10 @@ public class Card
     private readonly int _prise;
     private int _quantity;
 
-    public Action GetAction { get; set; }
-
+    public Action _actionNow;
+    public Action _action;
+    public Action _actionDestroy;
+    
     private TypeCard _type;
     private TypeTrap _typeTrap;
     private TypeEquipment _typeEquipment;
@@ -61,6 +63,11 @@ public class Card
     public int GetQuantity => _quantity;
     public Sprite GetSprite => _sprite;
     public string GetName => _name;
+    public Action GetAction => _action;
+    
+    public Action GetActionNow => _actionNow;
+    
+    public Action GetActionDestroy => _actionDestroy;
     public int GetPrise => _prise;
     public string GetDescription => _description;
     public TypeEquipment GetTypeEquipment => _typeEquipment;
@@ -68,7 +75,8 @@ public class Card
     public TypeTrap GetTypeTrap => _typeTrap;
     public NameEquipment GetNameEquipment => _nameEquipment;
 
-    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeTrap TypeT = TypeTrap.NO_TRAP)
+    public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeTrap TypeT = TypeTrap.NO_TRAP, 
+        Action ActionNow=null,Action ActionDestroy=null, Action Action=null)
     {
         _name = Name;
         _description = Description;
@@ -76,6 +84,10 @@ public class Card
         _type = TypeC;
         _prise = prise;
         _typeTrap = TypeT;
+        _actionNow = ActionNow;
+        _actionDestroy = ActionDestroy;
+        _action = Action;
+        if (_actionNow != null) _actionNow();
     }
 
     public Card(string Name, string Description, int prise, string LoadSprite, TypeCard TypeC, TypeEquipment typeEquipment, NameEquipment nameEquipment)
@@ -99,6 +111,10 @@ public class Card
         _quantity = quantity;
     }
 
+    ~Card()
+    {
+        if (_actionDestroy!= null) _actionDestroy();
+    }
     private Card(Card CopyCard)
     {
         _name = CopyCard.GetName;
@@ -110,10 +126,14 @@ public class Card
         _typeEquipment = CopyCard.GetTypeEquipment;
         _nameEquipment = CopyCard.GetNameEquipment;
         _typeTrap = CopyCard.GetTypeTrap;
+        _action = CopyCard.GetAction;
     }
 
 
-
+    public void SetAction(Action action)
+    {
+        _action = action;
+    }
     public void SetQuantity(int quantity)
     {
         _quantity = quantity;

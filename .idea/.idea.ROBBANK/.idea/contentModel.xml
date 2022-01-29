@@ -53,7 +53,7 @@
             <e p="CardMenegercr.cs" t="Include" />
             <e p="Head.cs" t="Include" />
             <e p="InformationEffect.cs" t="Include" />
-            <e p="Item.cs" t="Include" />
+            <e p="ItemAction.cs" t="Include" />
             <e p="Outfit.cs" t="Include" />
             <e p="TrapDrop.cs" t="Include" />
             <e p="Traps.cs" t="Include" />

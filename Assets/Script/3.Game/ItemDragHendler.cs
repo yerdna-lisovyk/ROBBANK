@@ -19,7 +19,10 @@ public class ItemDragHendler : MonoBehaviour, IDragHandler, IEndDragHandler, IBe
     {
         var parent = transform.parent.parent.parent.parent;
         InformationButton.StaticShowInformatinButton(gameObject, parent);
-        ActivateButton.StaticShowActivateButton(gameObject,parent);
+        if (GetComponent<CardInfo>().GetCard.GetAction != null)
+        {
+            ActivateButton.StaticShowActivateButton(gameObject, parent);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)

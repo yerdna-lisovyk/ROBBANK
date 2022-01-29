@@ -20,7 +20,7 @@ public class TrapDrop : MonoBehaviour, IDropHandler
                 {
                     // _player.PlayingCard();
                     var card = eventData.pointerDrag.GetComponent<CardInfo>().GetCard;
-                    new Traps(gameObject, card);
+                    var traps = new Traps(gameObject, card);
                     gameObject.GetComponent<CellInfo>().SetCardTrap(card);
                     eventData.pointerDrag.transform.localPosition = Vector3.zero;
                     eventData.pointerDrag.GetComponent<CardInfo>().SetCardInfo(null);

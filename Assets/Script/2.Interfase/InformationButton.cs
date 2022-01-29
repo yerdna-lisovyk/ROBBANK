@@ -35,11 +35,14 @@ public class InformationButton : MonoBehaviour
             gameObject.SetActive(false);
             gameObject.SetActive(true);
             StartCoroutine(TimerHide());
-            gameObject.transform.transform.SetParent(perent);
-            gameObject.transform.position = new Vector2(icon.transform.position.x, icon.transform.position.y);
+            GameObject obj;
+            (obj = gameObject).transform.transform.SetParent(perent);
+            var position = icon.transform.position;
+            obj.transform.position = new Vector2(position.x, position.y);
             if (icon.GetComponent<CardInfo>().GetCard.GetTypeEquipment == Card.TypeEquipment.BOOTS)
             {
-                gameObject.transform.localScale = new Vector2(icon.transform.localScale.x/2, icon.transform.localScale.y/2);
+                var localScale = icon.transform.localScale;
+                gameObject.transform.localScale = new Vector2(localScale.x/2, localScale.y/2);
             }
             Button button = gameObject.GetComponent<Button>();
             button.onClick.AddListener(() =>

@@ -21,7 +21,7 @@ public static class InformationEffect
             {
                 _massgeYes = true;
                 player.DestroyStatus(StatusBar.Effect.VAGABOND);
-        }
+            }
             , true);
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ActivateButton : MonoBehaviour
 {
@@ -42,12 +43,13 @@ public class ActivateButton : MonoBehaviour
             
             if (icon.GetComponent<CardInfo>().GetCard.GetTypeEquipment == Card.TypeEquipment.BOOTS)
             {
-                gameObject.transform.localScale = new Vector2(icon.transform.localScale.x/2, icon.transform.localScale.y/2);
+                var localScale = icon.transform.localScale;
+                gameObject.transform.localScale = new Vector2(localScale.x/2, localScale.y/2);
             }
             Button button = gameObject.GetComponent<Button>();
             button.onClick.AddListener(() =>
             {
-                
+                icon.GetComponent<CardInfo>().GetCard.GetAction();
                 gameObject.SetActive(false);
             });
         }
