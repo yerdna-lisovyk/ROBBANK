@@ -69,11 +69,23 @@ public class Traps
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+
+            if (_player.IsActiveEffect(StatusBar.Effect.PLIERS))
+            {
+                Tooltip.ShowTooltip_Static("Мина","Взята");
+                _player.GetInventors.AddCard(CardMenegercr.StaticGetCardToId(1));
+                Destroy(this);
+            }
             if (!_player.IsActiveEffect(StatusBar.Effect.SAPPER_CLOTHING))
             {
-                _player = collision.GetComponent<PlayerMove>().GetProfilePlayer;
+                Tooltip.ShowTooltip_Static("Мина","Бумм!");
                 _player.ApplyCoinDamage(-3);
                 StatusBar.StaticNewStatus(_effect, _player,20);
+                Destroy(this);
+            }else
+            {
+                Tooltip.ShowTooltip_Static("Мина","Отбита");
                 Destroy(this);
             }
         }

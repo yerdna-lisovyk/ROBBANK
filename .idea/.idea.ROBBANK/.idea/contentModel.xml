@@ -24,7 +24,6 @@
             <e p="InformationPanel.cs" t="Include" />
             <e p="MassegeBox.cs" t="Include" />
             <e p="SelectionCard.cs" t="Include" />
-            <e p="StatusBar.cs" t="Include" />
             <e p="TimeBar.cs" t="Include" />
             <e p="TimerStatus.cs" t="Include" />
             <e p="Tooltip.cs" t="Include" />
@@ -44,6 +43,7 @@
             <e p="PlayerMove.cs" t="Include" />
             <e p="ProfilePlayer.cs" t="Include" />
             <e p="ShowInformationCell.cs" t="Include" />
+            <e p="StatusBar.cs" t="Include" />
             <e p="Storage.cs" t="Include" />
           </e>
           <e p="5.Card" t="Include">

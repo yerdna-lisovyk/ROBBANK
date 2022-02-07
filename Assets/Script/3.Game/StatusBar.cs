@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +18,8 @@ public class StatusBar : MonoBehaviour
         SHACKLES, 
         ARMOR_OUTFIT, 
         ONE_FOR_TWO,
-        SAPPER_CLOTHING, // protects  mine and stretching
+        SAPPER_CLOTHING, // protects  mine
+        PLIERS,// protects  mine and stretching
         OVERALL, //protects against tentacles, whip and pit
         BAR, //cannot attack and cannot be attacked
         BACKPACK,

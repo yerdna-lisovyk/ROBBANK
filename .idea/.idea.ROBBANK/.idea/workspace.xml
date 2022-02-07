@@ -67,13 +67,11 @@
         <option value="$PROJECT_DIR$/Assets/Script/1.Menu/MainMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Head.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
         <option value="$PROJECT_DIR$/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/ProfilePlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/ActivateButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/InformationButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/InformationEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/ItemDragHendler.cs" />
@@ -81,8 +79,11 @@
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/TrapDrop.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/Boots.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/3.Game/CellInfo.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/5.Card/ItemAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/2.Interfase/StatusBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/3.Game/StatusBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/CardMenegercr.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/5.Card/Traps.cs" />
       </list>
     </option>
   </component>
@@ -187,6 +188,9 @@
       <workItem from="1643399543121" duration="307000" />
       <workItem from="1643425283230" duration="2466000" />
       <workItem from="1643427962042" duration="148000" />
+      <workItem from="1643541361969" duration="648000" />
+      <workItem from="1644262678993" duration="433000" />
+      <workItem from="1644263137609" duration="1391000" />
     </task>
     <task id="LOCAL-00001" summary="Fix">
       <created>1628666619198</created>

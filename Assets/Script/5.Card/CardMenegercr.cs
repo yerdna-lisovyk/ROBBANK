@@ -9,10 +9,14 @@ public class CardMenegercr : ItemAction
     private List<Card> AllCards = new List<Card>();
     private ProfilePlayer _player;
 
-
+    
     public static Card StaticRandCard(Card.TypeCard[] typeCard = null, Card.TypeEquipment[] typeEquipment=null)
     {
         return _instans.RandCard(typeCard, typeEquipment);
+    }
+    public static Card StaticGetCardToId(int idCard)
+    {
+        return _instans.GetCardToId(idCard);
     }
     private void Start()
     {
@@ -34,6 +38,8 @@ public class CardMenegercr : ItemAction
         AllCards.Add(new Card("Метла", " Если мина то, она выкапывается и переходит в инвентарь.", 10, "Simple Buttons/RPG_inventory_icons/Helem", Card.TypeCard.INVENTORY, Card.TypeTrap.NO_TRAP,
             null,null
             ,(() => Broom())));
+        AllCards.Add(new Card("Саперная лапта", "Наткнувшись на мину, вы с легкостью её отбиваете", 10, "Simple Buttons/RPG_inventory_icons/apple", Card.TypeCard.INVENTORY, Card.TypeTrap.NO_TRAP,
+            (() => AddStatus(StatusBar.Effect.PROTECTION_MELEE)),(() =>DestroyStatus(StatusBar.Effect.PROTECTION_MELEE))));
         _player.GetInventors.AddCard(AllCards[0].CopyCard());//исправить
         _player.GetInventors.AddCard(AllCards[1].CopyCard());
         _player.GetInventors.AddCard(AllCards[0].CopyCard());
@@ -45,6 +51,10 @@ public class CardMenegercr : ItemAction
         _player.GetAmmo.AddAmmo(20);
     }
 
+    private Card GetCardToId(int idCard)
+    {
+        return AllCards[1].CopyCard();
+    }
     private Card RandCard(Card.TypeCard[] typeCard, Card.TypeEquipment[] typeEquipment)
     {
         if (typeCard != null)
